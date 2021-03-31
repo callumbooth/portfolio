@@ -32,7 +32,7 @@ const Box3 = posed.div({
 })
 
 const Project = ({ children, ...props }) => {
-  const router = useRouter()
+	const router = useRouter()
 	let returnURL = '/projects'
 
 	let goBack = (e) => {
@@ -96,7 +96,11 @@ const Project = ({ children, ...props }) => {
 					<div className='content'>
 						<div className='project-header'>
 							<Return style={{ display: 'inline-block' }}>
-								<a href={'/projects'} onClick={goBack}>
+								<a
+									className='returnto text-uppercase text-bold'
+									href={'/projects'}
+									onClick={goBack}
+								>
 									<FontAwesomeIcon icon='arrow-left' />
 									Back
 								</a>

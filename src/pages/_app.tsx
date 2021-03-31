@@ -1,4 +1,4 @@
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -16,15 +16,20 @@ import '../styles.scss'
 
 library.add(faTwitter, faGithub, faLinkedinIn, faArrowLeft, faArrowRight)
 
-const RouteContainer = posed.div({
-	enter: { opacity: 1, delay: 250, beforeChildren: true },
-	exit: { opacity: 0, transition: { duration: 250 } },
-})
-
 function handleExitComplete() {
 	if (typeof window !== 'undefined') {
 		window.scrollTo({ top: 0 })
 	}
+}
+
+const transition = {
+	duration: 0.25,
+	ease: [0.43, 0.13, 0.23, 0.96],
+}
+
+const backVariants = {
+	exit: { opacity: 0, transition },
+	enter: { opacity: 1, transition: { delay: 0.25, ...transition } },
 }
 
 const CustomApp = ({ Component, pageProps }) => {
@@ -36,7 +41,16 @@ const CustomApp = ({ Component, pageProps }) => {
 			</div>
 			<div className='content-right'>
 				<AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-					<Component {...pageProps} key={router.route} />
+					<motion.div
+						initial='exit'
+						animate='enter'
+						exit='exit'
+						key={router.route}
+					>
+						<motion.div variants={backVariants}>
+							<Component {...pageProps} />
+						</motion.div>
+					</motion.div>
 				</AnimatePresence>
 			</div>
 		</div>
