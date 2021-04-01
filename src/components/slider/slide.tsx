@@ -6,6 +6,11 @@ import SliderBottomSVG from "./sliderBottomSVG";
 
 import Link from "../atoms/Link";
 
+export interface ISlideProps {
+  currentSlide: number;
+  loaded: boolean;
+}
+
 const Slide = (props) => {
   let additionalclasses = "fadeOut";
   if (props.currentSlide === props.data.i && props.loaded) {
@@ -18,10 +23,7 @@ const Slide = (props) => {
       </div>
       <div className="slide-wrapper">
         <div className="slide-title">
-          <Link
-            href={"/projects/" + props.data.slug}
-            onClick={(e) => props.delayTransition(e, props.data.slug)}
-          >
+          <Link href={"/projects/" + props.data.slug}>
             <a>{props.data.name}</a>
           </Link>
         </div>

@@ -11,26 +11,31 @@
     "framer-motion": "^4.1.0",
     "lodash": "^4.17.19",
     "next": "10.1.2",
-    "prop-types": "^15.6.0",
     "random-name": "^0.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-pose": "^4.0.1",
-    "react-scripts": "1.1.1",
     "sass": "^1.32.8",
     "teaflip": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@testing-library/react": "^11.2.6",
+    "@types/jest": "^26.0.22",
     "@types/react": "^17.0.3",
+    "babel-jest": "^26.6.3",
     "enzyme": "^3.7.0",
+    "jest": "^26.6.3",
     "node-sass": "^4.9.3",
-    "prettier": "2.2.1",
-    "react-test-renderer": "^16.6.3"
+    "prettier": "2.2.1"
   },
   "scripts": {
     "sass:watch": "node-sass -w src/ -o src/",
     "sass:build": "node-sass src/ -o src/ --source-map true",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

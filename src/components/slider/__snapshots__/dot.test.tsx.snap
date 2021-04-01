@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dot Dot displays when inactive 1`] = `
+<div>
+  <button
+    aria-label="dot-0"
+    class="dot"
+    data-target="1"
+    id="dot-0"
+  />
+</div>
+`;

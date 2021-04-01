@@ -1,21 +1,19 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { screen, render } from "@testing-library/react";
 import Dot from "./dot";
 
-it("Dot displays when inactive", () => {
-  const component = renderer.create(
-    <Dot active={false} count={0} onClick={() => {}} />
-  );
+describe("Dot", () => {
+  it("Dot displays when inactive", () => {
+    const component = render(
+      <Dot active={false} count={0} handleClick={() => {}} />
+    );
 
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+    expect(component.container).toMatchSnapshot();
+  });
 
-it("Dot displays when active", () => {
-  const component = renderer.create(
-    <Dot active={true} count={0} onClick={() => {}} />
-  );
+  it("Dot displays when active", () => {
+    render(<Dot active={true} count={1} handleClick={() => {}} />);
 
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+    expect(screen.getByLabelText("dot-1")).toBeTruthy();
+  });
 });

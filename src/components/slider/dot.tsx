@@ -14,7 +14,8 @@ const Dot = ({ active, count, handleClick }) => {
       data-target={count + 1}
       onClick={handleClick}
       className={clsx("dot", active && "active")}
-    ></button>
+      aria-label={`dot-${count}`}
+    />
   );
 };
 export default Dot;
