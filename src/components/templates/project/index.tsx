@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import posed from 'react-pose'
 import { useRouter } from 'next/router'

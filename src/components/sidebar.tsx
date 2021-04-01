@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from 'next/link'
+import Link from '@/components/atoms/Link'
 import { useRouter } from 'next/router'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Sidebar = (props) => {
+const Sidebar = () => {
 	const router = useRouter()
 	let navitems = [
 		{
@@ -39,13 +39,13 @@ const Sidebar = (props) => {
 				<h4 className='text-light'>Web Developer</h4>
 			</div>
 			<div className='socials'>
-				<Link href='https://twitter.com/showerg3l' target='_blank'>
-					<a className='twitter'>
+				<Link href='https://twitter.com/showerg3l'>
+					<a className='twitter' target='_blank'>
 						<FontAwesomeIcon icon={['fab', 'twitter']} />
 					</a>
 				</Link>
-				<Link href='https://github.com/callumbooth' target='_blank'>
-					<a className='twitter'>
+				<Link href='https://github.com/callumbooth'>
+					<a className='twitter' target='_blank'>
 						<FontAwesomeIcon icon={['fab', 'github']} />
 					</a>
 				</Link>
@@ -67,11 +67,10 @@ const Sidebar = (props) => {
 						}
 						return (
 							<li key={i} className='nav-item'>
-								<Link
-									className={'nav-link ' + additionalclasses}
-									href={item.url}
-								>
-									<a>{item.label}</a>
+								<Link href={item.url}>
+									<a className={'nav-link ' + additionalclasses}>
+										{item.label}
+									</a>
 								</Link>
 							</li>
 						)

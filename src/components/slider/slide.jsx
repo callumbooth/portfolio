@@ -1,9 +1,10 @@
 import React from 'react'
-import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import SliderTopSVG from './sliderTopSVG'
 import SliderBottomSVG from './sliderBottomSVG'
+
+import Link from '../atoms/Link'
 
 const Slide = (props) => {
 	let additionalclasses = 'fadeOut'
@@ -30,11 +31,8 @@ const Slide = (props) => {
 					</button>
 					<div className='info'>
 						<p>{props.data.summary}</p>
-						<Link
-							className='project-link text-uppercase text-white text-small'
-							href={'/projects/' + props.data.slug}
-						>
-							<a>
+						<Link href={'/projects/' + props.data.slug}>
+							<a className='project-link text-uppercase text-white text-small'>
 								View Project
 								<FontAwesomeIcon
 									icon='arrow-right'

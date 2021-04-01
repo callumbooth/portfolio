@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ComponentType, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import randomName from 'random-name'
 import Project from '@/root/components/templates/project'
@@ -6,7 +6,9 @@ import Project from '@/root/components/templates/project'
 import data from '@/root/data.json'
 import { GetStaticProps } from 'next'
 
-const Teaflip = dynamic(() => import('teaflip'), { ssr: false })
+const Teaflip = dynamic(() => import('teaflip'), {
+	ssr: false,
+}) as ComponentType<{ people: any[] }>
 
 const useMounted = () => {
 	const [mounted, setMounted] = useState(false)

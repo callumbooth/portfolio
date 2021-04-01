@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Link from 'next/link'
 import { throttle } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import Link from '../components/atoms/Link'
 
 class ProjectCard extends Component {
 	constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
 
 import ProjectCard from '@/components/projectcard'
+import Link from '@/components/atoms/Link'
 
 import data from '@/root/data.json'
 import { useRouter } from 'next/router'

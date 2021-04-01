@@ -9,8 +9,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import posed, { PoseGroup } from 'react-pose'
-
 import Sidebar from '@/components/sidebar'
 import '../styles.scss'
 
@@ -45,6 +43,7 @@ const CustomApp = ({ Component, pageProps }) => {
 						initial='exit'
 						animate='enter'
 						exit='exit'
+						variants={backVariants}
 						key={router.route}
 					>
 						<motion.div variants={backVariants}>
