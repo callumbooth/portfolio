@@ -1,256 +1,265 @@
 #projects {
-    .content {
-        background-color: transparent;
-        display: flex;
-        flex-wrap: wrap;
-    }
+  .content {
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .tags {
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -5px;
-        }
+  .tags {
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -5px;
     }
+  }
 
-    .projects {
-        flex: 0 0 100%;
-    }
+  .projects {
+    flex: 0 0 100%;
+  }
 }
 
 @keyframes fadeInB1 {
-    0% {
-        fill: transparent;
-    }
-    50% {
-        fill: transparent;
-    }
-    100% {
-        fill: #e8e8e8;
-    }
+  0% {
+    fill: transparent;
+  }
+  50% {
+    fill: transparent;
+  }
+  100% {
+    fill: #e8e8e8;
+  }
 }
 
 @keyframes fadeInL1 {
-    0% {
-        stroke-dashoffset: 159.81;
-    }
-    50% {
-        stroke-dashoffset: 159.81;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+  0% {
+    stroke-dashoffset: 159.81;
+  }
+  50% {
+    stroke-dashoffset: 159.81;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fadeInL2 {
-    0% {
-        stroke-dashoffset: 373.35;
-    }
-    50% {
-        stroke-dashoffset: 373.35;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+  0% {
+    stroke-dashoffset: 373.35;
+  }
+  50% {
+    stroke-dashoffset: 373.35;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fadeInL3 {
-    0% {
-        stroke-dashoffset: 159.81;
-    }
-    50% {
-        stroke-dashoffset: 159.81;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+  0% {
+    stroke-dashoffset: 159.81;
+  }
+  50% {
+    stroke-dashoffset: 159.81;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fadeInL4 {
-    0% {
-        stroke-dashoffset: 161.22;
-    }
-    50% {
-        stroke-dashoffset: 161.22;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+  0% {
+    stroke-dashoffset: 161.22;
+  }
+  50% {
+    stroke-dashoffset: 161.22;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fadeInL5 {
-    0% {
-        stroke-dashoffset: 473.76;
-    }
-    50% {
-        stroke-dashoffset: 473.76;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+  0% {
+    stroke-dashoffset: 473.76;
+  }
+  50% {
+    stroke-dashoffset: 473.76;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fadeInL6 {
-    0% {
-        stroke-dashoffset: 165.46;
-        
-    }
-    50% {
-        stroke-dashoffset: 165.46;
-        
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+  0% {
+    stroke-dashoffset: 165.46;
+  }
+  50% {
+    stroke-dashoffset: 165.46;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 #project {
-    flex: 0 0 100%;
-    position: relative;
+  flex: 0 0 100%;
+  position: relative;
 
-    .project-wrapper {
-        margin-right: 40px;
-        @media screen and (min-width: 992px) {
-            margin-right: 80px;
-        }
-        @media screen and (min-width: 1200px) {
-            margin-right: 135px;
-        }
-        
-        padding: 0;
-        background-color: rgba(255, 255, 255, 0.8);
+  .project-wrapper {
+    margin-right: 40px;
+    @media screen and (min-width: 992px) {
+      margin-right: 80px;
+    }
+    @media screen and (min-width: 1200px) {
+      margin-right: 135px;
     }
 
-    .project-svg {
-        position: absolute;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .project-svg {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+    svg {
+      width: 544px;
+      @media screen and (min-width: 544px) {
         width: 100%;
-        top: 0;
-        z-index: 1;
-        overflow: hidden;
-        svg {
-            width: 544px;
-            @media screen and (min-width: 544px) {
-                width: 100%;
-            }
-            @media screen and (min-width: 768px) {
-                width: 544px;
-            }
-            @media screen and (min-width: 992px) {
-                width: 100%;
-            }
-
-        }
-        .a{fill:none;stroke:#5d0e0e;stroke-width:3px;}.b{fill:#e8e8e8;}
-        
-        .l1 {
-            stroke-dasharray: 159.81;
-        }
-        .l2 {
-            stroke-dasharray: 373.35;
-        }
-        .l3 {
-            stroke-dasharray: 159.81;
-        }
-        .l4 {
-            stroke-dasharray: 161.22;
-        }
-        .l5 {
-            stroke-dasharray: 473.76;
-        }
-        .l6 {
-            stroke-dasharray: 165.46;
-        }
-
-        &.fadeIn {
-            .b1, .l1, .l2, .l3, .l4, .l5, .l6 {
-                animation-duration: 1s;
-            }
-            .b1 {
-                animation-name: fadeInB1;
-            }
-            .l1 {
-                animation-name: fadeInL1;
-            }
-            .l2 {
-                animation-name: fadeInL2;
-            }
-            .l3 {
-                animation-name: fadeInL3;
-            }
-            .l4 {
-                animation-name: fadeInL4;
-            }
-            .l5 {
-                animation-name: fadeInL5;
-            }
-            .l6 {
-                animation-name: fadeInL6;
-            }
-        }
+      }
+      @media screen and (min-width: 768px) {
+        width: 544px;
+      }
+      @media screen and (min-width: 992px) {
+        width: 100%;
+      }
+    }
+    .a {
+      fill: none;
+      stroke: #5d0e0e;
+      stroke-width: 3px;
+    }
+    .b {
+      fill: #e8e8e8;
     }
 
-    .project-return {
-        opacity: 0;
+    .l1 {
+      stroke-dasharray: 159.81;
+    }
+    .l2 {
+      stroke-dasharray: 373.35;
+    }
+    .l3 {
+      stroke-dasharray: 159.81;
+    }
+    .l4 {
+      stroke-dasharray: 161.22;
+    }
+    .l5 {
+      stroke-dasharray: 473.76;
+    }
+    .l6 {
+      stroke-dasharray: 165.46;
     }
 
-    .page-content {
-        padding: 0;
-        z-index: 2;
+    &.fadeIn {
+      .b1,
+      .l1,
+      .l2,
+      .l3,
+      .l4,
+      .l5,
+      .l6 {
+        animation-duration: 1s;
+      }
+      .b1 {
+        animation-name: fadeInB1;
+      }
+      .l1 {
+        animation-name: fadeInL1;
+      }
+      .l2 {
+        animation-name: fadeInL2;
+      }
+      .l3 {
+        animation-name: fadeInL3;
+      }
+      .l4 {
+        animation-name: fadeInL4;
+      }
+      .l5 {
+        animation-name: fadeInL5;
+      }
+      .l6 {
+        animation-name: fadeInL6;
+      }
     }
+  }
 
-    .content {
-        padding: 40px;
+  .project-return {
+    opacity: 0;
+  }
+
+  .page-content {
+    padding: 0;
+    z-index: 2;
+  }
+
+  .content {
+    padding: 40px;
+    @media screen and (min-width: 992px) {
+      padding: 80px;
+    }
+    @media screen and (min-width: 1200px) {
+      padding: 135px;
+    }
+    background: transparent;
+  }
+
+  .project-header {
+    padding-bottom: 75px;
+    .returnto {
+      svg {
+        margin-right: 15px;
+      }
+    }
+    .project-title {
+      padding-top: 25px;
+    }
+    .meta {
+      margin-top: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      .tags {
+        flex: 1 1 100%;
+        max-width: 50%;
+        @media screen and (min-width: 544px) {
+          max-width: 33.33333%;
+        }
+        @media screen and (min-width: 768px) {
+          max-width: 50%;
+        }
         @media screen and (min-width: 992px) {
-            padding: 80px;
+          max-width: 33.33333%;
         }
-        @media screen and (min-width: 1200px) {
-            padding: 135px;
+      }
+      .launched {
+        flex: 1 1 100%;
+        max-width: 50%;
+        @media screen and (min-width: 544px) {
+          max-width: 66.66666%;
         }
-        background: transparent;
+        @media screen and (min-width: 768px) {
+          max-width: 50%;
+        }
+        @media screen and (min-width: 992px) {
+          max-width: 66.66666%;
+        }
+      }
     }
-
-    .project-header {
-        padding-bottom: 75px;
-        .returnto {
-            svg {
-                margin-right: 15px;
-            }
-        }
-        .project-title {
-            padding-top: 25px;
-        }
-        .meta {
-            margin-top: 50px;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            .tags {
-                flex: 1 1 100%;
-                max-width: 50%;
-                @media screen and (min-width: 544px) {
-                    max-width: 33.33333%;
-                }
-                @media screen and (min-width: 768px) {
-                    max-width: 50%;
-                }
-                @media screen and (min-width: 992px) {
-                    max-width: 33.33333%;
-                }
-            }
-            .launched {
-                flex: 1 1 100%;
-                max-width: 50%;
-                @media screen and (min-width: 544px) {
-                    max-width: 66.66666%;
-                }
-                @media screen and (min-width: 768px) {
-                    max-width: 50%;
-                }
-                @media screen and (min-width: 992px) {
-                    max-width: 66.66666%;
-                }
-            }
-        }
-    }
+  }
 }
-

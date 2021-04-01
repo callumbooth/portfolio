@@ -1,88 +1,88 @@
 .projects {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 -15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
 }
 .project {
-	flex: 0 0 100%;
-	padding: 30px 0;
+  flex: 0 0 100%;
+  padding: 30px 0;
 
-	.project-wrapper {
-		position: relative;
-		padding: 0 15px;
-		margin: 75px 0;
+  .project-wrapper {
+    position: relative;
+    padding: 0 15px;
+    margin: 75px 0;
 
-		figure {
-			margin: 0;
-		}
-		.project-figure {
-			position: absolute;
-			top: -25%;
-			left: -25px;
-			@media screen and (min-width: 992px) {
-				left: -65px;
-			}
-			@media screen and (min-width: 1200px) {
-				left: -120px;
-			}
-			svg {
-				width: 100%;
-			}
-			.a {
-				fill: none;
-				stroke: #5d0e0e;
-				stroke-width: 3px;
-			}
-			.b {
-				fill: transparent;
-			}
-			.l6 {
-				stroke-dasharray: 292.74;
-				stroke-dashoffset: 292.74;
-				transition: stroke-dashoffset 0.5s ease;
-			}
-			.l5 {
-				stroke-dasharray: 581.24;
-				stroke-dashoffset: 581.24;
-				transition: stroke-dashoffset 0.5s ease;
-			}
-		}
-		.project-content {
-			opacity: 0;
-			transition: opacity 0.5s ease;
-			position: relative;
-			padding: 15px 15px 15px 110px;
-			border-radius: 0 0 4px 4px;
-			.project-title {
-				color: $red;
-				margin-bottom: 50px;
-				font-weight: 700;
-				font-size: 32px;
-			}
-			.project-summary {
-				margin-bottom: 2rem;
-			}
-			.project-link {
-				svg {
-					margin-left: 10px;
-				}
-			}
-		}
-		.project-button {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			display: flex;
-		}
+    figure {
+      margin: 0;
+    }
+    .project-figure {
+      position: absolute;
+      top: -25%;
+      left: -25px;
+      @media screen and (min-width: 992px) {
+        left: -65px;
+      }
+      @media screen and (min-width: 1200px) {
+        left: -120px;
+      }
+      svg {
+        width: 100%;
+      }
+      .a {
+        fill: none;
+        stroke: #5d0e0e;
+        stroke-width: 3px;
+      }
+      .b {
+        fill: transparent;
+      }
+      .l6 {
+        stroke-dasharray: 292.74;
+        stroke-dashoffset: 292.74;
+        transition: stroke-dashoffset 0.5s ease;
+      }
+      .l5 {
+        stroke-dasharray: 581.24;
+        stroke-dashoffset: 581.24;
+        transition: stroke-dashoffset 0.5s ease;
+      }
+    }
+    .project-content {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      position: relative;
+      padding: 15px 15px 15px 110px;
+      border-radius: 0 0 4px 4px;
+      .project-title {
+        color: $red;
+        margin-bottom: 50px;
+        font-weight: 700;
+        font-size: 32px;
+      }
+      .project-summary {
+        margin-bottom: 2rem;
+      }
+      .project-link {
+        svg {
+          margin-left: 10px;
+        }
+      }
+    }
+    .project-button {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+    }
 
-		&.active {
-			.project-content {
-				opacity: 1;
-			}
-			.l6,
-			.l5 {
-				stroke-dashoffset: 0;
-			}
-		}
-	}
+    &.active {
+      .project-content {
+        opacity: 1;
+      }
+      .l6,
+      .l5 {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
 }

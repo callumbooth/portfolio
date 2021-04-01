@@ -1,11 +1,11 @@
 .two-col {
-    display: flex;
-    flex-wrap: wrap;
-    > div {
-        flex: 1 0 50%;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    flex: 1 0 50%;
+  }
 }
 
 .mt-3 {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }

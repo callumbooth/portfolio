@@ -1,79 +1,86 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family: $base-font;
-    font-weight: 700;
-    margin: 0;
-    margin-bottom: 1rem;
-    line-height: 1;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $base-font;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 1rem;
+  line-height: 1;
 }
 
 h1 {
-    font-size: 66px;
-    color: $red;
+  font-size: 66px;
+  color: $red;
 }
 
 h2 {
-    font-size: 50px;
-    color: $red;
+  font-size: 50px;
+  color: $red;
 }
 
 h3 {
-    font-size: 32px;
-    color: $red;
+  font-size: 32px;
+  color: $red;
 }
 
 h4 {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 h5 {
-    font-size: 24px
+  font-size: 24px;
 }
 
 h6 {
-    font-size: 20px;
-    margin-bottom: 0;
+  font-size: 20px;
+  margin-bottom: 0;
 }
 
 p {
-    font-size: 16px;
-    font-weight: 300;
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 a {
-    color: $gray-dark;
-    transition: color 0.2s ease;
-    &:hover, &:active {
-        color: $red;
-    }
+  color: $gray-dark;
+  transition: color 0.2s ease;
+  &:hover,
+  &:active {
+    color: $red;
+  }
 }
 
 .text-small {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .text-large {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .text-bold {
-    font-weight: 700 !important;
+  font-weight: 700 !important;
 }
 
 .text-normal {
-    font-weight: 400 !important;
+  font-weight: 400 !important;
 }
 
 .text-light {
-    font-weight: 300 !important;
+  font-weight: 300 !important;
 }
 
 .text-uppercase {
-    text-transform: uppercase !important;
+  text-transform: uppercase !important;
 }
 
-ul, li {
-    padding: 0;
-    margin: 0;
+ul,
+li {
+  padding: 0;
+  margin: 0;
 }

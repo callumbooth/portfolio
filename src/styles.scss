@@ -1,26 +1,25 @@
 @import url("https://use.typekit.net/zqs0gyz.css");
 
-@import 'scss/vars';
-@import 'scss/components/utility';
-@import 'scss/components/type';
+@import "scss/vars";
+@import "scss/components/utility";
+@import "scss/components/type";
 
-@import 'scss/main';
-
+@import "scss/main";
 
 //components
-@import 'scss/components/grid';
-@import 'scss/components/colours';
-@import 'scss/components/buttons';
-@import 'scss/components/globals';
-@import 'scss/components/sidebar';
-@import 'scss/components/slider';
-@import 'scss/components/projectcard';
-@import 'scss/components/divider';
-@import 'scss/components/job-list';
-@import 'scss/components/form';
+@import "scss/components/grid";
+@import "scss/components/colours";
+@import "scss/components/buttons";
+@import "scss/components/globals";
+@import "scss/components/sidebar";
+@import "scss/components/slider";
+@import "scss/components/projectcard";
+@import "scss/components/divider";
+@import "scss/components/job-list";
+@import "scss/components/form";
 
 //pages
-@import 'scss/pages/home';
-@import 'scss/pages/about';
-@import 'scss/pages/project';
-@import 'scss/pages/contact';
+@import "scss/pages/home";
+@import "scss/pages/about";
+@import "scss/pages/project";
+@import "scss/pages/contact";

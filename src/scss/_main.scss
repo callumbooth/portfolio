@@ -1,107 +1,107 @@
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .list-unstyled {
-	list-style: none;
+  list-style: none;
 }
 
 .header {
-	align-self: flex-start;
-	flex: 0 1 auto;
+  align-self: flex-start;
+  flex: 0 1 auto;
 }
 
 .header h1,
 .header h2 {
-	margin: 0;
+  margin: 0;
 }
 
 .header h1 {
-	font-size: 20px;
-	font-weight: 300;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .header a {
-	color: #333;
+  color: #333;
 }
 
 .header h2 {
-	font-size: 16px;
-	font-weight: 600;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .nav-container {
-	align-self: flex-start;
-	flex: 0 1 auto;
+  align-self: flex-start;
+  flex: 0 1 auto;
 }
 
 .nav-container ul {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-container .nav-item {
-	font-size: 28px;
-	width: 100%;
+  font-size: 28px;
+  width: 100%;
 }
 
 .nav-container .nav-link {
-	color: #333;
-	text-decoration: none;
+  color: #333;
+  text-decoration: none;
 }
 
 .content {
-	background-color: rgba(255, 255, 255, 0.8);
-	flex-basis: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  flex-basis: 100%;
 }
 
 .preview-container {
-	position: absolute;
-	left: 10%;
-	top: 10%;
-	width: 80%;
-	height: 80%;
-	z-index: 1000;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  z-index: 1000;
 }
 
 .project-card {
-	border: 1px dashed gray;
-	background-color: white;
-	padding: 0.5rem 1rem;
-	margin-right: 1.5rem;
-	margin-bottom: 1.5rem;
-	cursor: pointer;
-	float: left;
-	transition: all 0.5s ease;
-	position: relative;
-	top: 0;
-	left: 0;
-	width: auto;
-	height: auto;
+  border: 1px dashed gray;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  float: left;
+  transition: all 0.5s ease;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
 }
 
 .project-card.active {
-	position: absolute;
-	top: 10%;
-	left: 10%;
-	width: 80%;
-	height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
 }
 
 .example-enter {
-	opacity: 0.01;
+  opacity: 0.01;
 }
 
 .example-enter.example-enter-active {
-	opacity: 1;
-	transition: opacity 500ms ease-in;
+  opacity: 1;
+  transition: opacity 500ms ease-in;
 }
 
 .example-leave {
-	opacity: 1;
+  opacity: 1;
 }
 
 .example-leave.example-leave-active {
-	opacity: 0.01;
-	transition: opacity 300ms ease-in;
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

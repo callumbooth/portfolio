@@ -1,45 +1,44 @@
 #about {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: relative;
+  .about-hero-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    left: 0;
     position: relative;
-    .about-hero-image {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 200px;
-        width: 100%;
-        left:0;
-        position: relative;
 
-        @media screen and (min-width: 992px) {
-            width: calc(50% - 200px);
-            height: 100%;
-            left: 400px;
-            position: fixed;
-        }
+    @media screen and (min-width: 992px) {
+      width: calc(50% - 200px);
+      height: 100%;
+      left: 400px;
+      position: fixed;
     }
-    .page-content {
-        flex: 0 0 100%;
-        padding: 0;
-        padding-right: 50px;
-    }
-    .content {
-        padding: 135px 50px 50px;
-    }
+  }
+  .page-content {
+    flex: 0 0 100%;
+    padding: 0;
+    padding-right: 50px;
+  }
+  .content {
+    padding: 135px 50px 50px;
+  }
 }
 
 .about-me {
-    .desc,
-    .job-history {
-        @media screen and (max-width: 455px) {
-            max-width: 100%;
-            flex-basis: 100%;
-        }
-        @media screen and (min-width: 768px) and (max-width: 992px) {
-            max-width: 100%;
-            flex-basis: 100%;
-        }
-
+  .desc,
+  .job-history {
+    @media screen and (max-width: 455px) {
+      max-width: 100%;
+      flex-basis: 100%;
     }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
 }

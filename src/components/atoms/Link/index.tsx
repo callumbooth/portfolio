@@ -1,8 +1,8 @@
-import Link, { LinkProps } from 'next/link'
-import { ReactNode } from 'react'
+import Link, { LinkProps } from "next/link";
+import { ReactNode } from "react";
 
 const FramerLink = (props: LinkProps & { children: ReactNode }) => {
-	return <Link scroll={false} {...props} />
-}
+  return <Link scroll={false} {...props} />;
+};
 
-export default FramerLink
+export default FramerLink;

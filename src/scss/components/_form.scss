@@ -1,40 +1,41 @@
 .contact-me-form {
-    margin-top: 20px;
-    
-    .form-group {
-        position: relative;
-        margin-bottom: 30px;
-    }
-    label {
-        position: absolute;
-        left: 15px;
-        top: 15px;
-        font-size: 14px;
-        transition: left 0.2s, top 0.2s, font-size 0.2s;
-        transition-timing-function: cubic-bezier(.19,-0.53,.67,1.61), cubic-bezier(.19,-0.53,.67,1.61), ease;
-    }
+  margin-top: 20px;
 
-    input[type='text'],
-    input[type='email'],
-    textarea {
-        border: none;
-        background-color: #e5e5e5;
-        border-radius: 2px;
-        width: 50%;
-        display: block;
-        padding: 15px;
+  .form-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 14px;
+    transition: left 0.2s, top 0.2s, font-size 0.2s;
+    transition-timing-function: cubic-bezier(0.19, -0.53, 0.67, 1.61),
+      cubic-bezier(0.19, -0.53, 0.67, 1.61), ease;
+  }
 
-        &.has-data, 
-        &:focus {
-            + label {
-                left: 0;
-                top: -15px;
-                font-size: 12px;
-            }
-        }
-    }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border: none;
+    background-color: #e5e5e5;
+    border-radius: 2px;
+    width: 50%;
+    display: block;
+    padding: 15px;
 
-    textarea {
-        width: 100%;
+    &.has-data,
+    &:focus {
+      + label {
+        left: 0;
+        top: -15px;
+        font-size: 12px;
+      }
     }
+  }
+
+  textarea {
+    width: 100%;
+  }
 }

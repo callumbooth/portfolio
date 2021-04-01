@@ -1,33 +1,32 @@
 .btn {
-    margin: 5px;
-    padding: 10px 21px;
-    color: $gray-dark;
-    border: 0;
-    background-color: transparent;
-    border-radius: 2px;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
+  margin: 5px;
+  padding: 10px 21px;
+  color: $gray-dark;
+  border: 0;
+  background-color: transparent;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .btn-red {
-    background-color: $red;
+  background-color: $red;
+  color: $white;
+  &.selected,
+  &:active,
+  &:hover {
     color: $white;
-    &.selected,
-    &:active,
-    &:hover {
-        color: $white;
-        background-color: darken($red, 10);
-    }
-    
+    background-color: darken($red, 10);
+  }
 }
 
 .btn-white {
-    background-color: $white;
-    color: $red;
-    &.selected,
-    &:active,
-    &:hover {
-        color: $white;
-        background-color: $red;
-    }
+  background-color: $white;
+  color: $red;
+  &.selected,
+  &:active,
+  &:hover {
+    color: $white;
+    background-color: $red;
+  }
 }
