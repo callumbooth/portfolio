@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "@/components/atoms/Link";
 import { useRouter } from "next/router";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import GithubIcon from "@/components/icons/github";
+import TwitterIcon from "@/components/icons/twitter";
 
 const navItems = [
   {
@@ -43,12 +43,12 @@ const Sidebar = () => {
       <div className="socials">
         <Link href="https://twitter.com/showerg3l">
           <a className="twitter" target="_blank">
-            <FontAwesomeIcon icon={["fab", "twitter"]} />
+            <TwitterIcon className="w-7 inline-block" fill="currentColor" />
           </a>
         </Link>
         <Link href="https://github.com/callumbooth">
           <a className="twitter" target="_blank">
-            <FontAwesomeIcon icon={["fab", "github"]} />
+            <GithubIcon className="w-7 inline-block" fill="currentColor" />
           </a>
         </Link>
       </div>

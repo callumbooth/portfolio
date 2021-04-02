@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 import Sidebar from "@/components/sidebar";
-import "@/root/configuration/fontawesome";
+import "../styles/global.css";
 import "../styles.scss";
 
 function handleExitComplete() {
@@ -25,26 +25,29 @@ const backVariants = {
 const CustomApp = ({ Component, pageProps }) => {
   const router = useRouter();
   return (
-    <div className="wrapper">
-      <div className="content-left">
-        <Sidebar />
-      </div>
-      <div className="content-right">
-        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-          <motion.div
-            initial="exit"
-            animate="enter"
-            exit="exit"
-            variants={backVariants}
-            key={router.route}
-          >
-            <motion.div variants={backVariants}>
-              <Component {...pageProps} />
+    <>
+      <div className="wrapper">
+        <div className="content-left">
+          <Sidebar />
+        </div>
+        <div className="content-right">
+          <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+            <motion.div
+              initial="exit"
+              animate="enter"
+              exit="exit"
+              variants={backVariants}
+              key={router.route}
+            >
+              <motion.div variants={backVariants}>
+                <Component {...pageProps} />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
+      {/* <script> </script> */}
+    </>
   );
 };
 

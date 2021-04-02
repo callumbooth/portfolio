@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, RefObject } from "react";
 import { throttle } from "lodash";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ArrowRight from "@heroicons/react/solid/ArrowRightIcon";
 
 import Link from "./atoms/Link";
 
@@ -25,8 +25,12 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
     this.state = {
       visible: false,
     };
+
+    this.throttleScroll = this.throttleScroll.bind(this);
   }
-  projectcard = React.createRef<any>();
+  projectcard = React.createRef<HTMLDivElement>();
+
+  throttleScroll = throttle(this.handleScroll, 100);
 
   isInViewport = (elem) => {
     var bounding = elem.getBoundingClientRect();
@@ -66,7 +70,6 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
       window.removeEventListener("scroll", this.throttleScroll, false);
     }
   }
-  throttleScroll = throttle(this.handleScroll, 100);
 
   render() {
     return (
@@ -108,7 +111,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
             <Link href={"/projects/" + this.props.data.slug}>
               <a className="project-link text-bold">
                 View Project
-                <FontAwesomeIcon icon="arrow-right" />
+                <ArrowRight className="inline-block w-4" />
               </a>
             </Link>
           </div>

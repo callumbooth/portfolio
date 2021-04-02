@@ -1,11 +1,11 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import SliderTopSVG from "./sliderTopSVG";
 import SliderBottomSVG from "./sliderBottomSVG";
 
 import Link from "../atoms/Link";
 import clsx from "clsx";
+import ArrowRightIcon from "@heroicons/react/solid/ArrowRightIcon";
 
 export interface ISlideProps {
   currentSlide: number;
@@ -48,10 +48,8 @@ const Slide = (props: ISlideProps) => {
             <Link href={"/projects/" + props.data.slug}>
               <a className="project-link text-uppercase text-white text-small">
                 View Project
-                <FontAwesomeIcon
-                  icon="arrow-right"
-                  style={{ marginLeft: "0.5rem" }}
-                />
+                <ArrowRightIcon className='inline-block w-4' />
+                
               </a>
             </Link>
           </div>

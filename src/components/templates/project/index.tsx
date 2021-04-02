@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import posed from "react-pose";
 import { useRouter } from "next/router";
+import ArrowLeftIcon from "@heroicons/react/solid/ArrowLeftIcon";
+import GithubIcon from "@/components/icons/github";
 
 const Return = posed.div({
   enter: { x: 0, opacity: 1 },
@@ -108,11 +109,14 @@ const Project = ({ children, ...props }: IProjectProps) => {
             <div className="project-header">
               <Return style={{ display: "inline-block" }}>
                 <a
-                  className="returnto text-uppercase text-bold"
+                  className="returnto text-uppercase text-bold flex items-center"
                   href={"/projects"}
                   onClick={goBack}
                 >
-                  <FontAwesomeIcon icon="arrow-left" />
+                  <ArrowLeftIcon
+                    className="w-4 inline-block"
+                    fill="currentColor"
+                  />
                   Back
                 </a>
               </Return>
@@ -128,7 +132,10 @@ const Project = ({ children, ...props }: IProjectProps) => {
                       }
                       target="_blank"
                     >
-                      <FontAwesomeIcon icon={["fab", "github"]} />
+                      <GithubIcon
+                        className="w-8 inline-block"
+                        fill="currentColor"
+                      />
                     </a>
                   ) : null}
                 </h2>

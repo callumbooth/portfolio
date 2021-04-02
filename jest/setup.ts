@@ -1,1 +1,1 @@
-import "../src/configuration/fontawesome";
+import '@testing-library/jest-dom/extend-expect'
