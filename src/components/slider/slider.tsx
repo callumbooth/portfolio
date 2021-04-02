@@ -1,9 +1,103 @@
-import React from "react";
+import React, { useEffect, useReducer } from "react";
+import { NextRouter, withRouter } from "next/router";
 
 import Dot from "./dot";
 import Slide from "./slide";
 
-class Slider extends React.Component {
+interface ISliderProps {}
+
+interface ISliderState {
+  animating: boolean;
+  currentSlide: number;
+  dragged: {
+    coords: {
+      x: number | null;
+      y: number | null;
+    };
+    active: boolean;
+  };
+  showInfo: boolean;
+  loaded: boolean;
+}
+
+const initialState: ISliderState = {
+  animating: false,
+  currentSlide: 1,
+  dragged: {
+    coords: {
+      x: null,
+      y: null,
+    },
+    active: false,
+  },
+  showInfo: false,
+  loaded: false,
+};
+
+function reducer(
+  state: ISliderState,
+  action: { type: string; currentSlide?: number }
+): ISliderState {
+  switch (action.type) {
+    case "loaded":
+      return {
+        ...state,
+        loaded: true,
+      };
+    case "prevSlide":
+      return {
+        ...state,
+      };
+    case "nextSlide":
+      return {
+        ...state,
+      };
+    case "goTo":
+      return {
+        ...state,
+        currentSlide:
+          action.currentSlide === undefined
+            ? action.currentSlide
+            : state.currentSlide,
+      };
+    default:
+      throw new Error();
+  }
+}
+
+const Slider2 = (props: ISliderProps) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleScroll = (e: WheelEvent) => {
+    const isSidebar = false;
+    console.log(e);
+    // let isSidebar = this.checkIfSidebar(e.path);
+
+    if (!isSidebar) {
+      if (e.deltaY < 0) {
+        dispatch({ type: "prevSlide" });
+      }
+      if (e.deltaY > 0) {
+        dispatch({ type: "nextSlide" });
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("wheel", handleScroll, { passive: true });
+
+    dispatch({ type: "loaded" });
+
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, []);
+};
+
+class Slider extends React.Component<
+  { projects: any[]; router: NextRouter },
+  ISliderState
+> {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +109,6 @@ class Slider extends React.Component {
           y: null,
         },
         active: false,
-        direction: null,
       },
       showInfo: false,
       loaded: false,
@@ -166,13 +259,10 @@ class Slider extends React.Component {
 
   delayTransition = (e, slug) => {
     e.preventDefault();
-    const {
-      history: { push },
-    } = this.props;
     this.setState({
       loaded: false,
     });
-    setTimeout(() => push("projects/" + slug, { from: "/" }), 1000);
+    setTimeout(() => this.props.router.push("projects/" + slug), 1000);
   };
 
   render() {
@@ -224,4 +314,4 @@ class Slider extends React.Component {
   }
 }
 
-export default Slider;
+export default withRouter(Slider);

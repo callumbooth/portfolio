@@ -5,19 +5,31 @@ import SliderTopSVG from "./sliderTopSVG";
 import SliderBottomSVG from "./sliderBottomSVG";
 
 import Link from "../atoms/Link";
+import clsx from "clsx";
 
 export interface ISlideProps {
   currentSlide: number;
   loaded: boolean;
+  delayTransition: (e: any) => void;
+  toggleInfo: (e: any) => void;
+  data: {
+    i?: number;
+    name: string;
+    slug: string;
+    rotate: number;
+    featured: boolean;
+    tags: string[];
+    launched: string;
+    summary: string;
+    content: string;
+    showInfo?: boolean;
+  };
 }
 
-const Slide = (props) => {
-  let additionalclasses = "fadeOut";
-  if (props.currentSlide === props.data.i && props.loaded) {
-    additionalclasses = "fadeIn";
-  }
+const Slide = (props: ISlideProps) => {
+  const show = props.currentSlide === props.data.i && props.loaded;
   return (
-    <div className={"slide " + additionalclasses}>
+    <div className={clsx("slide", show ? "fadeIn" : "fadeIn")}>
       <div className="background-wrapper-top">
         <SliderTopSVG rotation={props.data.rotate} />
       </div>

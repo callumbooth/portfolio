@@ -39,7 +39,7 @@ const ContentBuilder = (props) => {
           options I started with but it can be expanded on very easily
         </p>
         <figure className="mb-3">
-          <LazyLoad height="250">
+          <LazyLoad height={250}>
             <img src="/content-builder/ss2.jpg" alt="settings-page" />
           </LazyLoad>
         </figure>
@@ -57,7 +57,7 @@ const ContentBuilder = (props) => {
           type.
         </p>
         <figure className="mb-3">
-          <LazyLoad height="150">
+          <LazyLoad height={150}>
             <img src="/content-builder/ss3.jpg" alt="settings-page" />
           </LazyLoad>
         </figure>
@@ -69,7 +69,7 @@ const ContentBuilder = (props) => {
           gives the Moodle user a good high level overview.
         </p>
         <figure className="mb-3">
-          <LazyLoad height="400">
+          <LazyLoad height={400}>
             <img src="/content-builder/ss1.jpg" alt="settings-page" />
           </LazyLoad>
         </figure>
@@ -89,12 +89,12 @@ const ContentBuilder = (props) => {
           icons to reorder the elements.
         </p>
         <figure className="mb-3">
-          <LazyLoad height="400">
+          <LazyLoad height={400}>
             <img src="/content-builder/ss4-1.jpg" alt="settings-page" />
           </LazyLoad>
         </figure>
         <figure className="mb-3">
-          <LazyLoad height="400">
+          <LazyLoad height={400}>
             <img src="/content-builder/ss4-2.jpg" alt="settings-page" />
           </LazyLoad>
         </figure>

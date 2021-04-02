@@ -4,25 +4,27 @@ import { useRouter } from "next/router";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const navItems = [
+  {
+    name: "about",
+    url: "/about",
+    label: "Who am I",
+  },
+  {
+    name: "projects",
+    url: "/projects",
+    label: "What I have done",
+  },
+  {
+    name: "contact",
+    url: "/contact",
+    label: "How to get in touch",
+  },
+];
+
 const Sidebar = () => {
   const router = useRouter();
-  let navitems = [
-    {
-      name: "about",
-      url: "/about",
-      label: "Who am I",
-    },
-    {
-      name: "projects",
-      url: "/projects",
-      label: "What I have done",
-    },
-    {
-      name: "contact",
-      url: "/contact",
-      label: "How to get in touch",
-    },
-  ];
+
   return (
     <div className="sidebar">
       <div className="name">
@@ -60,7 +62,7 @@ const Sidebar = () => {
       </div>
       <div className="nav">
         <ul className="list-unstyled">
-          {navitems.map((item, i) => {
+          {navItems.map((item, i) => {
             let additionalclasses = "";
             if (item.url === router.pathname) {
               additionalclasses = "active";

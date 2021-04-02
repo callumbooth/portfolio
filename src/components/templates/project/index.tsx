@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import posed from "react-pose";
 import { useRouter } from "next/router";
@@ -30,11 +30,23 @@ const Box3 = posed.div({
   exit: { opacity: 0 },
 });
 
-const Project = ({ children, ...props }) => {
-  const router = useRouter();
-  let returnURL = "/projects";
+interface IProjectProps {
+  children: ReactNode;
+  project: {
+    slug: string;
+    rotate: number;
+    name: string;
+    githubrepo: string;
+    tags: string[];
+    launched: string;
+  };
+}
 
-  let goBack = (e) => {
+const Project = ({ children, ...props }: IProjectProps) => {
+  const router = useRouter();
+  const returnURL = "/projects";
+
+  const goBack = (e) => {
     e.preventDefault();
     router.push(returnURL);
   };

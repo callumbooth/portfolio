@@ -1,16 +1,21 @@
-import React, { Component } from "react";
+import React, { Component, RefObject } from "react";
 import { throttle } from "lodash";
 
-class LazyLoad extends Component {
+interface ILazyLoadState {
+  display: boolean;
+}
+
+class LazyLoad extends Component<{ height: number }, ILazyLoadState> {
   constructor(props) {
     super(props);
-    this.element = React.createRef();
     this.state = {
       display: false,
     };
 
-    this.throttleScroll = throttle(this.listenToScroll, 100);
+    this.throttleScroll = this.throttleScroll.bind(this);
+    this.listenToScroll = this.listenToScroll.bind(this);
   }
+  element = React.createRef<any>();
 
   componentDidMount() {
     window.addEventListener("scroll", this.throttleScroll, { passive: true });
@@ -33,6 +38,7 @@ class LazyLoad extends Component {
       }
     );
   };
+  throttleScroll = throttle(this.listenToScroll, 100);
 
   isInViewport = (elem) => {
     var bounding = elem.getBoundingClientRect();

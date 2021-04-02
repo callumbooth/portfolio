@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slide renders correctly 1`] = `
+<div>
+  <div
+    class="slide fadeOut"
+  >
+    <div
+      class="background-wrapper-top"
+    >
+      <svg
+        viewBox="0 0 1520 1080"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <line
+            class="a l1"
+            transform="translate(1090 0) rotate(0 217.5 217.5)"
+            x2="435"
+            y2="435"
+          />
+          <line
+            class="a l2"
+            transform="translate(417 0) rotate(0 184.5 184.5)"
+            x2="369"
+            y2="369"
+          />
+        </g>
+      </svg>
+    </div>
+    <div
+      class="slide-wrapper"
+    >
+      <div
+        class="slide-title"
+      >
+        <a
+          href="/projects/super-theme"
+        >
+          Super theme
+        </a>
+      </div>
+      <div
+        class="moreinfo"
+      >
+        <button
+          class="btn btn-red"
+        >
+          i
+        </button>
+        <div
+          class="info"
+        >
+          <p>
+            A Moodle theme to end all Moodle themes
+          </p>
+          <a
+            class="project-link text-uppercase text-white text-small"
+            href="/projects/super-theme"
+          >
+            View Project
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-arrow-right fa-w-14 "
+              data-icon="arrow-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style="margin-left: 0.5rem;"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="background-wrapper-bottom"
+    >
+      <svg
+        viewBox="0 0 1520 1080"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            class="b b1"
+            d="M0,0 l919,919 h-218 l-701,-701 Z"
+            transform="translate(0 190) rotate(0 459.5 459.5)"
+          />
+          <line
+            class="a l3"
+            transform="translate(0 410) rotate(0 350.5 350.5)"
+            x2="701"
+            y2="701"
+          />
+          <line
+            class="a l4"
+            transform="translate(0 190) rotate(0 460.5 460.5)"
+            x2="921"
+            y2="921"
+          />
+          <line
+            class="a l5"
+            transform="translate(1086 669) rotate(0 205.5 205.5)"
+            x2="411"
+            y2="411"
+          />
+          <line
+            class="a l6"
+            transform="translate(1008 873)"
+            x2="207"
+            y2="207"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+`;

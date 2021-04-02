@@ -2,9 +2,16 @@ import React, { Component } from "react";
 
 import Axios from "axios";
 
-class ContactForm extends Component {
-  constructor() {
-    super();
+interface IContactFormState {
+  name: string;
+  email: string;
+  message: string;
+  [key: string]: string;
+}
+
+class ContactForm extends Component<{}, IContactFormState> {
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: "",

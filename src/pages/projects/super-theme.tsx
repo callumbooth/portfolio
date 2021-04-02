@@ -38,7 +38,7 @@ const SuperTheme = (props) => {
           sections.
         </p>
         <figure className="mb-3">
-          <LazyLoad height="450">
+          <LazyLoad height={450}>
             <img src="/super-theme/ss1.jpg" alt="settings-page" />
           </LazyLoad>
         </figure>
@@ -70,7 +70,7 @@ const SuperTheme = (props) => {
           button background colour also updates.
         </p>
         <figure className="mb-3">
-          <LazyLoad height="410">
+          <LazyLoad height={410}>
             <img src="/super-theme/ss2.png" alt="new settings" />
           </LazyLoad>
         </figure>

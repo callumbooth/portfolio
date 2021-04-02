@@ -1,48 +1,53 @@
 import React from "react";
 
-const SliderBottomSVG = (props) => {
-  let lines = [
-    {
-      id: 3,
-      x: 701,
-      y: 701,
-      translate: {
-        x: 0,
-        y: 410,
-      },
-      rotate: true,
+const lines = [
+  {
+    id: 3,
+    x: 701,
+    y: 701,
+    translate: {
+      x: 0,
+      y: 410,
     },
-    {
-      id: 4,
-      x: 921,
-      y: 921,
-      rotate: true,
-      translate: {
-        x: 0,
-        y: 190,
-      },
+    rotate: true,
+  },
+  {
+    id: 4,
+    x: 921,
+    y: 921,
+    rotate: true,
+    translate: {
+      x: 0,
+      y: 190,
     },
-    {
-      id: 5,
-      x: 411,
-      y: 411,
-      translate: {
-        x: 1086,
-        y: 669,
-      },
-      rotate: true,
+  },
+  {
+    id: 5,
+    x: 411,
+    y: 411,
+    translate: {
+      x: 1086,
+      y: 669,
     },
-    {
-      id: 6,
-      x: 207,
-      y: 207,
-      translate: {
-        x: 1008,
-        y: 873,
-      },
-      rotate: false,
+    rotate: true,
+  },
+  {
+    id: 6,
+    x: 207,
+    y: 207,
+    translate: {
+      x: 1008,
+      y: 873,
     },
-  ];
+    rotate: false,
+  },
+];
+
+interface ISliderBottomSVGProps {
+  rotation: number;
+}
+
+const SliderBottomSVG = (props: ISliderBottomSVGProps) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1080">
       <g>
@@ -54,7 +59,7 @@ const SliderBottomSVG = (props) => {
           }
         />
         {lines.map((line, i) => {
-          let transform;
+          let transform: string;
           if (line.rotate) {
             transform =
               "translate(" +

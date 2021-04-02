@@ -1,18 +1,10 @@
+import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faTwitter,
-  faGithub,
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-
 import Sidebar from "@/components/sidebar";
+import "@/root/configuration/fontawesome";
 import "../styles.scss";
-
-library.add(faTwitter, faGithub, faLinkedinIn, faArrowLeft, faArrowRight);
 
 function handleExitComplete() {
   if (typeof window !== "undefined") {

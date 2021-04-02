@@ -2,19 +2,31 @@ import React, { Component } from "react";
 import { throttle } from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Link from "../components/atoms/Link";
+import Link from "./atoms/Link";
 
-class ProjectCard extends Component {
+interface IProjectCardProps {
+  data: {
+    slug: string;
+    rotate: number;
+    name: string;
+    summary: string;
+  };
+}
+
+interface IProjectCardState {
+  visible: boolean;
+}
+
+class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
   constructor(props) {
     super(props);
-    this.projectcard = React.createRef();
-    this.handleScroll = this.handleScroll.bind(this);
-    this.throttleScroll = throttle(this.handleScroll, 100);
 
+    this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       visible: false,
     };
   }
+  projectcard = React.createRef<any>();
 
   isInViewport = (elem) => {
     var bounding = elem.getBoundingClientRect();
@@ -54,6 +66,7 @@ class ProjectCard extends Component {
       window.removeEventListener("scroll", this.throttleScroll, false);
     }
   }
+  throttleScroll = throttle(this.handleScroll, 100);
 
   render() {
     return (
