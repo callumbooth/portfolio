@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentType, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import randomName from "random-name";
