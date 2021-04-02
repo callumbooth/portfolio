@@ -29,7 +29,7 @@ export interface ISlideProps {
 const Slide = (props: ISlideProps) => {
   const show = props.currentSlide === props.data.i && props.loaded;
   return (
-    <div className={clsx("slide", show ? "fadeIn" : "fadeIn")}>
+    <div className={clsx("slide", show ? "fadeIn" : "fadeOut")}>
       <div className="background-wrapper-top">
         <SliderTopSVG rotation={props.data.rotate} />
       </div>
