@@ -1,6 +1,7 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import Typekit from "react-typekit";
 
 import Sidebar from "@/components/sidebar";
@@ -26,6 +27,14 @@ const CustomApp = ({ Component, pageProps }) => {
   const router = useRouter();
   return (
     <>
+      <Head>
+        {/* <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
+          rel="stylesheet"
+        /> */}
+        <Typekit kitId="zqs0gyz" />
+      </Head>
       <div className="block flex-wrap w-full h-full md:flex">
         <div className="bg-white bg-opacity-80 flex-none w-full md:w-100">
           <Sidebar />
@@ -47,7 +56,7 @@ const CustomApp = ({ Component, pageProps }) => {
           </AnimatePresence>
         </div>
       </div>
-      <Typekit kitId="zqs0gyz" />
+      
     </>
   );
 };
