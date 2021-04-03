@@ -25,7 +25,7 @@ const Project = (props) => {
   });
 
   return (
-    <div id="projects" className="p-10 lg:p-20">
+    <div id="projects" className="p-10 lg:p-20 xl:p-32">
       <div className="w-full">
         <div className="w-full">
           <div className="flex flex-wrap -mx-1">

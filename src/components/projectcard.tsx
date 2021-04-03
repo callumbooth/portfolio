@@ -73,7 +73,6 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
   }
 
   render() {
-    console.log(this.state.visible);
     return (
       <div
         id={"projectcard-" + this.props.data.slug}
