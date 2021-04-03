@@ -114,7 +114,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
           </div>
           <div
             className={clsx(
-              "opacity-0 transition relative p-4 pl-28 rounded-b-sm",
+              "opacity-0 transition relative p-4 sm:pl-28 rounded-b-sm",
               this.state.visible && "opacity-100"
             )}
           >

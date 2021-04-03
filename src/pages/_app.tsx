@@ -27,7 +27,7 @@ const CustomApp = ({ Component, pageProps }) => {
   return (
     <>
       <div className="block flex-wrap w-full h-full md:flex">
-        <div className="bg-white bg-opacity-80 flex-none w-100">
+        <div className="bg-white bg-opacity-80 flex-none w-full md:w-100">
           <Sidebar />
         </div>
         <div className="flex-1 h-full bg-background">
