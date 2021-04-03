@@ -74,30 +74,30 @@ const Box3 = posed.div({
 const About = () => {
   return (
     <div id="about">
-      <div className="page-content">
-        <div className="content">
+      <div className="pr-12">
+        <div className="bg-white bg-opacity-80 pt-32 px-12 pb-12">
           <div className="about-me">
             <Box>
               <h2>Who Am I</h2>
             </Box>
             <Box2 className="attributes">
               <p>
-                <span className="text-red">Age:</span>
-                <span className="text-bold">&nbsp;25</span>
+                <span className="text-primary-main">Age:</span>
+                <span className="font-bold">&nbsp;25</span>
               </p>
               <p>
-                <span className="text-red">Location:</span>
-                <span className="text-bold">&nbsp;Newport (Shropshire)</span>
+                <span className="text-primary-main">Location:</span>
+                <span className="font-bold">&nbsp;Newport (Shropshire)</span>
               </p>
               <p>
-                <span className="text-red">Skills:</span>
-                <span className="text-bold">
+                <span className="text-primary-main">Skills:</span>
+                <span className="font-bold">
                   &nbsp; PHP . JS . React . HTML . CSS
                 </span>
               </p>
             </Box2>
-            <Box3 className="row">
-              <div className="desc col-6">
+            <Box3 className="flex flex-wrap -mx-8">
+              <div className="desc flex-1 px-8">
                 <p>
                   I’m a hard working and enthusiastic software engineer with a
                   passion for front end development. I have an FdA in graphic
@@ -138,9 +138,9 @@ const About = () => {
                   alternate ways.
                 </p>
               </div>
-              <div className="job-history col-6 mt-3">
+              <div className="job-history flex-1 px-8">
                 <h3>Previous experience</h3>
-                <div className="job-list">
+                <div className="pt-5">
                   {jobData.map((job, i) => {
                     return <JobList key={i} data={job} />;
                   })}

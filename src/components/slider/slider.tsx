@@ -267,9 +267,9 @@ class Slider extends React.Component<
 
   render() {
     return (
-      <div id="slider">
+      <div id="slider" className='relative w-full h-full mx-auto overflow-hidden'>
         <div
-          className="slides-container"
+          className="relative z-10 h-full"
           onTouchMove={this.handleTouchMove}
           onTouchStart={this.handleTouchStart}
           onTouchEnd={this.handleTouchEnd}
@@ -293,7 +293,7 @@ class Slider extends React.Component<
             );
           })}
         </div>
-        <div className="pager">
+        <div className="absolute bottom-12 left-24 right-12 z-10 flex flex-wrap justify-center">
           {this.props.projects.map((slide, i) => {
             let active = false;
             if (i + 1 === this.state.currentSlide) {

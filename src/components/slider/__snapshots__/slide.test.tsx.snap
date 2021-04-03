@@ -55,7 +55,7 @@ exports[`Slide renders correctly 1`] = `
             A Moodle theme to end all Moodle themes
           </p>
           <a
-            class="project-link text-uppercase text-white text-small"
+            class="project-link uppercase text-white text-xs"
             href="/projects/super-theme"
           >
             View Project

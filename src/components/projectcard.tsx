@@ -3,6 +3,7 @@ import { throttle } from "lodash";
 import ArrowRight from "@heroicons/react/solid/ArrowRightIcon";
 
 import Link from "./atoms/Link";
+import clsx from "clsx";
 
 interface IProjectCardProps {
   data: {
@@ -72,22 +73,26 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
   }
 
   render() {
+    console.log(this.state.visible);
     return (
       <div
         id={"projectcard-" + this.props.data.slug}
         ref={this.projectcard}
-        className={"project"}
+        className="w-full py-7"
       >
-        <div
-          className={
-            this.state.visible ? "project-wrapper active" : "project-wrapper"
-          }
-        >
-          <div className="project-figure">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 411 411">
+        <div className={"relative px-4 my-20"}>
+          <div className="absolute -top-1/4 -left-1/4 lg:-left-16 xl:-left-32">
+            <svg
+              className="w-full"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 411 411"
+            >
               <g>
                 <line
-                  className="a l5"
+                  className={clsx(
+                    "a l5",
+                    this.state.visible && "stroke-dashoffset-0"
+                  )}
                   x2="411"
                   y2="411"
                   transform={
@@ -97,7 +102,10 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
                   }
                 />
                 <line
-                  className="a l6"
+                  className={clsx(
+                    "a l6",
+                    this.state.visible && "stroke-dashoffset-0"
+                  )}
                   x2="207"
                   y2="207"
                   transform="translate(0 200)"
@@ -105,13 +113,20 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
               </g>
             </svg>
           </div>
-          <div className="project-content">
-            <div className="project-title">{this.props.data.name}</div>
-            <div className="project-summary">{this.props.data.summary}</div>
+          <div
+            className={clsx(
+              "opacity-0 transition relative p-4 pl-28 rounded-b-sm",
+              this.state.visible && "opacity-100"
+            )}
+          >
+            <div className="text-primary-main mb-12 font-bold text-3xl">
+              {this.props.data.name}
+            </div>
+            <div className="mb-8">{this.props.data.summary}</div>
             <Link href={"/projects/" + this.props.data.slug}>
-              <a className="project-link text-bold">
+              <a className="font-bold">
                 View Project
-                <ArrowRight className="inline-block w-4" />
+                <ArrowRight className="inline-block w-4 ml-1" />
               </a>
             </Link>
           </div>

@@ -1,3 +1,5 @@
+import clsx from "clsx";
+import { motion } from "framer-motion";
 import React from "react";
 
 const lines = [
@@ -23,13 +25,26 @@ const lines = [
   },
 ];
 
-interface ISliderTopSVGProps {
+interface ISliderTopSVGProps extends React.SVGProps<SVGSVGElement> {
   rotation: number;
+  show: boolean;
 }
 
-const SliderTopSVG = (props: ISliderTopSVGProps) => {
+const animateIn = {
+  hidden: {
+    strokeDashoffset: 100,
+  },
+  visible: {
+    strokeDashoffset: 0,
+    transition: {
+      delay: 1.1,
+    },
+  },
+};
+
+const SliderTopSVG = ({ rotation, show, ...props }: ISliderTopSVGProps) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1080">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1080" {...props}>
       <g>
         {lines.map((line, i) => {
           let transform;
@@ -40,7 +55,7 @@ const SliderTopSVG = (props: ISliderTopSVGProps) => {
               " " +
               line.translate.y +
               ") rotate(" +
-              props.rotation +
+              rotation +
               " " +
               line.x / 2 +
               " " +
@@ -51,9 +66,16 @@ const SliderTopSVG = (props: ISliderTopSVGProps) => {
               "translate(" + line.translate.x + " " + line.translate.y + ")";
           }
           return (
-            <line
+            <motion.line
               key={i}
-              className={"a l" + line.id}
+              className={clsx("stroke-current text-primary-main stroke-3")}
+              variants={animateIn}
+              initial="hidden"
+              animate={show ? "visible" : "hidden"}
+              pathLength="100"
+              strokeDasharray="100"
+              transition={{ duration: 0.5 }}
+              fill="none"
               x2={line.x}
               y2={line.y}
               transform={transform}

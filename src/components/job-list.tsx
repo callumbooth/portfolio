@@ -2,10 +2,10 @@ import React from "react";
 
 const Job = (props) => {
   return (
-    <div className="job-list-item">
-      <h6 className="company">{props.data.company}</h6>
+    <div className="mb-5">
+      <h6 className="mb-1">{props.data.company}</h6>
       <div className="job-title">{props.data.jobTitle}</div>
-      <div className="duration">{props.data.duration}</div>
+      <div className="font-bold uppercase text-xs">{props.data.duration}</div>
     </div>
   );
 };

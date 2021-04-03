@@ -25,10 +25,10 @@ const Project = (props) => {
   });
 
   return (
-    <div id="projects" className="page-content">
-      <div className="content">
-        <div className="tags">
-          <div className="tag-row">
+    <div id="projects" className="p-10 lg:p-20">
+      <div className="w-full">
+        <div className="w-full">
+          <div className="flex flex-wrap -mx-1">
             <Link href="/projects">
               <a className="btn btn-red">All</a>
             </Link>
@@ -37,7 +37,9 @@ const Project = (props) => {
                 <a
                   className={clsx(
                     "btn",
-                    router.query.tag === tag ? "btn-red selected" : "btn-white"
+                    router.query.tag === tag
+                      ? "btn-red bg-primary-900"
+                      : "btn-white"
                   )}
                 >
                   {tag}
@@ -46,7 +48,7 @@ const Project = (props) => {
             ))}
           </div>
         </div>
-        <div className="projects">
+        <div className="flex flex-wrap -mx-4">
           {props.projects.map((project, i) => {
             if (router.query.tag && project.tags.includes(router.query.tag)) {
               return <ProjectCard key={i} data={project} />;

@@ -1,3 +1,5 @@
+import clsx from "clsx";
+import { motion } from "framer-motion";
 import React from "react";
 
 const lines = [
@@ -43,20 +45,51 @@ const lines = [
   },
 ];
 
-interface ISliderBottomSVGProps {
+interface ISliderBottomSVGProps extends React.SVGProps<SVGSVGElement> {
   rotation: number;
+  show: boolean;
 }
 
-const SliderBottomSVG = (props: ISliderBottomSVGProps) => {
+const animateIn = {
+  hidden: {
+    strokeDashoffset: 100,
+  },
+  visible: {
+    strokeDashoffset: 0,
+    transition: {
+      delay: 1.1,
+    },
+  },
+};
+
+const fadeIn = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 1.1,
+    },
+  },
+};
+
+const SliderBottomSVG = ({
+  rotation,
+  show,
+  ...props
+}: ISliderBottomSVGProps) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1080">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1080" {...props}>
       <g>
-        <path
-          className="b b1"
+        <motion.path
+          className={clsx(" fill-current text-gray-200")}
+          initial="hidden"
+          animate={show ? "visible" : "hidden"}
+          variants={fadeIn}
+          transition={{duration: 0.5}}
           d="M0,0 l919,919 h-218 l-701,-701 Z"
-          transform={
-            "translate(0 190) rotate(" + props.rotation + " 459.5 459.5)"
-          }
+          transform={"translate(0 190) rotate(" + rotation + " 459.5 459.5)"}
         />
         {lines.map((line, i) => {
           let transform: string;
@@ -67,7 +100,7 @@ const SliderBottomSVG = (props: ISliderBottomSVGProps) => {
               " " +
               line.translate.y +
               ") rotate(" +
-              props.rotation +
+              rotation +
               " " +
               line.x / 2 +
               " " +
@@ -78,9 +111,16 @@ const SliderBottomSVG = (props: ISliderBottomSVGProps) => {
               "translate(" + line.translate.x + " " + line.translate.y + ")";
           }
           return (
-            <line
+            <motion.line
               key={i}
-              className={"a l" + line.id}
+              className={clsx("stroke-current text-primary-main stroke-3")}
+              variants={animateIn}
+              initial="hidden"
+              animate={show ? "visible" : "hidden"}
+              pathLength="100"
+              strokeDasharray="100"
+              transition={{ duration: 0.5 }}
+              fill="none"
               x2={line.x}
               y2={line.y}
               transform={transform}

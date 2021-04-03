@@ -6,8 +6,8 @@ import Link from "@/components/atoms/Link";
 const Contact = () => {
   return (
     <div id="contact">
-      <div className="page-content">
-        <div className="content">
+      <div className="relative w-full min-h-full p-10 md:p-20 xl:p-32">
+        <div className="bg-white bg-opacity-80 p-12 w-full">
           <h2>How to get in touch</h2>
           <p>
             Thanks for taking a look at my portfolio, if you would like to get
@@ -16,9 +16,9 @@ const Contact = () => {
 
           <div className="attributes">
             <p>
-              <span className="text-red">e:</span>&nbsp;{" "}
+              <span className="text-primary-main">e:</span>&nbsp;{" "}
               <Link href="mailto:callum-booth@live.co.uk">
-                <a className="text-bold">callum-booth@live.co.uk</a>
+                <a className="font-bold">callum-booth@live.co.uk</a>
               </Link>
             </p>
           </div>

@@ -7,7 +7,7 @@ import { GetStaticProps } from "next";
 const ContentBuilder = (props) => {
   return (
     <Project project={props.project}>
-      <section className="py-5">
+      <section className="py-8">
         <h4>Overview</h4>
         <p>
           Moodle’s UX for creating content leaves much to be desired and the
@@ -30,7 +30,7 @@ const ContentBuilder = (props) => {
           succinctly.
         </p>
       </section>
-      <section className="py-5">
+      <section className="py-8">
         <h5>How it works</h5>
         <p>In a few simple steps we can build up a layout.</p>
         <h6>Step 1 - Column selector</h6>
@@ -38,7 +38,7 @@ const ContentBuilder = (props) => {
           Each section needs a number of columns, this was the initial list of
           options I started with but it can be expanded on very easily
         </p>
-        <figure className="mb-3">
+        <figure className="mb-4">
           <LazyLoad height={250}>
             <img src="/content-builder/ss2.jpg" alt="settings-page" />
           </LazyLoad>
@@ -56,7 +56,7 @@ const ContentBuilder = (props) => {
           enter the desired content, in a format that is relavant to the content
           type.
         </p>
-        <figure className="mb-3">
+        <figure className="mb-4">
           <LazyLoad height={150}>
             <img src="/content-builder/ss3.jpg" alt="settings-page" />
           </LazyLoad>
@@ -68,7 +68,7 @@ const ContentBuilder = (props) => {
           look on the page. Whilst the specifics of the rendering isnt show, it
           gives the Moodle user a good high level overview.
         </p>
-        <figure className="mb-3">
+        <figure className="mb-4">
           <LazyLoad height={400}>
             <img src="/content-builder/ss1.jpg" alt="settings-page" />
           </LazyLoad>
@@ -88,12 +88,12 @@ const ContentBuilder = (props) => {
           If however the content needs to move we can click and drag on the move
           icons to reorder the elements.
         </p>
-        <figure className="mb-3">
+        <figure className="mb-4">
           <LazyLoad height={400}>
             <img src="/content-builder/ss4-1.jpg" alt="settings-page" />
           </LazyLoad>
         </figure>
-        <figure className="mb-3">
+        <figure className="mb-4">
           <LazyLoad height={400}>
             <img src="/content-builder/ss4-2.jpg" alt="settings-page" />
           </LazyLoad>

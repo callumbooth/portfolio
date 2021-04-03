@@ -13,8 +13,11 @@ const Dot = ({ active, count, handleClick }) => {
       id={"dot-" + count}
       data-target={count + 1}
       onClick={handleClick}
-      className={clsx("dot", active && "active")}
-      aria-label={`dot-${count}`}
+      className={clsx(
+        "dot rounded bg-gray-300 border border-solid border-primary-main w-5 h-5 mx-4 cursor-pointer transition duration-200 hover:bg-primary-main active:bg-primary-main",
+        active && "bg-primary-main"
+      )}
+      aria-label={clsx(`dot-${count}`)}
     />
   );
 };

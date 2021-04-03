@@ -3,33 +3,7 @@ import posed from "react-pose";
 import { useRouter } from "next/router";
 import ArrowLeftIcon from "@heroicons/react/solid/ArrowLeftIcon";
 import GithubIcon from "@/components/icons/github";
-
-const Return = posed.div({
-  enter: { x: 0, opacity: 1 },
-  exit: { x: -50, opacity: 0 },
-  hoverable: true,
-  init: {
-    x: 0,
-  },
-  hover: {
-    x: -10,
-  },
-});
-
-const Box = posed.div({
-  enter: { opacity: 1, delay: 100 },
-  exit: { opacity: 0 },
-});
-
-const Box2 = posed.div({
-  enter: { opacity: 1, delay: 200 },
-  exit: { opacity: 0 },
-});
-
-const Box3 = posed.div({
-  enter: { opacity: 1, delay: 400 },
-  exit: { opacity: 0 },
-});
+import { motion } from "framer-motion";
 
 interface IProjectProps {
   children: ReactNode;
@@ -43,6 +17,27 @@ interface IProjectProps {
   };
 }
 
+const animateIn = {
+  hidden: {
+    strokeDashoffset: 100,
+  },
+  visible: {
+    strokeDashoffset: 0,
+  },
+};
+
+const lineProps = {
+  variants: animateIn,
+  initial: "hidden",
+  animate: "visible",
+  pathLength: "100",
+  strokeDasharray: "100",
+  transition: {
+    default: { duration: 1 },
+  },
+  className: "stroke-current stroke-3 text-primary-main",
+};
+
 const Project = ({ children, ...props }: IProjectProps) => {
   const router = useRouter();
   const returnURL = "/projects";
@@ -53,75 +48,102 @@ const Project = ({ children, ...props }: IProjectProps) => {
   };
 
   return (
-    <div id="project" className={"page-" + props.project.slug}>
-      <div className="project-wrapper">
-        <div className={"project-svg fadeIn"}>
+    <div id="project" className={"relative page-" + props.project.slug}>
+      <div className="bg-white bg-opacity-80 mr-10 lg:mr-20 xl:mr-32">
+        <div className="absolute w-full top-0 z-10 overflow-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1525 370">
             <g>
-              <line
-                className="a l1"
+              <motion.line
                 x2="113"
+                fill="none"
                 y2="113"
                 transform={
                   "translate(1383 0) rotate(" + props.project.rotate + " 0 0)"
                 }
+                {...lineProps}
               />
-              <line
-                className="a l2"
+              <motion.line
                 x2="264"
                 y2="264"
                 transform={
                   "translate(512 0) rotate(" + props.project.rotate + " 0 0)"
                 }
+                {...lineProps}
               />
-              <line
-                className="a l3"
+              <motion.line
                 x2="113"
                 y2="113"
                 transform="translate(586 0)"
+                {...lineProps}
               />
-              <line
-                className="a l4"
+              <motion.line
                 x2="114"
                 y2="114"
                 transform="translate(806 0)"
+                {...lineProps}
               />
-              <line
-                className="a l5"
+              <motion.line
                 x2="335"
                 y2="335"
                 transform="translate(1190 0)"
+                {...lineProps}
               />
-              <line
-                className="a l6"
+              <motion.line
                 x2="117"
                 y2="117"
                 transform={
                   "translate(1100 0) rotate(" + props.project.rotate + " 0 0)"
                 }
+                {...lineProps}
               />
-              <path className="b b1" d="M587,0 l112,112 h217 l-112,-112 Z" />
+              <motion.path
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                  },
+                  visible: {
+                    opacity: 1,
+                  },
+                }}
+                transition={{
+                  duration: 1,
+                }}
+                className="fill-current text-gray-300"
+                d="M587,0 l112,112 h217 l-112,-112 Z"
+              />
             </g>
           </svg>
         </div>
-        <div className="page-content">
-          <div className="content">
-            <div className="project-header">
-              <Return style={{ display: "inline-block" }}>
+        <div className="relative p-10 lg:p-20 z-20">
+          <div className="w-full">
+            <div className="pb-20">
+              <motion.div
+                whileHover={{
+                  x: -10,
+                }}
+              >
                 <a
-                  className="returnto text-uppercase text-bold flex items-center"
+                  className=" uppercase font-bold flex items-center"
                   href={"/projects"}
                   onClick={goBack}
                 >
                   <ArrowLeftIcon
-                    className="w-4 inline-block"
+                    className="w-4 inline-block mr-4"
                     fill="currentColor"
                   />
                   Back
                 </a>
-              </Return>
-              <Box className="project-title">
-                <h2 className="text-red">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 0.1 }}
+                className="pt-6"
+              >
+                <h2 className="text-primary-main">
                   {props.project.name}
                   {props.project.githubrepo ? (
                     <a
@@ -139,30 +161,51 @@ const Project = ({ children, ...props }: IProjectProps) => {
                     </a>
                   ) : null}
                 </h2>
-              </Box>
-              <Box2 className="meta">
-                <div className="tags">
+              </motion.div>
+
+              <motion.div
+                className="mt-12 flex flex-w flex-row"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <div className="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3">
                   <h4>Skills used</h4>
-                  <div className="tags-list two-col">
+                  <div className="flex flex-wrap">
                     {props.project.tags.map((tag, i) => {
                       return (
-                        <div className="tag-item" key={i}>
+                        <div className="w-1/2" key={i}>
                           {tag}
                         </div>
                       );
                     })}
                   </div>
                 </div>
-                <div className="launched">
+                <div className="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3">
                   <h4>Launched</h4>
-                  <p className="text-large">{props.project.launched}</p>
+                  <p className="text-2xl">{props.project.launched}</p>
                 </div>
-              </Box2>
+              </motion.div>
             </div>
-            <Box3 className="project-body">
+            <motion.div
+              variants={{
+                hidden: {
+                  opacity: 0,
+                },
+                visible: {
+                  opacity: 1,
+                },
+              }}
+              transition={{
+                delay: 0.4,
+              }}
+              initial="hidden"
+              animate="visible"
+            >
               <div className="project-info">{children}</div>
               <div className="additonal-images"></div>
-            </Box3>
+            </motion.div>
           </div>
         </div>
       </div>

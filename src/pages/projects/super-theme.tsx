@@ -2,13 +2,14 @@ import React from "react";
 import { GetStaticProps } from "next";
 import LazyLoad from "@/components/lazy-load";
 import Project from "@/root/components/templates/project";
+import Image from "next/image";
 
 import data from "@/root/data.json";
 
 const SuperTheme = (props) => {
   return (
     <Project project={props.project}>
-      <section className="py-5">
+      <section className="py-8">
         <h4>Overview</h4>
         <p>
           Described as a Moodle theme to end all Moodle theme, this project
@@ -29,7 +30,7 @@ const SuperTheme = (props) => {
           allowed new functionality to be deployed to old and new clients alike.
         </p>
       </section>
-      <section className="py-5">
+      <section className="py-8">
         <h5>Settings page</h5>
         <p>
           Onne issues with other Moodle themes is the poor UX of the theme
@@ -37,10 +38,14 @@ const SuperTheme = (props) => {
           to have sub pages to settings can be categorised into meaningful
           sections.
         </p>
-        <figure className="mb-3">
-          <LazyLoad height={450}>
-            <img src="/super-theme/ss1.jpg" alt="settings-page" />
-          </LazyLoad>
+        <figure className="mb-4">
+          <Image
+            src="/super-theme/ss1.jpg"
+            alt="settings-page"
+            width={1526}
+            height={1038}
+            layout="responsive"
+          />
         </figure>
         <h5>New setting types</h5>
         <p>
@@ -69,10 +74,14 @@ const SuperTheme = (props) => {
           the keyword "primary". If the user then updates the primary colour the
           button background colour also updates.
         </p>
-        <figure className="mb-3">
-          <LazyLoad height={410}>
-            <img src="/super-theme/ss2.png" alt="new settings" />
-          </LazyLoad>
+        <figure className="mb-4">
+          <Image
+            src="/super-theme/ss2.png"
+            alt="new settings"
+            width={1522}
+            height={974}
+            layout="responsive"
+          />
         </figure>
       </section>
     </Project>
