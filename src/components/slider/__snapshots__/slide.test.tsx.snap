@@ -3,24 +3,34 @@
 exports[`Slide renders correctly 1`] = `
 <div>
   <div
-    class="slide fadeOut"
+    class="w-full h-full absolute"
+    style="opacity: 0;"
   >
     <div
-      class="background-wrapper-top"
+      class="background-wrapper-top absolute w-full top-0 z-0 flex justify-start overflow-hidden"
     >
       <svg
+        class="flex-grow w-full h-full"
         viewBox="0 0 1520 1080"
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
           <line
-            class="a l1"
+            class="stroke-current text-primary-main stroke-3"
+            fill="none"
+            pathLength="100"
+            stroke-dasharray="100"
+            stroke-dashoffset="100"
             transform="translate(1090 0) rotate(0 217.5 217.5)"
             x2="435"
             y2="435"
           />
           <line
-            class="a l2"
+            class="stroke-current text-primary-main stroke-3"
+            fill="none"
+            pathLength="100"
+            stroke-dasharray="100"
+            stroke-dashoffset="100"
             transform="translate(417 0) rotate(0 184.5 184.5)"
             x2="369"
             y2="369"
@@ -29,10 +39,11 @@ exports[`Slide renders correctly 1`] = `
       </svg>
     </div>
     <div
-      class="slide-wrapper"
+      class="slide-wrapper flex flex-wrap h-full items-center justify-center relative z-10"
+      style="opacity: 0;"
     >
       <div
-        class="slide-title"
+        class="w-full max-w-full font-bold text-primary-main text-center text-6xl leading-none p-7 lg:text-8xl lg:p-10 xl:text-9xl xl:p-12"
       >
         <a
           href="/projects/super-theme"
@@ -41,7 +52,7 @@ exports[`Slide renders correctly 1`] = `
         </a>
       </div>
       <div
-        class="moreinfo"
+        class="absolute bottom-12 left-12"
       >
         <button
           class="btn btn-red"
@@ -49,7 +60,7 @@ exports[`Slide renders correctly 1`] = `
           i
         </button>
         <div
-          class="info"
+          class="absolute w-72 left-1 bottom-full opacity-0 p-5 rounded-sm bg-primary-main text-white"
         >
           <p>
             A Moodle theme to end all Moodle themes
@@ -76,38 +87,56 @@ exports[`Slide renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="background-wrapper-bottom"
+      class="transition duration-500 absolute w-full bottom-0 z-0 flex justify-start overflow-hidden"
     >
       <svg
+        class="flex-grow w-full h-full"
         viewBox="0 0 1520 1080"
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
           <path
-            class="b b1"
+            class=" fill-current text-gray-200"
             d="M0,0 l919,919 h-218 l-701,-701 Z"
+            opacity="0"
             transform="translate(0 190) rotate(0 459.5 459.5)"
           />
           <line
-            class="a l3"
+            class="stroke-current text-primary-main stroke-3"
+            fill="none"
+            pathLength="100"
+            stroke-dasharray="100"
+            stroke-dashoffset="100"
             transform="translate(0 410) rotate(0 350.5 350.5)"
             x2="701"
             y2="701"
           />
           <line
-            class="a l4"
+            class="stroke-current text-primary-main stroke-3"
+            fill="none"
+            pathLength="100"
+            stroke-dasharray="100"
+            stroke-dashoffset="100"
             transform="translate(0 190) rotate(0 460.5 460.5)"
             x2="921"
             y2="921"
           />
           <line
-            class="a l5"
+            class="stroke-current text-primary-main stroke-3"
+            fill="none"
+            pathLength="100"
+            stroke-dasharray="100"
+            stroke-dashoffset="100"
             transform="translate(1086 669) rotate(0 205.5 205.5)"
             x2="411"
             y2="411"
           />
           <line
-            class="a l6"
+            class="stroke-current text-primary-main stroke-3"
+            fill="none"
+            pathLength="100"
+            stroke-dasharray="100"
+            stroke-dashoffset="100"
             transform="translate(1008 873)"
             x2="207"
             y2="207"

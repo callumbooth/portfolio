@@ -8,13 +8,21 @@ exports[`Svg rotates by 90 deg correctly 1`] = `
   >
     <g>
       <line
-        class="a l1"
+        class="stroke-current text-primary-main stroke-3"
+        fill="none"
+        pathLength="100"
+        stroke-dasharray="100"
+        stroke-dashoffset="100"
         transform="translate(1090 0) rotate(90 217.5 217.5)"
         x2="435"
         y2="435"
       />
       <line
-        class="a l2"
+        class="stroke-current text-primary-main stroke-3"
+        fill="none"
+        pathLength="100"
+        stroke-dasharray="100"
+        stroke-dashoffset="100"
         transform="translate(417 0) rotate(90 184.5 184.5)"
         x2="369"
         y2="369"
@@ -32,13 +40,21 @@ exports[`Svg rotates to 45 deg correctly 1`] = `
   >
     <g>
       <line
-        class="a l1"
+        class="stroke-current text-primary-main stroke-3"
+        fill="none"
+        pathLength="100"
+        stroke-dasharray="100"
+        stroke-dashoffset="100"
         transform="translate(1090 0) rotate(45 217.5 217.5)"
         x2="435"
         y2="435"
       />
       <line
-        class="a l2"
+        class="stroke-current text-primary-main stroke-3"
+        fill="none"
+        pathLength="100"
+        stroke-dasharray="100"
+        stroke-dashoffset="100"
         transform="translate(417 0) rotate(45 184.5 184.5)"
         x2="369"
         y2="369"

@@ -4,7 +4,7 @@ exports[`Dot Dot displays when inactive 1`] = `
 <div>
   <button
     aria-label="dot-0"
-    class="dot"
+    class="dot rounded bg-gray-300 border border-solid border-primary-main w-5 h-5 mx-4 cursor-pointer transition duration-200 hover:bg-primary-main active:bg-primary-main"
     data-target="1"
     id="dot-0"
   />

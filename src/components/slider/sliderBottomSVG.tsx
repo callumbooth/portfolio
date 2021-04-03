@@ -83,11 +83,11 @@ const SliderBottomSVG = ({
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1080" {...props}>
       <g>
         <motion.path
-          className={clsx(" fill-current text-gray-200")}
+          className={" fill-current text-gray-200"}
           initial="hidden"
           animate={show ? "visible" : "hidden"}
           variants={fadeIn}
-          transition={{duration: 0.5}}
+          transition={{ duration: 0.5 }}
           d="M0,0 l919,919 h-218 l-701,-701 Z"
           transform={"translate(0 190) rotate(" + rotation + " 459.5 459.5)"}
         />
