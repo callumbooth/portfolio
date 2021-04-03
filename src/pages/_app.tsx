@@ -28,12 +28,10 @@ const CustomApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        {/* <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
           rel="stylesheet"
-        /> */}
-        <Typekit kitId="zqs0gyz" />
+          href="https://use.typekit.net/zqs0gyz.css"
+        ></link>
       </Head>
       <div className="block flex-wrap w-full h-full md:flex">
         <div className="bg-white bg-opacity-80 flex-none w-full md:w-100">
@@ -56,7 +54,6 @@ const CustomApp = ({ Component, pageProps }) => {
           </AnimatePresence>
         </div>
       </div>
-      
     </>
   );
 };
