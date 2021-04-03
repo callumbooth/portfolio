@@ -11,8 +11,6 @@
     "random-name": "^0.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-pose": "^4.0.1",
-    "react-typekit": "^1.1.4",
     "teaflip": "^1.0.0"
   },
   "devDependencies": {
@@ -28,7 +26,8 @@
     "postcss": "^8.2.9",
     "prettier": "2.2.1",
     "sass": "^1.32.8",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.0.4",
+    "typescript": "^4.2.3"
   },
   "scripts": {
     "test": "jest",

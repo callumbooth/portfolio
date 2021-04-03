@@ -2,7 +2,6 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Typekit from "react-typekit";
 
 import Sidebar from "@/components/sidebar";
 import "../styles/global.css";

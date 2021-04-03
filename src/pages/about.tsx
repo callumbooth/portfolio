@@ -1,5 +1,5 @@
+import { motion } from "framer-motion";
 import React from "react";
-import posed from "react-pose";
 
 import JobList from "../components/job-list";
 
@@ -41,35 +41,14 @@ const jobData = [
   },
 ];
 
-const Box = posed.div({
-  enter: {
-    opacity: 1,
-    delay: 100,
-  },
-  exit: {
+const fadeIn = {
+  hidden: {
     opacity: 0,
   },
-});
-
-const Box2 = posed.div({
-  enter: {
+  visible: {
     opacity: 1,
-    delay: 200,
   },
-  exit: {
-    opacity: 0,
-  },
-});
-
-const Box3 = posed.div({
-  enter: {
-    opacity: 1,
-    delay: 400,
-  },
-  exit: {
-    opacity: 0,
-  },
-});
+};
 
 const About = () => {
   return (
@@ -77,10 +56,21 @@ const About = () => {
       <div className="pr-12">
         <div className="bg-white bg-opacity-80 pt-32 px-12 pb-12">
           <div className="about-me">
-            <Box>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              transition={{ delay: 0.6 }}
+            >
               <h2>Who Am I</h2>
-            </Box>
-            <Box2 className="attributes">
+            </motion.div>
+            <motion.div
+              className="attributes"
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              transition={{ delay: 0.7 }}
+            >
               <p>
                 <span className="text-primary-main">Age:</span>
                 <span className="font-bold">&nbsp;25</span>
@@ -95,8 +85,14 @@ const About = () => {
                   &nbsp; PHP . JS . React . HTML . CSS
                 </span>
               </p>
-            </Box2>
-            <Box3 className="flex flex-wrap -mx-8">
+            </motion.div>
+            <motion.div
+              className="flex flex-wrap -mx-8"
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              transition={{ delay: 0.9 }}
+            >
               <div className="desc flex-1 px-8">
                 <p>
                   I’m a hard working and enthusiastic software engineer with a
@@ -146,7 +142,7 @@ const About = () => {
                   })}
                 </div>
               </div>
-            </Box3>
+            </motion.div>
           </div>
         </div>
       </div>

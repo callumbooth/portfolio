@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import posed from "react-pose";
 import { useRouter } from "next/router";
 import ArrowLeftIcon from "@heroicons/react/solid/ArrowLeftIcon";
 import GithubIcon from "@/components/icons/github";
