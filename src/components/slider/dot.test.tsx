@@ -5,14 +5,14 @@ import Dot from "./dot";
 describe("Dot", () => {
   it("Dot displays when inactive", () => {
     const component = render(
-      <Dot active={false} count={0} handleClick={() => {}} />
+      <Dot active={false} count={0} handleClick={jest.fn()} />
     );
 
     expect(component.container).toMatchSnapshot();
   });
 
   it("Dot displays when active", () => {
-    render(<Dot active={true} count={1} handleClick={() => {}} />);
+    render(<Dot active={true} count={1} handleClick={jest.fn()} />);
 
     expect(screen.getByLabelText("dot-1")).toBeTruthy();
   });

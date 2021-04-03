@@ -1,4 +1,4 @@
-import React, { Component, RefObject } from "react";
+import React, { Component } from "react";
 import { throttle } from "lodash";
 
 interface ILazyLoadState {
@@ -41,7 +41,7 @@ class LazyLoad extends Component<{ height: number }, ILazyLoadState> {
   throttleScroll = throttle(this.listenToScroll, 100);
 
   isInViewport = (elem) => {
-    var bounding = elem.getBoundingClientRect();
+    const bounding = elem.getBoundingClientRect();
     return (
       bounding.top >= 0 - bounding.height &&
       bounding.left >= 0 &&

@@ -16,10 +16,10 @@ it("Slide renders correctly", () => {
 
   const component = render(
     <Slide
-      delayTransition={() => {}}
+      delayTransition={jest.fn()}
       loaded={true}
       data={data}
-      toggleInfo={() => {}}
+      toggleInfo={jest.fn()}
       currentSlide={1}
     />
   );

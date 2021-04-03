@@ -1,6 +1,5 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import LazyLoad from "@/components/lazy-load";
 import Project from "@/root/components/templates/project";
 import Image from "next/image";
 

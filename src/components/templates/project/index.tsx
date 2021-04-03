@@ -152,6 +152,7 @@ const Project = ({ children, ...props }: IProjectProps) => {
                         props.project.githubrepo
                       }
                       target="_blank"
+                      rel='noreferrer'
                     >
                       <GithubIcon
                         className="w-8 inline-block"

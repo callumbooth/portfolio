@@ -1,4 +1,4 @@
-import React, { Component, RefObject } from "react";
+import React, { Component } from "react";
 import { throttle } from "lodash";
 import ArrowRight from "@heroicons/react/solid/ArrowRightIcon";
 
@@ -34,7 +34,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
   throttleScroll = throttle(this.handleScroll, 100);
 
   isInViewport = (elem) => {
-    var bounding = elem.getBoundingClientRect();
+    const bounding = elem.getBoundingClientRect();
     return (
       bounding.top >= 0 - bounding.height / 2 &&
       bounding.left >= 0 &&

@@ -1,10 +1,8 @@
-import React, { useEffect, useReducer } from "react";
+import React from "react";
 import { NextRouter, withRouter } from "next/router";
 
 import Dot from "./dot";
 import Slide from "./slide";
-
-interface ISliderProps {}
 
 interface ISliderState {
   animating: boolean;
@@ -19,80 +17,6 @@ interface ISliderState {
   showInfo: boolean;
   loaded: boolean;
 }
-
-const initialState: ISliderState = {
-  animating: false,
-  currentSlide: 1,
-  dragged: {
-    coords: {
-      x: null,
-      y: null,
-    },
-    active: false,
-  },
-  showInfo: false,
-  loaded: false,
-};
-
-function reducer(
-  state: ISliderState,
-  action: { type: string; currentSlide?: number }
-): ISliderState {
-  switch (action.type) {
-    case "loaded":
-      return {
-        ...state,
-        loaded: true,
-      };
-    case "prevSlide":
-      return {
-        ...state,
-      };
-    case "nextSlide":
-      return {
-        ...state,
-      };
-    case "goTo":
-      return {
-        ...state,
-        currentSlide:
-          action.currentSlide === undefined
-            ? action.currentSlide
-            : state.currentSlide,
-      };
-    default:
-      throw new Error();
-  }
-}
-
-const Slider2 = (props: ISliderProps) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const handleScroll = (e: WheelEvent) => {
-    const isSidebar = false;
-    console.log(e);
-    // let isSidebar = this.checkIfSidebar(e.path);
-
-    if (!isSidebar) {
-      if (e.deltaY < 0) {
-        dispatch({ type: "prevSlide" });
-      }
-      if (e.deltaY > 0) {
-        dispatch({ type: "nextSlide" });
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("wheel", handleScroll, { passive: true });
-
-    dispatch({ type: "loaded" });
-
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-    };
-  }, []);
-};
 
 class Slider extends React.Component<
   { projects: any[]; router: NextRouter },
@@ -134,7 +58,7 @@ class Slider extends React.Component<
 
   checkIfSidebar(path) {
     let isSidebar = false;
-    path.map((item, i) => {
+    path.map((item) => {
       if (item.classList === undefined) {
         return item;
       }
@@ -147,7 +71,7 @@ class Slider extends React.Component<
   }
 
   handleScroll = (e) => {
-    let isSidebar = this.checkIfSidebar(e.path);
+    const isSidebar = this.checkIfSidebar(e.path);
 
     if (!isSidebar) {
       if (e.deltaY < 0) {
@@ -182,7 +106,7 @@ class Slider extends React.Component<
   }
 
   handleTouchStart = (e) => {
-    let coords = {
+    const coords = {
       x: e.changedTouches[0].pageX,
       y: e.changedTouches[0].pageY,
     };
@@ -200,12 +124,12 @@ class Slider extends React.Component<
       return;
     }
 
-    let newCoords = {
+    const newCoords = {
       x: e.changedTouches[0].pageX,
       y: e.changedTouches[0].pageY,
     };
 
-    let startCoords = this.state.dragged.coords;
+    const startCoords = this.state.dragged.coords;
 
     if (newCoords.x - startCoords.x > 100) {
       this.prevSlide();
@@ -214,7 +138,7 @@ class Slider extends React.Component<
     }
   };
 
-  handleTouchEnd = (e) => {
+  handleTouchEnd = () => {
     this.setState({
       dragged: {
         coords: {
@@ -227,7 +151,7 @@ class Slider extends React.Component<
   };
 
   handleClick = (e) => {
-    let dot = e.target;
+    const dot = e.target;
     this.gotToSlide(dot.dataset.target);
   };
 
@@ -267,7 +191,10 @@ class Slider extends React.Component<
 
   render() {
     return (
-      <div id="slider" className='relative w-full h-full mx-auto overflow-hidden'>
+      <div
+        id="slider"
+        className="relative w-full h-full mx-auto overflow-hidden"
+      >
         <div
           className="relative z-10 h-full"
           onTouchMove={this.handleTouchMove}

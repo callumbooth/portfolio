@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentType, useEffect, useState } from "react";
+import { ComponentType } from "react";
 import dynamic from "next/dynamic";
 import randomName from "random-name";
 import Project from "@/root/components/templates/project";
@@ -11,15 +11,7 @@ const Teaflip = dynamic(() => import("teaflip"), {
   ssr: false,
 }) as ComponentType<{ people: any[] }>;
 
-const useMounted = () => {
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return mounted;
-};
 const TeaflipProject = (props) => {
   return (
     <Project project={props.project}>

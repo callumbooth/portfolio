@@ -9,7 +9,7 @@ interface IContactFormState {
   [key: string]: string;
 }
 
-class ContactForm extends Component<{}, IContactFormState> {
+class ContactForm extends Component<unknown, IContactFormState> {
   constructor(props) {
     super(props);
 
@@ -22,7 +22,7 @@ class ContactForm extends Component<{}, IContactFormState> {
 
   onSubmit = (e) => {
     e.preventDefault();
-    let msg = {
+    const msg = {
       Subject: "New message from the portfolio",
       Body: {
         contentType: "Text",
