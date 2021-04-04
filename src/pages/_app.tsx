@@ -2,9 +2,12 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { init } from "../../utils/sentry";
 
 import Sidebar from "@/components/sidebar";
 import "../styles/global.css";
+
+init();
 
 function handleExitComplete() {
   if (typeof window !== "undefined") {
