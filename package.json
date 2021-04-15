@@ -10,6 +10,7 @@
     "@sentry/webpack-plugin": "^1.14.2",
     "clsx": "^1.1.1",
     "framer-motion": "^4.1.0",
+    "graphql": "^15.5.0",
     "lodash": "^4.17.19",
     "next": "10.1.2",
     "next-compose-plugins": "^2.2.1",
@@ -20,6 +21,12 @@
     "teaflip": "^1.0.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.3",
+    "@graphql-codegen/fragment-matcher": "^2.0.1",
+    "@graphql-codegen/introspection": "^1.18.1",
+    "@graphql-codegen/typescript": "^1.21.1",
+    "@graphql-codegen/typescript-operations": "^1.17.15",
+    "@graphql-codegen/typescript-react-query": "^1.2.4",
     "@tailwindcss/jit": "^0.1.18",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
@@ -52,7 +59,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prod": "next build && next start"
+    "prod": "next build && next start",
+    "generate": "graphql-codegen"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
