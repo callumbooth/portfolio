@@ -5,4 +5,7 @@ module.exports = withPlugins([withSentry], {
   future: {
     webpack5: true,
   },
+  images: {
+    domains: ["media.graphcms.com"],
+  },
 });
