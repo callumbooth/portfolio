@@ -4,10 +4,7 @@
   "private": true,
   "dependencies": {
     "@heroicons/react": "^1.0.0",
-    "@sentry/browser": "^6.2.5",
-    "@sentry/integrations": "^6.2.5",
-    "@sentry/node": "^6.2.5",
-    "@sentry/webpack-plugin": "^1.14.2",
+    "@sentry/nextjs": "^6.11.0",
     "clsx": "^1.1.1",
     "framer-motion": "^4.1.0",
     "graphql": "^15.5.0",
