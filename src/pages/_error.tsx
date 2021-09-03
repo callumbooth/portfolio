@@ -1,7 +1,8 @@
-import NextErrorComponent, { ErrorProps } from "next/error";
-import * as Sentry from "@sentry/node";
-import { NextPageContext } from "next";
+import NextErrorComponent from "next/error";
 
+import * as Sentry from "@sentry/nextjs";
+
+// @ts-ignore
 const MyError = ({ statusCode, hasGetInitialPropsRun, err }) => {
   if (!hasGetInitialPropsRun && err) {
     // getInitialProps is not called in case of
@@ -14,16 +15,17 @@ const MyError = ({ statusCode, hasGetInitialPropsRun, err }) => {
   return <NextErrorComponent statusCode={statusCode} />;
 };
 
+// @ts-ignore
 MyError.getInitialProps = async ({ res, err, asPath }) => {
-  const errorInitialProps: ErrorProps & {
-    hasGetInitialPropsRun?: boolean;
-  } = await NextErrorComponent.getInitialProps({
+  // @ts-ignore
+  const errorInitialProps = await NextErrorComponent.getInitialProps({
     res,
-    err,
-  } as NextPageContext);
+    err
+  });
 
   // Workaround for https://github.com/vercel/next.js/issues/8592, mark when
   // getInitialProps has run
+  // @ts-ignore
   errorInitialProps.hasGetInitialPropsRun = true;
 
   // Running on the server, the response object (`res`) is available.

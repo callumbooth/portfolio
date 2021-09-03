@@ -1,13 +1,15 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { init } from "../../utils/sentry";
-
 import Sidebar from "@/components/sidebar";
+import type { AppProps } from "next/app";
 import "../styles/global.css";
 
-init();
+type Props = AppProps & {
+  Component: ReactNode;
+  err: any;
+};
 
 function handleExitComplete() {
   if (typeof window !== "undefined") {
@@ -17,15 +19,15 @@ function handleExitComplete() {
 
 const transition = {
   duration: 0.25,
-  ease: [0.43, 0.13, 0.23, 0.96],
+  ease: [0.43, 0.13, 0.23, 0.96]
 };
 
 const backVariants = {
   exit: { opacity: 0, transition },
-  enter: { opacity: 1, transition: { delay: 0.25, ...transition } },
+  enter: { opacity: 1, transition: { delay: 0.25, ...transition } }
 };
 
-const CustomApp = ({ Component, pageProps }) => {
+const CustomApp = ({ Component, pageProps }: Props) => {
   const router = useRouter();
   return (
     <>
