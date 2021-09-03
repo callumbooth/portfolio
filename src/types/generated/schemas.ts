@@ -4537,6 +4537,8 @@ export type User = Node & {
   picture?: Maybe<Scalars["String"]>;
   /** User Kind. Can be either MEMBER, PAT or PUBLIC */
   kind: UserKind;
+  /** Flag to determine if user is active or not */
+  isActive: Scalars["Boolean"];
 };
 
 /** User system model */
@@ -4544,6 +4546,13 @@ export type UserDocumentInStagesArgs = {
   stages?: Array<Stage>;
   includeCurrent?: Scalars["Boolean"];
   inheritLocale?: Scalars["Boolean"];
+};
+
+export type UserConnectInput = {
+  /** Document to connect */
+  where: UserWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<ConnectPositionInput>;
 };
 
 /** A connection to a list of items. */
@@ -4554,6 +4563,16 @@ export type UserConnection = {
   /** A list of edges. */
   edges: Array<UserEdge>;
   aggregate: Aggregate;
+};
+
+export type UserCreateManyInlineInput = {
+  /** Connect multiple existing User documents */
+  connect?: Maybe<Array<UserWhereUniqueInput>>;
+};
+
+export type UserCreateOneInlineInput = {
+  /** Connect one existing User document */
+  connect?: Maybe<UserWhereUniqueInput>;
 };
 
 /** An edge in a connection. */
@@ -4692,6 +4711,9 @@ export type UserManyWhereInput = {
   kind_in?: Maybe<Array<UserKind>>;
   /** All values that are not contained in given list. */
   kind_not_in?: Maybe<Array<UserKind>>;
+  isActive?: Maybe<Scalars["Boolean"]>;
+  /** All values that are not equal to given value. */
+  isActive_not?: Maybe<Scalars["Boolean"]>;
 };
 
 export enum UserOrderByInput {
@@ -4708,8 +4730,26 @@ export enum UserOrderByInput {
   PictureAsc = "picture_ASC",
   PictureDesc = "picture_DESC",
   KindAsc = "kind_ASC",
-  KindDesc = "kind_DESC"
+  KindDesc = "kind_DESC",
+  IsActiveAsc = "isActive_ASC",
+  IsActiveDesc = "isActive_DESC"
 }
+
+export type UserUpdateManyInlineInput = {
+  /** Connect multiple existing User documents */
+  connect?: Maybe<Array<UserConnectInput>>;
+  /** Override currently-connected documents with multiple existing User documents */
+  set?: Maybe<Array<UserWhereUniqueInput>>;
+  /** Disconnect multiple User documents */
+  disconnect?: Maybe<Array<UserWhereUniqueInput>>;
+};
+
+export type UserUpdateOneInlineInput = {
+  /** Connect existing User document */
+  connect?: Maybe<UserWhereUniqueInput>;
+  /** Disconnect currently connected User document */
+  disconnect?: Maybe<Scalars["Boolean"]>;
+};
 
 /** Identifies documents */
 export type UserWhereInput = {
@@ -4830,6 +4870,9 @@ export type UserWhereInput = {
   kind_in?: Maybe<Array<UserKind>>;
   /** All values that are not contained in given list. */
   kind_not_in?: Maybe<Array<UserKind>>;
+  isActive?: Maybe<Scalars["Boolean"]>;
+  /** All values that are not equal to given value. */
+  isActive_not?: Maybe<Scalars["Boolean"]>;
 };
 
 /** References User record uniquely */
