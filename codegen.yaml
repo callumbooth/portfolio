@@ -1,15 +1,20 @@
 overwrite: true
 schema: https://api-eu-central-1.graphcms.com/v2/cknjb2xgqrwhl01xod3pt29y8/master
 documents: "src/**/*.{ts,tsx,gql,graphql}"
-generates:
-  src/types/generated/graphcms-schema.ts:
-    plugins:
-      - typescript
-      - typescript-operations
-      - typescript-react-query
-      - fragment-matcher
-    config:
-      fetcher: fetch
+
 hooks:
   afterAllFileWrite:
     - prettier --write
+
+generates:
+  src/types/generated/schemas.ts:
+    plugins:
+      - typescript
+
+  # Create operations based on queries
+  src/types/generated/operations.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: ./schemas
+    plugins:
+      - typescript-operations
