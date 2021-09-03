@@ -30,12 +30,12 @@ class Slider extends React.Component<
       dragged: {
         coords: {
           x: null,
-          y: null,
+          y: null
         },
-        active: false,
+        active: false
       },
       showInfo: false,
-      loaded: false,
+      loaded: false
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
@@ -46,7 +46,7 @@ class Slider extends React.Component<
     setTimeout(
       () =>
         this.setState({
-          loaded: true,
+          loaded: true
         }),
       0
     );
@@ -108,14 +108,14 @@ class Slider extends React.Component<
   handleTouchStart = (e) => {
     const coords = {
       x: e.changedTouches[0].pageX,
-      y: e.changedTouches[0].pageY,
+      y: e.changedTouches[0].pageY
     };
 
     this.setState({
       dragged: {
         coords,
-        active: true,
-      },
+        active: true
+      }
     });
   };
 
@@ -126,7 +126,7 @@ class Slider extends React.Component<
 
     const newCoords = {
       x: e.changedTouches[0].pageX,
-      y: e.changedTouches[0].pageY,
+      y: e.changedTouches[0].pageY
     };
 
     const startCoords = this.state.dragged.coords;
@@ -143,10 +143,10 @@ class Slider extends React.Component<
       dragged: {
         coords: {
           x: null,
-          y: null,
+          y: null
         },
-        active: false,
-      },
+        active: false
+      }
     });
   };
 
@@ -165,11 +165,11 @@ class Slider extends React.Component<
     await this.setState({
       currentSlide: target,
       animating: true,
-      showInfo: false,
+      showInfo: false
     });
     setTimeout(() => {
       this.setState({
-        animating: false,
+        animating: false
       });
     }, 1500);
   };
@@ -177,14 +177,14 @@ class Slider extends React.Component<
   toggleInfo = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
-      showInfo: !prevState.showInfo,
+      showInfo: !prevState.showInfo
     }));
   };
 
   delayTransition = (e, slug) => {
     e.preventDefault();
     this.setState({
-      loaded: false,
+      loaded: false
     });
     setTimeout(() => this.props.router.push("projects/" + slug), 1000);
   };
@@ -202,7 +202,7 @@ class Slider extends React.Component<
           onTouchEnd={this.handleTouchEnd}
           onTouchCancel={this.handleTouchEnd}
           style={{
-            transition: "transform ease-out 0.45s",
+            transition: "transform ease-out 0.45s"
           }}
         >
           {this.props.projects.map((slide, i) => {

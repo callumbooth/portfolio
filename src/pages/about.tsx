@@ -7,47 +7,47 @@ const jobData = [
   {
     company: "Bluetel Solutions",
     jobTitle: "Software Engineer",
-    duration: "April 2019 - PRESENT",
+    duration: "April 2019 - PRESENT"
   },
   {
     company: "HowToMoodle",
     jobTitle: "Web Designer & Developer",
-    duration: "May 2016 - April 2019",
+    duration: "May 2016 - April 2019"
   },
   {
     company: "RTITB",
     jobTitle: "Developer",
-    duration: "June 2015 - April 2016",
+    duration: "June 2015 - April 2016"
   },
   {
     company: "Yarrington",
     jobTitle: "Designer",
-    duration: "February 2013 -  February 2015",
+    duration: "February 2013 -  February 2015"
   },
   {
     company: "Yarrington",
     jobTitle: "Digital Designer",
-    duration: "September 2012 - February 2013",
+    duration: "September 2012 - February 2013"
   },
   {
     company: "Yarrington",
     jobTitle: "Design Studio Assistant",
-    duration: "August 2010 - September 2012",
+    duration: "August 2010 - September 2012"
   },
   {
     company: "FdA Graphic Design",
     jobTitle: "Student",
-    duration: "September 2010 - September 2012",
-  },
+    duration: "September 2010 - September 2012"
+  }
 ];
 
 const fadeIn = {
   hidden: {
-    opacity: 0,
+    opacity: 0
   },
   visible: {
-    opacity: 1,
-  },
+    opacity: 1
+  }
 };
 
 const About = () => {

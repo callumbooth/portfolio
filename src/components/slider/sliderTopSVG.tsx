@@ -9,9 +9,9 @@ const lines = [
     y: 435,
     translate: {
       x: 1090,
-      y: 0,
+      y: 0
     },
-    rotate: true,
+    rotate: true
   },
   {
     id: 2,
@@ -19,10 +19,10 @@ const lines = [
     y: 369,
     translate: {
       x: 417,
-      y: 0,
+      y: 0
     },
-    rotate: true,
-  },
+    rotate: true
+  }
 ];
 
 interface ISliderTopSVGProps extends React.SVGProps<SVGSVGElement> {
@@ -32,14 +32,14 @@ interface ISliderTopSVGProps extends React.SVGProps<SVGSVGElement> {
 
 const animateIn = {
   hidden: {
-    strokeDashoffset: 100,
+    strokeDashoffset: 100
   },
   visible: {
     strokeDashoffset: 0,
     transition: {
-      delay: 1.1,
-    },
-  },
+      delay: 1.1
+    }
+  }
 };
 
 const SliderTopSVG = ({ rotation, show, ...props }: ISliderTopSVGProps) => {

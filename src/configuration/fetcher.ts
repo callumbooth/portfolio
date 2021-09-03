@@ -15,13 +15,13 @@ export function fetcher<TData, TVariables>(
             ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
             : process.env.GRAPHCMS_PROD_AUTH_TOKEN
         }`,
-        "gcms-stage": preview ? Stage.Draft : Stage.Published,
+        "gcms-stage": preview ? Stage.Draft : Stage.Published
       },
 
       body: JSON.stringify({
         query,
-        variables,
-      }),
+        variables
+      })
     });
 
     const json = await res.json();

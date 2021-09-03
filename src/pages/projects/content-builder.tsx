@@ -108,8 +108,8 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       project: data.projects.find(
         (project) => project.slug === "content-builder"
-      ),
-    },
+      )
+    }
   };
 };
 

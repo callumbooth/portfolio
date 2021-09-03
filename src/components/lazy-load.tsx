@@ -9,7 +9,7 @@ class LazyLoad extends Component<{ height: number }, ILazyLoadState> {
   constructor(props) {
     super(props);
     this.state = {
-      display: false,
+      display: false
     };
 
     this.throttleScroll = this.throttleScroll.bind(this);
@@ -29,7 +29,7 @@ class LazyLoad extends Component<{ height: number }, ILazyLoadState> {
     const visible = this.isInViewport(this.element.current);
     this.setState(
       (prevState) => ({
-        display: prevState.display !== visible ? visible : prevState.display,
+        display: prevState.display !== visible ? visible : prevState.display
       }),
       () => {
         if (this.state.display) {

@@ -8,9 +8,8 @@ import data from "@/root/data.json";
 import { GetStaticProps } from "next";
 
 const Teaflip = dynamic(() => import("teaflip"), {
-  ssr: false,
+  ssr: false
 }) as ComponentType<{ people: any[] }>;
-
 
 const TeaflipProject = (props) => {
   return (
@@ -59,7 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
       id: i,
       name: randomName(),
       cupsdrank: cupsdrank,
-      roundsmade: roundsmade,
+      roundsmade: roundsmade
     };
 
     people.push(person);
@@ -68,8 +67,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       project: data.projects.find((project) => project.slug === "teaflip"),
-      people,
-    },
+      people
+    }
   };
 };
 

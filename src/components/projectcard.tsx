@@ -24,7 +24,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
 
     this.handleScroll = this.handleScroll.bind(this);
     this.state = {
-      visible: false,
+      visible: false
     };
 
     this.throttleScroll = this.throttleScroll.bind(this);
@@ -50,7 +50,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
 
     if (inView) {
       this.setState({
-        visible: true,
+        visible: true
       });
     } else {
       window.addEventListener("scroll", this.throttleScroll, false);
@@ -66,7 +66,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
 
     if (inView) {
       this.setState({
-        visible: true,
+        visible: true
       });
       window.removeEventListener("scroll", this.throttleScroll, false);
     }

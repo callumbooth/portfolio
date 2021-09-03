@@ -66,8 +66,8 @@ const Project = (props) => {
 export const getStaticProps = () => {
   return {
     props: {
-      projects: data.projects,
-    },
+      projects: data.projects
+    }
   };
 };
 

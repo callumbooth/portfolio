@@ -9,9 +9,9 @@ const lines = [
     y: 701,
     translate: {
       x: 0,
-      y: 410,
+      y: 410
     },
-    rotate: true,
+    rotate: true
   },
   {
     id: 4,
@@ -20,8 +20,8 @@ const lines = [
     rotate: true,
     translate: {
       x: 0,
-      y: 190,
-    },
+      y: 190
+    }
   },
   {
     id: 5,
@@ -29,9 +29,9 @@ const lines = [
     y: 411,
     translate: {
       x: 1086,
-      y: 669,
+      y: 669
     },
-    rotate: true,
+    rotate: true
   },
   {
     id: 6,
@@ -39,10 +39,10 @@ const lines = [
     y: 207,
     translate: {
       x: 1008,
-      y: 873,
+      y: 873
     },
-    rotate: false,
-  },
+    rotate: false
+  }
 ];
 
 interface ISliderBottomSVGProps extends React.SVGProps<SVGSVGElement> {
@@ -52,26 +52,26 @@ interface ISliderBottomSVGProps extends React.SVGProps<SVGSVGElement> {
 
 const animateIn = {
   hidden: {
-    strokeDashoffset: 100,
+    strokeDashoffset: 100
   },
   visible: {
     strokeDashoffset: 0,
     transition: {
-      delay: 1.1,
-    },
-  },
+      delay: 1.1
+    }
+  }
 };
 
 const fadeIn = {
   hidden: {
-    opacity: 0,
+    opacity: 0
   },
   visible: {
     opacity: 1,
     transition: {
-      delay: 1.1,
-    },
-  },
+      delay: 1.1
+    }
+  }
 };
 
 const SliderBottomSVG = ({

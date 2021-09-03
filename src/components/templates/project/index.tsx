@@ -18,11 +18,11 @@ interface IProjectProps {
 
 const animateIn = {
   hidden: {
-    strokeDashoffset: 100,
+    strokeDashoffset: 100
   },
   visible: {
-    strokeDashoffset: 0,
-  },
+    strokeDashoffset: 0
+  }
 };
 
 const lineProps = {
@@ -32,9 +32,9 @@ const lineProps = {
   pathLength: "100",
   strokeDasharray: "100",
   transition: {
-    default: { duration: 1 },
+    default: { duration: 1 }
   },
-  className: "stroke-current stroke-3 text-primary-main",
+  className: "stroke-current stroke-3 text-primary-main"
 };
 
 const Project = ({ children, ...props }: IProjectProps) => {
@@ -100,14 +100,14 @@ const Project = ({ children, ...props }: IProjectProps) => {
                 animate="visible"
                 variants={{
                   hidden: {
-                    opacity: 0,
+                    opacity: 0
                   },
                   visible: {
-                    opacity: 1,
-                  },
+                    opacity: 1
+                  }
                 }}
                 transition={{
-                  duration: 1,
+                  duration: 1
                 }}
                 className="fill-current text-gray-300"
                 d="M587,0 l112,112 h217 l-112,-112 Z"
@@ -120,7 +120,7 @@ const Project = ({ children, ...props }: IProjectProps) => {
             <div className="pb-20">
               <motion.div
                 whileHover={{
-                  x: -10,
+                  x: -10
                 }}
               >
                 <a
@@ -152,7 +152,7 @@ const Project = ({ children, ...props }: IProjectProps) => {
                         props.project.githubrepo
                       }
                       target="_blank"
-                      rel='noreferrer'
+                      rel="noreferrer"
                     >
                       <GithubIcon
                         className="w-8 inline-block"
@@ -191,14 +191,14 @@ const Project = ({ children, ...props }: IProjectProps) => {
             <motion.div
               variants={{
                 hidden: {
-                  opacity: 0,
+                  opacity: 0
                 },
                 visible: {
-                  opacity: 1,
-                },
+                  opacity: 1
+                }
               }}
               transition={{
-                delay: 0.4,
+                delay: 0.4
               }}
               initial="hidden"
               animate="visible"

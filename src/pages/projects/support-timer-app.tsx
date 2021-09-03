@@ -38,8 +38,8 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       project: data.projects.find(
         (project) => project.slug === "support-timer-app"
-      ),
-    },
+      )
+    }
   };
 };
 

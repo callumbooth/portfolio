@@ -16,7 +16,7 @@ class ContactForm extends Component<unknown, IContactFormState> {
     this.state = {
       name: "",
       email: "",
-      message: "",
+      message: ""
     };
   }
 
@@ -31,19 +31,19 @@ class ContactForm extends Component<unknown, IContactFormState> {
                     Name: ${this.state.name}\n
                     Email: ${this.state.email}\n
                     Message: ${this.state.message}\n
-                `,
+                `
       },
       ToRecipients: [
         {
           EmailAddress: {
-            address: "callum-booth@live.co.uk",
-          },
-        },
-      ],
+            address: "callum-booth@live.co.uk"
+          }
+        }
+      ]
     };
 
     Axios.post("https://outlook.office.com/api/v2.0/me/sendmail", {
-      Message: msg,
+      Message: msg
     });
   };
 
@@ -53,7 +53,7 @@ class ContactForm extends Component<unknown, IContactFormState> {
     const name = target.name;
 
     this.setState({
-      [name]: value,
+      [name]: value
     });
   };
 

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import {
   getProjectByTitle,
-  useGetProjectByTitleQuery,
+  useGetProjectByTitleQuery
 } from "@/root/hooks/useProjects";
 
 export default function Post({ title, preview }) {
@@ -29,8 +29,8 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       preview,
-      title: data.project.title,
-    },
+      title: data.project.title
+    }
   };
 }
 
@@ -38,6 +38,6 @@ export async function getStaticPaths() {
   console.log("here2");
   return {
     paths: [{ params: { slug: "super-theme" } }],
-    fallback: true,
+    fallback: true
   };
 }

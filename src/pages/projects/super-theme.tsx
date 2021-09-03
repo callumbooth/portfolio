@@ -90,8 +90,8 @@ const SuperTheme = (props) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      project: data.projects.find((project) => project.slug === "super-theme"),
-    },
+      project: data.projects.find((project) => project.slug === "super-theme")
+    }
   };
 };
 

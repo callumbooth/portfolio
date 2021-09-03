@@ -356,7 +356,7 @@ export enum AssetOrderByInput {
   SizeAsc = "size_ASC",
   SizeDesc = "size_DESC",
   MimeTypeAsc = "mimeType_ASC",
-  MimeTypeDesc = "mimeType_DESC",
+  MimeTypeDesc = "mimeType_DESC"
 }
 
 /** Transformations for Assets */
@@ -971,7 +971,7 @@ export enum AuthorOrderByInput {
   TitleAsc = "title_ASC",
   TitleDesc = "title_DESC",
   BiographyAsc = "biography_ASC",
-  BiographyDesc = "biography_DESC",
+  BiographyDesc = "biography_DESC"
 }
 
 export type AuthorUpdateInput = {
@@ -1240,7 +1240,7 @@ export enum DocumentFileTypes {
   Xlsx = "xlsx",
   Xls = "xls",
   Pptx = "pptx",
-  Ppt = "ppt",
+  Ppt = "ppt"
 }
 
 export type DocumentOutputInput = {
@@ -1296,7 +1296,7 @@ export enum ImageFit {
   /** Resizes the image to fit the specified parameters exactly by scaling the image to the desired size. The aspect ratio of the image is not respected and the image can be distorted using this method. */
   Scale = "scale",
   /** Resizes the image to fit within the parameters, but as opposed to 'fit:clip' will not scale the image if the image is smaller than the output size. */
-  Max = "max",
+  Max = "max"
 }
 
 export type ImageResizeInput = {
@@ -1317,7 +1317,7 @@ export type ImageTransformationInput = {
 /** Locale system enumeration */
 export enum Locale {
   /** System locale */
-  En = "en",
+  En = "en"
 }
 
 /** Representing a geolocation point with latitude and longitude */
@@ -2414,7 +2414,7 @@ export enum PageOrderByInput {
   SlugAsc = "slug_ASC",
   SlugDesc = "slug_DESC",
   SubtitleAsc = "subtitle_ASC",
-  SubtitleDesc = "subtitle_DESC",
+  SubtitleDesc = "subtitle_DESC"
 }
 
 export type PageUpdateInput = {
@@ -2947,7 +2947,7 @@ export enum PostOrderByInput {
   ExcerptAsc = "excerpt_ASC",
   ExcerptDesc = "excerpt_DESC",
   TagsAsc = "tags_ASC",
-  TagsDesc = "tags_DESC",
+  TagsDesc = "tags_DESC"
 }
 
 export type PostUpdateInput = {
@@ -3444,7 +3444,7 @@ export enum ProjectOrderByInput {
   SkillsAsc = "skills_ASC",
   SkillsDesc = "skills_DESC",
   LaunchDateAsc = "launchDate_ASC",
-  LaunchDateDesc = "launchDate_DESC",
+  LaunchDateDesc = "launchDate_DESC"
 }
 
 export type ProjectUpdateInput = {
@@ -4269,7 +4269,7 @@ export enum SeoOrderByInput {
   DescriptionAsc = "description_ASC",
   DescriptionDesc = "description_DESC",
   KeywordsAsc = "keywords_ASC",
-  KeywordsDesc = "keywords_DESC",
+  KeywordsDesc = "keywords_DESC"
 }
 
 export type SeoUpdateInput = {
@@ -4492,7 +4492,7 @@ export enum Skills {
   Moodle = "Moodle",
   Php = "PHP",
   React = "React",
-  Sass = "SASS",
+  Sass = "SASS"
 }
 
 /** Stage system enumeration */
@@ -4500,13 +4500,13 @@ export enum Stage {
   /** The Published stage is where you can publish your content to. */
   Published = "PUBLISHED",
   /** The Draft is the default stage for all your content. */
-  Draft = "DRAFT",
+  Draft = "DRAFT"
 }
 
 export enum SystemDateTimeFieldVariation {
   Base = "BASE",
   Localization = "LOCALIZATION",
-  Combined = "COMBINED",
+  Combined = "COMBINED"
 }
 
 export type UnpublishLocaleInput = {
@@ -4570,7 +4570,7 @@ export enum UserKind {
   Member = "MEMBER",
   Pat = "PAT",
   Public = "PUBLIC",
-  Webhook = "WEBHOOK",
+  Webhook = "WEBHOOK"
 }
 
 /** Identifies documents */
@@ -4708,7 +4708,7 @@ export enum UserOrderByInput {
   PictureAsc = "picture_ASC",
   PictureDesc = "picture_DESC",
   KindAsc = "kind_ASC",
-  KindDesc = "kind_DESC",
+  KindDesc = "kind_DESC"
 }
 
 /** Identifies documents */
@@ -4876,7 +4876,7 @@ export enum _FilterKind {
   RelationalSingle = "relational_single",
   RelationalEvery = "relational_every",
   RelationalSome = "relational_some",
-  RelationalNone = "relational_none",
+  RelationalNone = "relational_none"
 }
 
 export enum _MutationInputFieldKind {
@@ -4886,7 +4886,7 @@ export enum _MutationInputFieldKind {
   Enum = "enum",
   Relation = "relation",
   Union = "union",
-  Virtual = "virtual",
+  Virtual = "virtual"
 }
 
 export enum _MutationKind {
@@ -4899,31 +4899,31 @@ export enum _MutationKind {
   UpdateMany = "updateMany",
   PublishMany = "publishMany",
   UnpublishMany = "unpublishMany",
-  DeleteMany = "deleteMany",
+  DeleteMany = "deleteMany"
 }
 
 export enum _OrderDirection {
   Asc = "asc",
-  Desc = "desc",
+  Desc = "desc"
 }
 
 export enum _RelationInputCardinality {
   One = "one",
-  Many = "many",
+  Many = "many"
 }
 
 export enum _RelationInputKind {
   Create = "create",
-  Update = "update",
+  Update = "update"
 }
 
 export enum _RelationKind {
   Regular = "regular",
-  Union = "union",
+  Union = "union"
 }
 
 export enum _SystemDateTimeFieldVariation {
   Base = "base",
   Localization = "localization",
-  Combined = "combined",
+  Combined = "combined"
 }

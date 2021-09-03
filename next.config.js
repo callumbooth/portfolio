@@ -1,7 +1,7 @@
 const withPlugins = require("next-compose-plugins");
 const { withSentryConfig } = require("@sentry/nextjs");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
+  enabled: process.env.ANALYZE === "true"
 });
 
 const SENTRY_DRYRUN =
@@ -9,7 +9,7 @@ const SENTRY_DRYRUN =
   ["development"].includes(process.env.NEXT_PUBLIC_VERCEL_ENV || "development");
 
 const moduleExports = {
-  reactStrictMode: true,
+  reactStrictMode: true
 };
 
 const SentryWebpackPluginOptions = {
@@ -20,7 +20,7 @@ const SentryWebpackPluginOptions = {
   //   urlPrefix, include, ignore
 
   silent: true, // Suppresses all logs
-  dryRun: SENTRY_DRYRUN,
+  dryRun: SENTRY_DRYRUN
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };

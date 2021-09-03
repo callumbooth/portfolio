@@ -30,8 +30,8 @@ const SelfieDrone = (props) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      project: data.projects.find((project) => project.slug === "selfie-drone"),
-    },
+      project: data.projects.find((project) => project.slug === "selfie-drone")
+    }
   };
 };
 

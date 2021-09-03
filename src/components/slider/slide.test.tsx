@@ -11,7 +11,7 @@ it("Slide renders correctly", () => {
     tags: ["tag", "tag2", "tag3"],
     launched: "September 2018",
     summary: "A Moodle theme to end all Moodle themes",
-    content: "content goes here",
+    content: "content goes here"
   };
 
   const component = render(

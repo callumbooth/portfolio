@@ -9,18 +9,18 @@ const navItems = [
   {
     name: "about",
     url: "/about",
-    label: "Who am I",
+    label: "Who am I"
   },
   {
     name: "projects",
     url: "/projects",
-    label: "What I have done",
+    label: "What I have done"
   },
   {
     name: "contact",
     url: "/contact",
-    label: "How to get in touch",
-  },
+    label: "How to get in touch"
+  }
 ];
 
 const Sidebar = () => {
