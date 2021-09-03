@@ -1,6 +1,7 @@
 import { fetcher } from "@/root/configuration/fetcher";
 import { useQuery, UseQueryOptions } from "react-query";
 import * as Operations from "../../types/generated/operations";
+
 import gql from "graphql-tag";
 
 import { print } from "graphql";
@@ -8,7 +9,13 @@ import { print } from "graphql";
 const query = print(gql`
   query getProjectByTitle($id: ID!) {
     project(where: { id: $id }) {
+      id
       title
+      skills
+      launchDate
+      body {
+        html
+      }
     }
   }
 `);
