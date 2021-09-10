@@ -9,7 +9,10 @@ const SENTRY_DRYRUN =
   ["development"].includes(process.env.NEXT_PUBLIC_VERCEL_ENV || "development");
 
 const moduleExports = {
-  reactStrictMode: true
+  reactStrictMode: true,
+  images: {
+    domains: ["media.graphcms.com"]
+  }
 };
 
 const SentryWebpackPluginOptions = {
