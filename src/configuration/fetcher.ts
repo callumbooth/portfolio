@@ -1,9 +1,8 @@
 import { Stage } from "../types/generated/schemas";
 
-export function fetcher<TData, TVariables>(
+export function fetcher<TData, TVariables extends { draft: Stage }>(
   query: string,
-  variables?: TVariables,
-  preview = false
+  variables?: TVariables
 ) {
   return async (): Promise<TData> => {
     const res = await fetch(process.env.GRAPHCMS_PROJECT_API, {
@@ -11,11 +10,10 @@ export function fetcher<TData, TVariables>(
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${
-          preview
+          variables.draft === Stage.Draft
             ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
             : process.env.GRAPHCMS_PROD_AUTH_TOKEN
-        }`,
-        "gcms-stage": preview ? Stage.Draft : Stage.Published
+        }`
       },
 
       body: JSON.stringify({
