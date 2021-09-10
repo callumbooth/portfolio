@@ -16,7 +16,7 @@
     "random-name": "^0.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-query": "^3.21.1",
+    "react-query": "^3.23.2",
     "teaflip": "^1.0.0"
   },
   "devDependencies": {
