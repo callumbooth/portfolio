@@ -7,7 +7,7 @@ import gql from "graphql-tag";
 import { print } from "graphql";
 
 const query = print(gql`
-  query getProjectBySlug($slug: String) {
+  query getProjectBySlug($slug: String!) {
     project(where: { slug: $slug }) {
       id
       title
@@ -32,11 +32,7 @@ export const useGetProjectBySlugQuery = <
   TError = unknown
 >(
   variables: Operations.GetProjectBySlugQueryVariables,
-  options?: UseQueryOptions<
-    Operations.GetProjectBySlugQueryVariables,
-    TError,
-    TData
-  >,
+  options?: UseQueryOptions<Operations.GetProjectBySlugQuery, TError, TData>,
   preview = false
 ) =>
   useQuery<Operations.GetProjectBySlugQuery, TError, TData>(

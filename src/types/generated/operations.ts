@@ -1,7 +1,7 @@
 import * as Types from "./schemas";
 
 export type GetProjectBySlugQueryVariables = Types.Exact<{
-  slug?: Types.Maybe<Types.Scalars["String"]>;
+  slug: Types.Scalars["String"];
 }>;
 
 export type GetProjectBySlugQuery = {
