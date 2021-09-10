@@ -7,39 +7,43 @@ import gql from "graphql-tag";
 import { print } from "graphql";
 
 const query = print(gql`
-  query getProjectByTitle($id: ID!) {
-    project(where: { id: $id }) {
+  query getProjectBySlug($slug: String) {
+    project(where: { slug: $slug }) {
       id
       title
       skills
       launchDate
       body {
-        html
+        raw
       }
     }
   }
 `);
 
-export const getProjectByTitle = async (id: string, preview = false) => {
+export const getProjectBySlug = async (slug: string, preview = false) => {
   return fetcher<
-    Operations.GetProjectByTitleQuery,
-    Operations.GetProjectByTitleQueryVariables
-  >(query, { id }, preview)();
+    Operations.GetProjectBySlugQuery,
+    Operations.GetProjectBySlugQueryVariables
+  >(query, { slug }, preview)();
 };
 
-export const useGetProjectByTitleQuery = <
-  TData = Operations.GetProjectByTitleQuery,
+export const useGetProjectBySlugQuery = <
+  TData = Operations.GetProjectBySlugQuery,
   TError = unknown
 >(
-  variables: Operations.GetProjectByTitleQueryVariables,
-  options?: UseQueryOptions<Operations.GetProjectByTitleQuery, TError, TData>,
+  variables: Operations.GetProjectBySlugQueryVariables,
+  options?: UseQueryOptions<
+    Operations.GetProjectBySlugQueryVariables,
+    TError,
+    TData
+  >,
   preview = false
 ) =>
-  useQuery<Operations.GetProjectByTitleQuery, TError, TData>(
+  useQuery<Operations.GetProjectBySlugQuery, TError, TData>(
     ["getProjectByTitle", variables],
     fetcher<
-      Operations.GetProjectByTitleQuery,
-      Operations.GetProjectByTitleQueryVariables
+      Operations.GetProjectBySlugQuery,
+      Operations.GetProjectBySlugQueryVariables
     >(query, variables, preview),
     options
   );
