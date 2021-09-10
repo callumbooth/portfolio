@@ -1,0 +1,11 @@
+query getProjectBySlug($slug: String!, $draft: Stage!) {
+  project(where: { slug: $slug }, stage: $draft) {
+    id
+    title
+    skills
+    launchDate
+    body {
+      raw
+    }
+  }
+}

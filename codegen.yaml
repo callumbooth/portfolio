@@ -18,3 +18,17 @@ generates:
       typesPath: ./schemas
     plugins:
       - typescript-operations
+    config:
+      omitOperationSuffix: true
+
+  # Create operations based on queries
+  src/types/generated/queries.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: ./operations
+    plugins:
+      - typescript-react-query
+    config:
+      fetcher: "@/root/configuration/fetcher#fetcher" # isReactHook is false here (the default version)
+      exposeFetcher: true
+      omitOperationSuffix: true

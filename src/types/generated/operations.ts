@@ -1,10 +1,11 @@
 import * as Types from "./schemas";
 
-export type GetProjectBySlugQueryVariables = Types.Exact<{
+export type GetProjectBySlugVariables = Types.Exact<{
   slug: Types.Scalars["String"];
+  draft: Types.Stage;
 }>;
 
-export type GetProjectBySlugQuery = {
+export type GetProjectBySlug = {
   __typename?: "Query";
   project?: Types.Maybe<{
     __typename?: "Project";
