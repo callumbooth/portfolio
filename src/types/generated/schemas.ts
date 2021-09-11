@@ -3219,7 +3219,10 @@ export type Project = Node & {
   /** project slug */
   slug: Scalars["String"];
   launchDate?: Maybe<Scalars["Date"]>;
+  /** Github Repo url for the project */
+  githubRepo?: Maybe<Scalars["String"]>;
   body: RichText;
+  rotation?: Maybe<Scalars["Int"]>;
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** User that last updated this document */
@@ -3283,7 +3286,9 @@ export type ProjectCreateInput = {
   title: Scalars["String"];
   slug: Scalars["String"];
   launchDate?: Maybe<Scalars["Date"]>;
+  githubRepo?: Maybe<Scalars["String"]>;
   body: Scalars["RichTextAST"];
+  rotation?: Maybe<Scalars["Int"]>;
   skills?: Maybe<Array<Skills>>;
 };
 
@@ -3437,6 +3442,40 @@ export type ProjectManyWhereInput = {
   launchDate_gt?: Maybe<Scalars["Date"]>;
   /** All values greater than or equal the given value. */
   launchDate_gte?: Maybe<Scalars["Date"]>;
+  githubRepo?: Maybe<Scalars["String"]>;
+  /** All values that are not equal to given value. */
+  githubRepo_not?: Maybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  githubRepo_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values that are not contained in given list. */
+  githubRepo_not_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values containing the given string. */
+  githubRepo_contains?: Maybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  githubRepo_not_contains?: Maybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  githubRepo_starts_with?: Maybe<Scalars["String"]>;
+  /** All values not starting with the given string. */
+  githubRepo_not_starts_with?: Maybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  githubRepo_ends_with?: Maybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  githubRepo_not_ends_with?: Maybe<Scalars["String"]>;
+  rotation?: Maybe<Scalars["Int"]>;
+  /** All values that are not equal to given value. */
+  rotation_not?: Maybe<Scalars["Int"]>;
+  /** All values that are contained in given list. */
+  rotation_in?: Maybe<Array<Scalars["Int"]>>;
+  /** All values that are not contained in given list. */
+  rotation_not_in?: Maybe<Array<Scalars["Int"]>>;
+  /** All values less than the given value. */
+  rotation_lt?: Maybe<Scalars["Int"]>;
+  /** All values less than or equal the given value. */
+  rotation_lte?: Maybe<Scalars["Int"]>;
+  /** All values greater than the given value. */
+  rotation_gt?: Maybe<Scalars["Int"]>;
+  /** All values greater than or equal the given value. */
+  rotation_gte?: Maybe<Scalars["Int"]>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -3467,6 +3506,10 @@ export enum ProjectOrderByInput {
   SlugDesc = "slug_DESC",
   LaunchDateAsc = "launchDate_ASC",
   LaunchDateDesc = "launchDate_DESC",
+  GithubRepoAsc = "githubRepo_ASC",
+  GithubRepoDesc = "githubRepo_DESC",
+  RotationAsc = "rotation_ASC",
+  RotationDesc = "rotation_DESC",
   SkillsAsc = "skills_ASC",
   SkillsDesc = "skills_DESC"
 }
@@ -3475,7 +3518,9 @@ export type ProjectUpdateInput = {
   title?: Maybe<Scalars["String"]>;
   slug?: Maybe<Scalars["String"]>;
   launchDate?: Maybe<Scalars["Date"]>;
+  githubRepo?: Maybe<Scalars["String"]>;
   body?: Maybe<Scalars["RichTextAST"]>;
+  rotation?: Maybe<Scalars["Int"]>;
   skills?: Maybe<Array<Skills>>;
 };
 
@@ -3498,7 +3543,9 @@ export type ProjectUpdateManyInlineInput = {
 
 export type ProjectUpdateManyInput = {
   launchDate?: Maybe<Scalars["Date"]>;
+  githubRepo?: Maybe<Scalars["String"]>;
   body?: Maybe<Scalars["RichTextAST"]>;
+  rotation?: Maybe<Scalars["Int"]>;
   skills?: Maybe<Array<Skills>>;
 };
 
@@ -3672,6 +3719,40 @@ export type ProjectWhereInput = {
   launchDate_gt?: Maybe<Scalars["Date"]>;
   /** All values greater than or equal the given value. */
   launchDate_gte?: Maybe<Scalars["Date"]>;
+  githubRepo?: Maybe<Scalars["String"]>;
+  /** All values that are not equal to given value. */
+  githubRepo_not?: Maybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  githubRepo_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values that are not contained in given list. */
+  githubRepo_not_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values containing the given string. */
+  githubRepo_contains?: Maybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  githubRepo_not_contains?: Maybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  githubRepo_starts_with?: Maybe<Scalars["String"]>;
+  /** All values not starting with the given string. */
+  githubRepo_not_starts_with?: Maybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  githubRepo_ends_with?: Maybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  githubRepo_not_ends_with?: Maybe<Scalars["String"]>;
+  rotation?: Maybe<Scalars["Int"]>;
+  /** All values that are not equal to given value. */
+  rotation_not?: Maybe<Scalars["Int"]>;
+  /** All values that are contained in given list. */
+  rotation_in?: Maybe<Array<Scalars["Int"]>>;
+  /** All values that are not contained in given list. */
+  rotation_not_in?: Maybe<Array<Scalars["Int"]>>;
+  /** All values less than the given value. */
+  rotation_lt?: Maybe<Scalars["Int"]>;
+  /** All values less than or equal the given value. */
+  rotation_lte?: Maybe<Scalars["Int"]>;
+  /** All values greater than the given value. */
+  rotation_gt?: Maybe<Scalars["Int"]>;
+  /** All values greater than or equal the given value. */
+  rotation_gte?: Maybe<Scalars["Int"]>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;

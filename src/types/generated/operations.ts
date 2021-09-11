@@ -11,8 +11,18 @@ export type GetProjectBySlug = {
     __typename?: "Project";
     id: string;
     title: string;
+    slug: string;
+    githubRepo?: Types.Maybe<string>;
+    rotation?: Types.Maybe<number>;
     skills: Array<Types.Skills>;
     launchDate?: Types.Maybe<any>;
     body: { __typename?: "RichText"; raw: any };
   }>;
+};
+
+export type GetProjectsVariables = Types.Exact<{ [key: string]: never }>;
+
+export type GetProjects = {
+  __typename?: "Query";
+  projects: Array<{ __typename?: "Project"; slug: string }>;
 };

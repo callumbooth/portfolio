@@ -8,6 +8,9 @@ export const GetProjectBySlugDocument = `
   project(where: {slug: $slug}, stage: $draft) {
     id
     title
+    slug
+    githubRepo
+    rotation
     skills
     launchDate
     body {
@@ -34,5 +37,29 @@ export const useGetProjectBySlug = <
 useGetProjectBySlug.fetcher = (variables: Types.GetProjectBySlugVariables) =>
   fetcher<Types.GetProjectBySlug, Types.GetProjectBySlugVariables>(
     GetProjectBySlugDocument,
+    variables
+  );
+export const GetProjectsDocument = `
+    query getProjects {
+  projects {
+    slug
+  }
+}
+    `;
+export const useGetProjects = <TData = Types.GetProjects, TError = unknown>(
+  variables?: Types.GetProjectsVariables,
+  options?: UseQueryOptions<Types.GetProjects, TError, TData>
+) =>
+  useQuery<Types.GetProjects, TError, TData>(
+    ["getProjects", variables],
+    fetcher<Types.GetProjects, Types.GetProjectsVariables>(
+      GetProjectsDocument,
+      variables
+    ),
+    options
+  );
+useGetProjects.fetcher = (variables?: Types.GetProjectsVariables) =>
+  fetcher<Types.GetProjects, Types.GetProjectsVariables>(
+    GetProjectsDocument,
     variables
   );

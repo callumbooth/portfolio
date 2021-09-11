@@ -2,10 +2,19 @@ query getProjectBySlug($slug: String!, $draft: Stage!) {
   project(where: { slug: $slug }, stage: $draft) {
     id
     title
+    slug
+    githubRepo
+    rotation
     skills
     launchDate
     body {
       raw
     }
+  }
+}
+
+query getProjects {
+  projects {
+    slug
   }
 }
