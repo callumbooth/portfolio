@@ -3,16 +3,17 @@ import { useRouter } from "next/router";
 import ArrowLeftIcon from "@heroicons/react/solid/ArrowLeftIcon";
 import GithubIcon from "@/components/icons/github";
 import { motion } from "framer-motion";
+import format from "date-fns/format";
 
 interface IProjectProps {
   children: ReactNode;
   project: {
+    title: string;
     slug: string;
-    rotate: number;
-    name: string;
-    githubrepo: string;
-    tags: string[];
-    launched: string;
+    rotation?: number;
+    githubRepo?: string;
+    skills?: string[];
+    launchDate?: string;
   };
 }
 
@@ -37,7 +38,7 @@ const lineProps = {
   className: "stroke-current stroke-3 text-primary-main"
 };
 
-const Project = ({ children, ...props }: IProjectProps) => {
+const Project = ({ children, project }: IProjectProps) => {
   const router = useRouter();
   const returnURL = "/projects";
 
@@ -46,8 +47,10 @@ const Project = ({ children, ...props }: IProjectProps) => {
     router.push(returnURL);
   };
 
+  const { slug, title, githubRepo, skills, launchDate, rotation = 0 } = project;
+
   return (
-    <div id="project" className={"relative page-" + props.project.slug}>
+    <div id="project" className={"relative page-" + slug}>
       <div className="bg-white bg-opacity-80 mr-10 lg:mr-20 xl:mr-32">
         <div className="absolute w-full top-0 z-10 overflow-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1525 370">
@@ -56,17 +59,13 @@ const Project = ({ children, ...props }: IProjectProps) => {
                 x2="113"
                 fill="none"
                 y2="113"
-                transform={
-                  "translate(1383 0) rotate(" + props.project.rotate + " 0 0)"
-                }
+                transform={"translate(1383 0) rotate(" + rotation + " 0 0)"}
                 {...lineProps}
               />
               <motion.line
                 x2="264"
                 y2="264"
-                transform={
-                  "translate(512 0) rotate(" + props.project.rotate + " 0 0)"
-                }
+                transform={"translate(512 0) rotate(" + rotation + " 0 0)"}
                 {...lineProps}
               />
               <motion.line
@@ -90,9 +89,7 @@ const Project = ({ children, ...props }: IProjectProps) => {
               <motion.line
                 x2="117"
                 y2="117"
-                transform={
-                  "translate(1100 0) rotate(" + props.project.rotate + " 0 0)"
-                }
+                transform={"translate(1100 0) rotate(" + rotation + " 0 0)"}
                 {...lineProps}
               />
               <motion.path
@@ -143,14 +140,11 @@ const Project = ({ children, ...props }: IProjectProps) => {
                 className="pt-6"
               >
                 <h2 className="text-primary-main">
-                  {props.project.name}
-                  {props.project.githubrepo ? (
+                  {title}
+                  {githubRepo ? (
                     <a
                       style={{ marginLeft: "1rem" }}
-                      href={
-                        "https://github.com/callumbooth/" +
-                        props.project.githubrepo
-                      }
+                      href={"https://github.com/callumbooth/" + githubRepo}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -173,10 +167,10 @@ const Project = ({ children, ...props }: IProjectProps) => {
                 <div className="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3">
                   <h4>Skills used</h4>
                   <div className="flex flex-wrap">
-                    {props.project.tags.map((tag, i) => {
+                    {skills.map((skill, i) => {
                       return (
                         <div className="w-1/2" key={i}>
-                          {tag}
+                          {skill}
                         </div>
                       );
                     })}
@@ -184,7 +178,9 @@ const Project = ({ children, ...props }: IProjectProps) => {
                 </div>
                 <div className="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3">
                   <h4>Launched</h4>
-                  <p className="text-2xl">{props.project.launched}</p>
+                  <p className="text-2xl">
+                    {format(new Date(launchDate), "MMMM yyyy")}
+                  </p>
                 </div>
               </motion.div>
             </div>
