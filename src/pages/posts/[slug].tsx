@@ -1,15 +1,18 @@
 import React from "react";
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import { useGetProjectBySlug } from "@/queries";
+import { useGetProjectBySlug, useGetProjects } from "@/queries/queries";
+import { GetProjectBySlug } from "@/queries/operations";
 import RichText from "@/root/components/atoms/RichText";
 import { Stage } from "@/root/types/generated/schemas";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
+import Project from "@/root/components/templates/project";
 
 interface IPostProps {
-  preview: boolean;
+  id: string;
   title: string;
+  rotation: number;
+  preview: boolean;
+
   body: any;
 }
 
@@ -18,34 +21,22 @@ interface IPostParams extends ParsedUrlQuery {
 }
 
 export default function Post({
-  title,
+  preview,
   body,
-  preview
+  ...rest
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const router = useRouter();
-
-  if (!router.isFallback && !title) {
-    return <ErrorPage statusCode={404} />;
-  }
-
+  const { __typename, ...project } = rest;
   return (
-    <>
-      <article>
-        <div>
-          <h1>{title}</h1>
-        </div>
-        <div>
-          <RichText content={body} />
-        </div>
-      </article>
-    </>
+    <Project project={project}>
+      <RichText content={body.raw} />
+    </Project>
   );
 }
 
-export const getStaticProps: GetStaticProps<IPostProps, IPostParams> = async ({
-  params,
-  preview = false
-}) => {
+export const getStaticProps: GetStaticProps<
+  GetProjectBySlug["project"] & { preview: boolean },
+  IPostParams
+> = async ({ params, preview = false }) => {
   const data = await useGetProjectBySlug.fetcher({
     slug: params.slug,
     draft: preview ? Stage.Draft : Stage.Published
@@ -60,15 +51,20 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostParams> = async ({
   return {
     props: {
       preview,
-      title: data.project.title,
-      body: data.project.body.raw
+      ...data.project
     }
   };
 };
 
 export const getStaticPaths: GetStaticPaths<IPostParams> = async () => {
+  const data = await useGetProjects.fetcher()();
+
   return {
-    paths: [{ params: { slug: "super-theme" } }],
-    fallback: true
+    paths: data.projects.map((project) => ({
+      params: {
+        slug: project.slug
+      }
+    })),
+    fallback: false
   };
 };
