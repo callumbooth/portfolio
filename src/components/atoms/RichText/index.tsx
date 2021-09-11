@@ -40,6 +40,19 @@ const RichText = ({ renderers, ...rest }: RichTextProps) => {
             />
           );
         },
+        p: ({ children }) => {
+          return <p>{children}</p>;
+        },
+        class: ({ className, children }) => {
+          switch (className) {
+            case "section": {
+              return <section className='py-8'>{children}</section>;
+            }
+            default: {
+              return <div className={className}>{children}</div>;
+            }
+          }
+        },
         ...renderers
       }}
     />
