@@ -1,6 +1,6 @@
 import { Stage } from "../types/generated/schemas";
 
-export function fetcher<TData, TVariables extends { draft: Stage }>(
+export function fetcher<TData, TVariables extends { draft?: Stage }>(
   query: string,
   variables?: TVariables
 ) {
@@ -10,7 +10,7 @@ export function fetcher<TData, TVariables extends { draft: Stage }>(
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${
-          variables.draft === Stage.Draft
+          variables?.draft === Stage.Draft
             ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
             : process.env.GRAPHCMS_PROD_AUTH_TOKEN
         }`
