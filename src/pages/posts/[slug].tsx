@@ -7,15 +7,6 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
 import Project from "@/root/components/templates/project";
 
-interface IPostProps {
-  id: string;
-  title: string;
-  rotation: number;
-  preview: boolean;
-
-  body: any;
-}
-
 interface IPostParams extends ParsedUrlQuery {
   slug: string;
 }
