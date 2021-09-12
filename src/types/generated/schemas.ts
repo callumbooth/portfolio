@@ -765,7 +765,6 @@ export type Employment = Node & {
   jobTitle: Scalars["String"];
   startDate: Scalars["Date"];
   endDate?: Maybe<Scalars["Date"]>;
-  featured?: Maybe<Scalars["Boolean"]>;
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** User that last updated this document */
@@ -824,7 +823,6 @@ export type EmploymentCreateInput = {
   jobTitle: Scalars["String"];
   startDate: Scalars["Date"];
   endDate?: Maybe<Scalars["Date"]>;
-  featured?: Maybe<Scalars["Boolean"]>;
 };
 
 export type EmploymentCreateManyInlineInput = {
@@ -992,9 +990,6 @@ export type EmploymentManyWhereInput = {
   endDate_gt?: Maybe<Scalars["Date"]>;
   /** All values greater than or equal the given value. */
   endDate_gte?: Maybe<Scalars["Date"]>;
-  featured?: Maybe<Scalars["Boolean"]>;
-  /** All values that are not equal to given value. */
-  featured_not?: Maybe<Scalars["Boolean"]>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -1016,9 +1011,7 @@ export enum EmploymentOrderByInput {
   StartDateAsc = "startDate_ASC",
   StartDateDesc = "startDate_DESC",
   EndDateAsc = "endDate_ASC",
-  EndDateDesc = "endDate_DESC",
-  FeaturedAsc = "featured_ASC",
-  FeaturedDesc = "featured_DESC"
+  EndDateDesc = "endDate_DESC"
 }
 
 export type EmploymentUpdateInput = {
@@ -1026,7 +1019,6 @@ export type EmploymentUpdateInput = {
   jobTitle?: Maybe<Scalars["String"]>;
   startDate?: Maybe<Scalars["Date"]>;
   endDate?: Maybe<Scalars["Date"]>;
-  featured?: Maybe<Scalars["Boolean"]>;
 };
 
 export type EmploymentUpdateManyInlineInput = {
@@ -1051,7 +1043,6 @@ export type EmploymentUpdateManyInput = {
   jobTitle?: Maybe<Scalars["String"]>;
   startDate?: Maybe<Scalars["Date"]>;
   endDate?: Maybe<Scalars["Date"]>;
-  featured?: Maybe<Scalars["Boolean"]>;
 };
 
 export type EmploymentUpdateManyWithNestedWhereInput = {
@@ -1239,9 +1230,6 @@ export type EmploymentWhereInput = {
   endDate_gt?: Maybe<Scalars["Date"]>;
   /** All values greater than or equal the given value. */
   endDate_gte?: Maybe<Scalars["Date"]>;
-  featured?: Maybe<Scalars["Boolean"]>;
-  /** All values that are not equal to given value. */
-  featured_not?: Maybe<Scalars["Boolean"]>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -3248,11 +3236,13 @@ export type Project = Node & {
   title: Scalars["String"];
   /** project slug */
   slug: Scalars["String"];
+  featured?: Maybe<Scalars["Boolean"]>;
   rotation?: Maybe<Scalars["Int"]>;
   launchDate?: Maybe<Scalars["Date"]>;
   /** Github Repo url for the project */
   githubRepo?: Maybe<Scalars["String"]>;
   body: ProjectBodyRichText;
+  summary?: Maybe<Scalars["String"]>;
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** User that last updated this document */
@@ -3331,10 +3321,12 @@ export type ProjectCreateInput = {
   updatedAt?: Maybe<Scalars["DateTime"]>;
   title: Scalars["String"];
   slug: Scalars["String"];
+  featured?: Maybe<Scalars["Boolean"]>;
   rotation?: Maybe<Scalars["Int"]>;
   launchDate?: Maybe<Scalars["Date"]>;
   githubRepo?: Maybe<Scalars["String"]>;
   body: Scalars["RichTextAST"];
+  summary?: Maybe<Scalars["String"]>;
   skills?: Maybe<Array<Skills>>;
 };
 
@@ -3473,6 +3465,9 @@ export type ProjectManyWhereInput = {
   slug_ends_with?: Maybe<Scalars["String"]>;
   /** All values not ending with the given string */
   slug_not_ends_with?: Maybe<Scalars["String"]>;
+  featured?: Maybe<Scalars["Boolean"]>;
+  /** All values that are not equal to given value. */
+  featured_not?: Maybe<Scalars["Boolean"]>;
   rotation?: Maybe<Scalars["Int"]>;
   /** All values that are not equal to given value. */
   rotation_not?: Maybe<Scalars["Int"]>;
@@ -3522,6 +3517,25 @@ export type ProjectManyWhereInput = {
   githubRepo_ends_with?: Maybe<Scalars["String"]>;
   /** All values not ending with the given string */
   githubRepo_not_ends_with?: Maybe<Scalars["String"]>;
+  summary?: Maybe<Scalars["String"]>;
+  /** All values that are not equal to given value. */
+  summary_not?: Maybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  summary_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values that are not contained in given list. */
+  summary_not_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values containing the given string. */
+  summary_contains?: Maybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  summary_not_contains?: Maybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  summary_starts_with?: Maybe<Scalars["String"]>;
+  /** All values not starting with the given string. */
+  summary_not_starts_with?: Maybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  summary_ends_with?: Maybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  summary_not_ends_with?: Maybe<Scalars["String"]>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;
@@ -3550,12 +3564,16 @@ export enum ProjectOrderByInput {
   TitleDesc = "title_DESC",
   SlugAsc = "slug_ASC",
   SlugDesc = "slug_DESC",
+  FeaturedAsc = "featured_ASC",
+  FeaturedDesc = "featured_DESC",
   RotationAsc = "rotation_ASC",
   RotationDesc = "rotation_DESC",
   LaunchDateAsc = "launchDate_ASC",
   LaunchDateDesc = "launchDate_DESC",
   GithubRepoAsc = "githubRepo_ASC",
   GithubRepoDesc = "githubRepo_DESC",
+  SummaryAsc = "summary_ASC",
+  SummaryDesc = "summary_DESC",
   SkillsAsc = "skills_ASC",
   SkillsDesc = "skills_DESC"
 }
@@ -3563,10 +3581,12 @@ export enum ProjectOrderByInput {
 export type ProjectUpdateInput = {
   title?: Maybe<Scalars["String"]>;
   slug?: Maybe<Scalars["String"]>;
+  featured?: Maybe<Scalars["Boolean"]>;
   rotation?: Maybe<Scalars["Int"]>;
   launchDate?: Maybe<Scalars["Date"]>;
   githubRepo?: Maybe<Scalars["String"]>;
   body?: Maybe<Scalars["RichTextAST"]>;
+  summary?: Maybe<Scalars["String"]>;
   skills?: Maybe<Array<Skills>>;
 };
 
@@ -3588,10 +3608,12 @@ export type ProjectUpdateManyInlineInput = {
 };
 
 export type ProjectUpdateManyInput = {
+  featured?: Maybe<Scalars["Boolean"]>;
   rotation?: Maybe<Scalars["Int"]>;
   launchDate?: Maybe<Scalars["Date"]>;
   githubRepo?: Maybe<Scalars["String"]>;
   body?: Maybe<Scalars["RichTextAST"]>;
+  summary?: Maybe<Scalars["String"]>;
   skills?: Maybe<Array<Skills>>;
 };
 
@@ -3750,6 +3772,9 @@ export type ProjectWhereInput = {
   slug_ends_with?: Maybe<Scalars["String"]>;
   /** All values not ending with the given string */
   slug_not_ends_with?: Maybe<Scalars["String"]>;
+  featured?: Maybe<Scalars["Boolean"]>;
+  /** All values that are not equal to given value. */
+  featured_not?: Maybe<Scalars["Boolean"]>;
   rotation?: Maybe<Scalars["Int"]>;
   /** All values that are not equal to given value. */
   rotation_not?: Maybe<Scalars["Int"]>;
@@ -3799,6 +3824,25 @@ export type ProjectWhereInput = {
   githubRepo_ends_with?: Maybe<Scalars["String"]>;
   /** All values not ending with the given string */
   githubRepo_not_ends_with?: Maybe<Scalars["String"]>;
+  summary?: Maybe<Scalars["String"]>;
+  /** All values that are not equal to given value. */
+  summary_not?: Maybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  summary_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values that are not contained in given list. */
+  summary_not_in?: Maybe<Array<Scalars["String"]>>;
+  /** All values containing the given string. */
+  summary_contains?: Maybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  summary_not_contains?: Maybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  summary_starts_with?: Maybe<Scalars["String"]>;
+  /** All values not starting with the given string. */
+  summary_not_starts_with?: Maybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  summary_ends_with?: Maybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  summary_not_ends_with?: Maybe<Scalars["String"]>;
   createdBy?: Maybe<UserWhereInput>;
   updatedBy?: Maybe<UserWhereInput>;
   publishedBy?: Maybe<UserWhereInput>;

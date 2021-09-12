@@ -1,8 +1,10 @@
 import React from "react";
 import Slider from "@/components/slider/slider";
-import data from "../data.json";
+import { useHomePage } from "@/generated/queries";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { HomePage } from "../types/generated/operations";
 
-const Home = (props) => {
+const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div id="home" className="relative w-full h-full">
       <div className="h-full w-full p-0 bg-gray-200">
@@ -14,10 +16,11 @@ const Home = (props) => {
   );
 };
 
-export const getStaticProps = () => {
+export const getStaticProps: GetStaticProps<HomePage> = async () => {
+  const data = await useHomePage.fetcher()();
   return {
     props: {
-      projects: data.projects.filter((project) => project.featured)
+      projects: data.projects
     }
   };
 };

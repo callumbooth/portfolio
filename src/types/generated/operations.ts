@@ -40,6 +40,19 @@ export type ContactPage = {
   person?: Types.Maybe<{ __typename?: "Person"; email?: Types.Maybe<string> }>;
 };
 
+export type HomePageVariables = Types.Exact<{ [key: string]: never }>;
+
+export type HomePage = {
+  __typename?: "Query";
+  projects: Array<{
+    __typename?: "Project";
+    title: string;
+    slug: string;
+    rotation?: Types.Maybe<number>;
+    summary?: Types.Maybe<string>;
+  }>;
+};
+
 export type GetProjectBySlugVariables = Types.Exact<{
   slug: Types.Scalars["String"];
   draft: Types.Stage;

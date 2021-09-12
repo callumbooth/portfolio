@@ -75,6 +75,30 @@ useContactPage.fetcher = (variables?: Types.ContactPageVariables) =>
     ContactPageDocument,
     variables
   );
+export const HomePageDocument = `
+    query HomePage {
+  projects(where: {featured: true}) {
+    title
+    slug
+    rotation
+    summary
+  }
+}
+    `;
+export const useHomePage = <TData = Types.HomePage, TError = unknown>(
+  variables?: Types.HomePageVariables,
+  options?: UseQueryOptions<Types.HomePage, TError, TData>
+) =>
+  useQuery<Types.HomePage, TError, TData>(
+    ["HomePage", variables],
+    fetcher<Types.HomePage, Types.HomePageVariables>(
+      HomePageDocument,
+      variables
+    ),
+    options
+  );
+useHomePage.fetcher = (variables?: Types.HomePageVariables) =>
+  fetcher<Types.HomePage, Types.HomePageVariables>(HomePageDocument, variables);
 export const GetProjectBySlugDocument = `
     query getProjectBySlug($slug: String!, $draft: Stage!) {
   project(where: {slug: $slug}, stage: $draft) {

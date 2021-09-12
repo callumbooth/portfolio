@@ -15,14 +15,10 @@ export interface ISlideProps {
   toggleInfo: (e: any) => void;
   data: {
     i?: number;
-    name: string;
+    title: string;
     slug: string;
-    rotate: number;
-    featured: boolean;
-    tags: string[];
-    launched: string;
+    rotation: number;
     summary: string;
-    content: string;
     showInfo?: boolean;
   };
 }
@@ -40,7 +36,7 @@ const Slide = (props: ISlideProps) => {
       <div className="background-wrapper-top absolute w-full top-0 z-0 flex justify-start overflow-hidden">
         <SliderTopSVG
           className="flex-grow w-full h-full"
-          rotation={props.data.rotate}
+          rotation={props.data.rotation}
           show={show}
         />
       </div>
@@ -55,7 +51,7 @@ const Slide = (props: ISlideProps) => {
       >
         <div className="w-full max-w-full font-bold text-primary-main text-center text-6xl leading-none p-7 lg:text-8xl lg:p-10 xl:text-9xl xl:p-12">
           <Link href={"/projects/" + props.data.slug}>
-            <a>{props.data.name}</a>
+            <a>{props.data.title}</a>
           </Link>
         </div>
         <div className="absolute bottom-12 left-12">
@@ -80,7 +76,7 @@ const Slide = (props: ISlideProps) => {
       </motion.div>
       <div className="transition duration-500 absolute w-full bottom-0 z-0 flex justify-start overflow-hidden">
         <SliderBottomSVG
-          rotation={props.data.rotate}
+          rotation={props.data.rotation}
           className="flex-grow w-full h-full"
           show={show}
         />
