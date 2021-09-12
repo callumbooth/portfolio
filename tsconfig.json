@@ -17,7 +17,7 @@
     "paths": {
       "@/root/*": ["src/*"],
       "@/components/*": ["src/components/*"],
-      "@/queries/*": ["src/types/generated/*"]
+      "@/generated/*": ["src/types/generated/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

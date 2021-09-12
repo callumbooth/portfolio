@@ -1,6 +1,6 @@
 import React from "react";
-import { useGetProjectBySlug, useGetProjects } from "@/queries/queries";
-import { GetProjectBySlug } from "@/queries/operations";
+import { useGetProjectBySlug, useGetProjects } from "@/generated/queries";
+import { GetProjectBySlug } from "@/generated/operations";
 import RichText from "@/root/components/atoms/RichText";
 import { Stage } from "@/root/types/generated/schemas";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";

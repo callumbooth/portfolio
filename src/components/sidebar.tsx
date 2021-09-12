@@ -39,7 +39,7 @@ const Sidebar = () => {
         </Link>
       </div>
       <div className="leading-none pb-10">
-        <h4 className="font-light">Web Developer</h4>
+        <h4 className="font-light">Software Engineer</h4>
       </div>
       <div className="pb-6 text-2xl">
         <Link href="https://twitter.com/showerg3l">

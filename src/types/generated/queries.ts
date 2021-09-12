@@ -3,6 +3,78 @@ import * as Types from "./operations";
 import { useQuery, UseQueryOptions } from "react-query";
 import { fetcher } from "@/root/configuration/fetcher";
 
+export const AboutPageDocument = `
+    query AboutPage {
+  page(where: {slug: "about"}) {
+    title
+    slug
+    body {
+      json
+    }
+  }
+  person(where: {id: "cktg47hc0eeoo0c54lcu96joe"}) {
+    firstName
+    secondName
+    email
+    dob
+    skills
+    location
+  }
+  employments {
+    company
+    jobTitle
+    startDate
+    endDate
+  }
+}
+    `;
+export const useAboutPage = <TData = Types.AboutPage, TError = unknown>(
+  variables?: Types.AboutPageVariables,
+  options?: UseQueryOptions<Types.AboutPage, TError, TData>
+) =>
+  useQuery<Types.AboutPage, TError, TData>(
+    ["AboutPage", variables],
+    fetcher<Types.AboutPage, Types.AboutPageVariables>(
+      AboutPageDocument,
+      variables
+    ),
+    options
+  );
+useAboutPage.fetcher = (variables?: Types.AboutPageVariables) =>
+  fetcher<Types.AboutPage, Types.AboutPageVariables>(
+    AboutPageDocument,
+    variables
+  );
+export const ContactPageDocument = `
+    query ContactPage {
+  page(where: {slug: "contact"}) {
+    title
+    body {
+      json
+    }
+  }
+  person(where: {id: "cktg47hc0eeoo0c54lcu96joe"}) {
+    email
+  }
+}
+    `;
+export const useContactPage = <TData = Types.ContactPage, TError = unknown>(
+  variables?: Types.ContactPageVariables,
+  options?: UseQueryOptions<Types.ContactPage, TError, TData>
+) =>
+  useQuery<Types.ContactPage, TError, TData>(
+    ["ContactPage", variables],
+    fetcher<Types.ContactPage, Types.ContactPageVariables>(
+      ContactPageDocument,
+      variables
+    ),
+    options
+  );
+useContactPage.fetcher = (variables?: Types.ContactPageVariables) =>
+  fetcher<Types.ContactPage, Types.ContactPageVariables>(
+    ContactPageDocument,
+    variables
+  );
 export const GetProjectBySlugDocument = `
     query getProjectBySlug($slug: String!, $draft: Stage!) {
   project(where: {slug: $slug}, stage: $draft) {
