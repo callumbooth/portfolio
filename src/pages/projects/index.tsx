@@ -14,9 +14,17 @@ const validTags = ["PHP", "React", "Moodle", "Design"];
 const Project = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
-  const tags = props.projects.map((project) =>
-    project.skills.filter((skill) => validTags.includes(skill))
+  const tags = props.projects.reduce(
+    (prev, current) => [
+      ...prev,
+      ...current.skills.filter(
+        (skill) => validTags.includes(skill) && !prev.includes(skill)
+      )
+    ],
+    []
   );
+
+  console.log(tags);
 
   return (
     <div id="projects" className="p-10 lg:p-20 xl:p-36">
