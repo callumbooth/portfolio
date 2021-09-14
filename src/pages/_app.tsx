@@ -32,10 +32,7 @@ const CustomApp = ({ Component, pageProps }: Props) => {
   return (
     <>
       <Head>
-        <link
-          rel="stylesheet"
-          href="https://use.typekit.net/zqs0gyz.css"
-        ></link>
+        <link rel="stylesheet" href="https://use.typekit.net/zqs0gyz.css" />
       </Head>
       <div className="block flex-wrap w-full h-full md:flex">
         <div className="bg-white bg-opacity-80 flex-none w-full md:w-100">
