@@ -179,7 +179,9 @@ const Project = ({ children, project }: IProjectProps) => {
                 <div className="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3">
                   <h4>Launched</h4>
                   <p className="text-2xl">
-                    {format(new Date(launchDate), "MMMM yyyy")}
+                    {launchDate
+                      ? format(new Date(launchDate), "MMMM yyyy")
+                      : "In Development"}
                   </p>
                 </div>
               </motion.div>
