@@ -8,9 +8,9 @@ import clsx from "clsx";
 interface IProjectCardProps {
   data: {
     slug: string;
-    rotate: number;
-    name: string;
-    summary: string;
+    rotation?: number;
+    title: string;
+    summary?: string;
   };
 }
 
@@ -96,7 +96,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
                   y2="411"
                   transform={
                     "translate(50 0) rotate(" +
-                    this.props.data.rotate +
+                    this.props.data.rotation +
                     " 205.5 205.5)"
                   }
                 />
@@ -119,7 +119,7 @@ class ProjectCard extends Component<IProjectCardProps, IProjectCardState> {
             )}
           >
             <div className="text-primary-main mb-12 font-bold text-3xl">
-              {this.props.data.name}
+              {this.props.data.title}
             </div>
             <div className="mb-8">{this.props.data.summary}</div>
             <Link href={"/projects/" + this.props.data.slug}>
