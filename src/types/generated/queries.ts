@@ -139,6 +139,10 @@ export const GetProjectsDocument = `
     query getProjects {
   projects {
     slug
+    skills
+    rotation
+    title
+    summary
   }
 }
     `;

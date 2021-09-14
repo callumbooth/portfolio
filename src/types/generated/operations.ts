@@ -77,5 +77,12 @@ export type GetProjectsVariables = Types.Exact<{ [key: string]: never }>;
 
 export type GetProjects = {
   __typename?: "Query";
-  projects: Array<{ __typename?: "Project"; slug: string }>;
+  projects: Array<{
+    __typename?: "Project";
+    slug: string;
+    skills: Array<Types.Skills>;
+    rotation?: Types.Maybe<number>;
+    title: string;
+    summary?: Types.Maybe<string>;
+  }>;
 };

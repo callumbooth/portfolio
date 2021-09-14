@@ -16,5 +16,9 @@ query getProjectBySlug($slug: String!, $draft: Stage!) {
 query getProjects {
   projects {
     slug
+    skills
+    rotation
+    title
+    summary
   }
 }
