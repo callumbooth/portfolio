@@ -43,12 +43,16 @@ const Sidebar = () => {
       </div>
       <div className="pb-6 text-2xl">
         <Link href="https://twitter.com/showerg3l">
-          <a className="first:pl-0 py-4 px-2" target="_blank">
+          <a
+            className="first:pl-0 py-4 px-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <TwitterIcon className="w-7 inline-block" fill="currentColor" />
           </a>
         </Link>
         <Link href="https://github.com/callumbooth">
-          <a className="py-4 px-2" target="_blank">
+          <a className="py-4 px-2" target="_blank" rel="noopener noreferrer">
             <GithubIcon className="w-7 inline-block" fill="currentColor" />
           </a>
         </Link>

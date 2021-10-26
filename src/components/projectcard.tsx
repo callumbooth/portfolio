@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { throttle } from "lodash";
+import throttle from "@/root/utils/throttle";
 import ArrowRight from "@heroicons/react/solid/ArrowRightIcon";
 
 import Link from "./atoms/Link";
