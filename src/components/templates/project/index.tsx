@@ -151,7 +151,7 @@ const Project = ({ children, project }: IProjectProps) => {
                       style={{ marginLeft: "1rem" }}
                       href={"https://github.com/callumbooth/" + githubRepo}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                     >
                       <GithubIcon
                         className="w-8 inline-block"
