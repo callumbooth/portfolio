@@ -42,7 +42,7 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <span className="text-primary-main">Age:</span>
                 <span className="font-bold">
                   &nbsp;
-                  {differenceInYears(new Date(props.person.dob), new Date())}
+                  {differenceInYears(new Date(), new Date(props.person.dob))}
                 </span>
               </p>
               <p>
