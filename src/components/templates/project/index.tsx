@@ -4,6 +4,7 @@ import ArrowLeftIcon from "@heroicons/react/solid/ArrowLeftIcon";
 import GithubIcon from "@/components/icons/github";
 import { motion } from "framer-motion";
 import format from "date-fns/format";
+import mapGCMSEnum from "@/root/utils/mapGCMSEnum";
 
 interface IProjectProps {
   children: ReactNode;
@@ -170,7 +171,7 @@ const Project = ({ children, project }: IProjectProps) => {
                     {skills.map((skill, i) => {
                       return (
                         <div className="w-1/2" key={i}>
-                          {skill}
+                          {mapGCMSEnum(skill)}
                         </div>
                       );
                     })}

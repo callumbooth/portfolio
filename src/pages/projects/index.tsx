@@ -8,23 +8,25 @@ import clsx from "clsx";
 import { useGetProjects } from "@/root/types/generated/queries";
 import { GetProjects } from "@/root/types/generated/operations";
 import { Skills } from "@/root/types/generated/schemas";
+import mapGCMSEnum from "@/root/utils/mapGCMSEnum";
 
 const validTags = ["PHP", "React", "Moodle", "Design"];
 
 const Project = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
-  const tags = props.projects.reduce(
+  const tags = props.projects.reduce<{ label: string; key: Skills }[]>(
     (prev, current) => [
       ...prev,
-      ...current.skills.filter(
-        (skill) => validTags.includes(skill) && !prev.includes(skill)
-      )
+      ...current.skills
+        .filter(
+          (skill) =>
+            validTags.includes(skill) && !prev.find((i) => i.key === skill)
+        )
+        .map((skill) => ({ label: mapGCMSEnum(skill), key: skill }))
     ],
     []
   );
-
-  console.log(tags);
 
   return (
     <div id="projects" className="p-10 lg:p-20 xl:p-36">
@@ -34,17 +36,20 @@ const Project = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             <Link href="/projects">
               <a className="btn btn-red">All</a>
             </Link>
-            {tags.map((tag, i) => (
-              <Link key={i} href={{ pathname: "/projects", query: { tag } }}>
+            {tags.map((tag) => (
+              <Link
+                key={tag.key}
+                href={{ pathname: "/projects", query: { tag: tag.key } }}
+              >
                 <a
                   className={clsx(
                     "btn",
-                    router.query.tag === tag
+                    router.query.tag === tag.key
                       ? "btn-red bg-primary-900"
                       : "btn-white"
                   )}
                 >
-                  {tag}
+                  {tag.label}
                 </a>
               </Link>
             ))}
