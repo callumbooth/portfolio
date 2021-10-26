@@ -3,7 +3,7 @@
 // as much as it can, without ever going more than once per `wait` duration;
 // but if you'd like to disable the execution on the leading edge, pass
 // `{leading: false}`. To disable execution on the trailing edge, ditto.
-export default function throttle(func, wait, options) {
+export default function throttle(func, wait, options?: any) {
   var context, args, result;
   var timeout = null;
   var previous = 0;
