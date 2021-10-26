@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req: NextRequest) {
   // Add basic auth to preview
-  if (!["preview", "development"].includes(process.env.VERCEL_ENV)) {
+  if (!["preview"].includes(process.env.VERCEL_ENV)) {
     return NextResponse.next();
   }
 
