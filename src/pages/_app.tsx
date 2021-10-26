@@ -33,6 +33,7 @@ const CustomApp = ({ Component, pageProps }: Props) => {
     <>
       <Head>
         <link rel="stylesheet" href="https://use.typekit.net/zqs0gyz.css" />
+        <title>Callum Booth | Software Engineer</title>
       </Head>
       <div className="block flex-wrap w-full h-full md:flex">
         <div className="bg-white bg-opacity-80 flex-none w-full md:w-100">

@@ -5,6 +5,7 @@ import GithubIcon from "@/components/icons/github";
 import { motion } from "framer-motion";
 import format from "date-fns/format";
 import mapGCMSEnum from "@/root/utils/mapGCMSEnum";
+import Head from "next/head";
 
 interface IProjectProps {
   children: ReactNode;
@@ -52,6 +53,9 @@ const Project = ({ children, project }: IProjectProps) => {
 
   return (
     <div id="project" className={"relative page-" + slug}>
+      <Head>
+        <title>{title} - Callum Booth | Software Engineer</title>
+      </Head>
       <div className="bg-white bg-opacity-80 mr-10 lg:mr-20 xl:mr-32">
         <div className="absolute w-full top-0 z-10 overflow-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1525 370">

@@ -7,6 +7,7 @@ import differenceInYears from "date-fns/differenceInYears";
 import JobList from "../components/job-list";
 import { AboutPage } from "../types/generated/operations";
 import RichText from "../components/atoms/RichText";
+import Head from "next/head";
 
 const fadeIn = {
   hidden: {
@@ -20,6 +21,9 @@ const fadeIn = {
 const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div id="about">
+      <Head>
+        <title>About Me - Callum Booth | Software Engineer</title>
+      </Head>
       <div className="pr-12">
         <div className="bg-white bg-opacity-80 pt-32 px-12 pb-12">
           <div className="about-me">

@@ -9,6 +9,7 @@ import { useGetProjects } from "@/root/types/generated/queries";
 import { GetProjects } from "@/root/types/generated/operations";
 import { Skills } from "@/root/types/generated/schemas";
 import mapGCMSEnum from "@/root/utils/mapGCMSEnum";
+import Head from "next/head";
 
 const validTags = ["PHP", "React", "Moodle", "Design"];
 
@@ -30,6 +31,9 @@ const Project = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <div id="projects" className="p-10 lg:p-20 xl:p-36">
+      <Head>
+        <title>My projects - Callum Booth | Software Engineer</title>
+      </Head>
       <div className="w-full">
         <div className="w-full">
           <div className="flex flex-wrap -mx-1">
