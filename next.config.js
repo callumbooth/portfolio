@@ -10,6 +10,7 @@ const SENTRY_DRYRUN =
 
 const moduleExports = {
   reactStrictMode: true,
+  swcMinify: true,
   images: {
     domains: ["media.graphcms.com"]
   }
