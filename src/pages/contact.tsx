@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "@/components/atoms/Link";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import axios from "axios";
 import { ContactPage } from "@/generated/operations";
