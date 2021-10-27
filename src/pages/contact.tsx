@@ -7,32 +7,31 @@ import RichText from "@/components/atoms/RichText";
 import Head from "next/head";
 import Script from "next/script";
 import { useForm, UseFormRegister } from "react-hook-form";
-
-//import ContactForm from '../components/contactForm';
+import Link from "next/link";
 
 const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm();
-  const onSubmit = (data) => {
-    window.grecaptcha &&
-      window.grecaptcha.ready(function () {
-        window.grecaptcha
-          .execute(process.env.NEXT_PUBLIC_RECAPTCHA_KEY, {
-            action: "submit"
-          })
-          .then(function (token) {
-            // Add your logic to submit to your backend server here.
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors }
+  // } = useForm();
+  // const onSubmit = (data) => {
+  //   window.grecaptcha &&
+  //     window.grecaptcha.ready(function () {
+  //       window.grecaptcha
+  //         .execute(process.env.NEXT_PUBLIC_RECAPTCHA_KEY, {
+  //           action: "submit"
+  //         })
+  //         .then(function (token) {
+  //           // Add your logic to submit to your backend server here.
 
-            axios.post("/api/contact", {
-              "g-recaptcha-response": token,
-              ...data
-            });
-          });
-      });
-  };
+  //           axios.post("/api/contact", {
+  //             "g-recaptcha-response": token,
+  //             ...data
+  //           });
+  //         });
+  //     });
+  // };
 
   return (
     <div id="contact">
@@ -47,7 +46,16 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           <h2>{props.page.title}</h2>
           <RichText content={props.page.body.json} />
 
-          <div>
+          <div className="attributes">
+            <p>
+              <span className="text-primary-main">e:</span>&nbsp;{" "}
+              <Link href={`mailto:${props.person.email}`}>
+                <a className="font-bold">{props.person.email}</a>
+              </Link>
+            </p>
+          </div>
+
+          {/* <div>
             <h3>Contact me</h3>
           </div>
           <div>
@@ -88,7 +96,7 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
               <input type="submit" value="Send" className="btn btn-red" />
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
