@@ -1,8 +1,0 @@
-query HomePage {
-  projects(where: {featured: true}) {
-    title
-    slug
-    rotation
-    summary
-  }
-}
