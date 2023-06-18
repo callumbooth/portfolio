@@ -17,7 +17,6 @@ export default {
             current: 'currentColor',
             black: colors.black,
             white: colors.white,
-            background: '#efefef',
             gray: colors.neutral,
             primary: {
                 900: 'rgba(49, 7, 7, 1)',

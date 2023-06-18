@@ -21,8 +21,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang='en'>
-            <body className={clsx(montserrat.className, 'flex')}>
-                <header className='flex-none w-[400px] flex flex-col justify-between px-12 py-8 bg-white overflow-y-auto'>
+            <body className={clsx(montserrat.className, 'flex flex-wrap')}>
+                <header className='flex-none w-full md:w-[400px] flex flex-col justify-between px-8 md:px-12 py-8 bg-white overflow-y-auto'>
                     <div className='flex flex-col'>
                         <span className='text-primary-main font-bold text-[62px] leading-[0.75] pb-4'>
                             Callum <br />
@@ -82,7 +82,7 @@ export default function RootLayout({
                         </div>
                     </div>
                 </header>
-                <main className='flex-1 relative bg-white'>
+                <main className='flex-1 w-full md:w-[calc(100%-400px)] relative bg-white p-8 md:p-24 overflow-y-hidden'>
                     <div className='absolute inset-0 h-screen z-0 bg-gradient-to-b from-gray-50 to-80% to-white' />
                     <div className='relative overflow-y-auto h-full'>
                         {children}

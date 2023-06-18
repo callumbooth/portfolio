@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
     return (
-        <div className='flex min-h-screen flex-col p-24 h-[2000px]'>
+        <div className='flex flex-col'>
             <h1>
                 Hi, I’m Callum, a software engineer specialising in frontend
                 development
