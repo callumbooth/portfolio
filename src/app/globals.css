@@ -8,6 +8,11 @@
     --background-end-rgb: 255, 255, 255;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
@@ -16,4 +21,26 @@ body {
             rgb(var(--background-end-rgb))
         )
         rgb(var(--background-start-rgb));
+}
+
+@layer components {
+    .strike-through {
+        position: relative;
+    }
+
+    .strike-through::after {
+        content: '';
+        transform: rotate(-1deg);
+        transition: right 0.2s ease;
+        @apply absolute top-1/2 left-0 right-full h-0.5 bg-gray-800 opacity-100;
+    }
+
+    .strike-through:hover::after,
+    .strike-through:active::after {
+        @apply right-0;
+    }
+
+    .strike-through.active::after {
+        @apply right-0;
+    }
 }

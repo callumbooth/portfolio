@@ -1,7 +1,8 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import colors from 'tailwindcss/colors';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+export default {
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,15 +10,15 @@ module.exports = {
     ],
     theme: {
         fontFamily: {
-            base: ['proxima-nova', 'Arial', 'Helvetica', 'Sans-serif'],
+            base: ['var(--font-montserrat'],
         },
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
-            black: defaultTheme.colors.black,
-            white: defaultTheme.colors.white,
+            black: colors.black,
+            white: colors.white,
             background: '#efefef',
-            gray: defaultTheme.colors.trueGray,
+            gray: colors.neutral,
             primary: {
                 900: 'rgba(49, 7, 7, 1)',
                 main: 'rgba(93, 14, 14, 1)',
@@ -32,10 +33,10 @@ module.exports = {
             keyframes: {
                 fadeIn: {
                     '0%': {
-                        opacity: 0,
+                        opacity: '0',
                     },
                     '100%': {
-                        opacity: 1,
+                        opacity: '1',
                     },
                 },
             },
@@ -47,4 +48,4 @@ module.exports = {
         },
     },
     plugins: [],
-};
+} satisfies Config;
