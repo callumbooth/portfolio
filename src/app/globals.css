@@ -13,6 +13,12 @@ body {
     height: 100%;
 }
 
+@layer base {
+    p + p {
+        @apply pt-2;
+    }
+}
+
 body {
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
