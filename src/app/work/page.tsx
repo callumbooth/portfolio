@@ -1,8 +1,9 @@
-export default function Home() {
-    
-    //get list of pages
-    //sort list
-    // 
+import Image from 'next/image';
+
+import { getMarkdownFilesByDate } from '~/lib/markdown';
+
+export default async function Home() {
+    const files = await getMarkdownFilesByDate('work');
 
     return (
         <main className='flex flex-col'>
@@ -18,11 +19,52 @@ export default function Home() {
                 </p>
             </div>
 
-            <div className='flex flex-wrap'>
-                <div className='flex-initial w-1/2'>article 1</div>
-                <div className='flex-initial w-1/2'>article 2</div>
-                <div className='flex-initial w-1/2'>article 3</div>
-                <div className='flex-initial w-1/2'>article 4</div>
+            <div className='flex flex-wrap -mx-2'>
+                {files.map((file) => {
+                    if (file.status !== 'fulfilled') {
+                        return null;
+                    }
+
+                    return (
+                        <article
+                            key={file.value.frontmatter.title}
+                            className='flex-auto w-1/2 px-2 pb-10'
+                        >
+                            <Image
+                                src={file.value.frontmatter.imageUrl}
+                                width={464}
+                                height={155}
+                                alt=''
+                                className='border rounded overflow-hidden'
+                                style={{
+                                    borderColor:
+                                        file.value.frontmatter.highlightColor,
+                                }}
+                            />
+                            <h2 className='pt-6 text-2xl'>
+                                {file.value.frontmatter.title}
+                            </h2>
+
+                            <p className='py-3 text-lg'>
+                                {file.value.frontmatter.blurb}
+                            </p>
+
+                            <div className='flex gap-1'>
+                                {file.value.frontmatter.tags.map((tag, i) => {
+                                    const last =
+                                        i ===
+                                        file.value.frontmatter.tags.length - 1;
+                                    return (
+                                        <>
+                                            <span key={tag}>{tag}</span>{' '}
+                                            {!last && <div>.</div>}
+                                        </>
+                                    );
+                                })}
+                            </div>
+                        </article>
+                    );
+                })}
             </div>
         </main>
     );
