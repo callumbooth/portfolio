@@ -3,6 +3,7 @@ export interface BlogArticleFrontmatter {
     timeToRead: string;
     createdDate: Date;
     tags: string[];
+    rotation: number;
 }
 
 export interface WorkArticleFrontmatter {
