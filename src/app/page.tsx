@@ -1,6 +1,17 @@
+import format from 'date-fns/format';
 import Image from 'next/image';
 
-export default function Home() {
+import BlogImage from '~/components/blogImg';
+import { ArticleType, ArticleTypes, getLatestArticles } from '~/lib/markdown';
+import { BlogArticleFrontmatter, WorkArticleFrontmatter } from '~/lib/types';
+import Link from '~/old/components/atoms/Link';
+
+const isBlogArticle = (x: any, y: ArticleType): x is BlogArticleFrontmatter =>
+    y === ArticleTypes.Blog;
+
+export default async function Home() {
+    const latestArticles = await getLatestArticles();
+
     return (
         <div className='flex flex-col'>
             <h1 className='text-2xl pb-7'>
@@ -58,10 +69,46 @@ export default function Home() {
 
             <div className='mt-20'>
                 <h2 className='text-2xl'>Latest Articles</h2>
-                <div className='flex flex-wrap'>
-                    <div className='flex-1 w-1/3'>article 1</div>
-                    <div className='flex-1 w-1/3'>article 2</div>
-                    <div className='flex-1 w-1/3'>article 3</div>
+                <div className='grid grid-cols-3 gap-6'>
+                    {latestArticles.map((article) => {
+                        if (article.status !== 'fulfilled') {
+                            return null;
+                        }
+
+                        return (
+                            <Link
+                                key={`${article.value.type}-${article.value.slug}`}
+                                href={`/${article.value.type}/${article.value.slug}`}
+                            >
+                                <article>
+                                    <BlogImage rotation={0} />
+                                    <div className='flex justify-between'>
+                                        <div>
+                                            {format(
+                                                article.value.frontmatter
+                                                    .createdDate,
+                                                'dd/MM/yy',
+                                            )}
+                                        </div>
+
+                                        {isBlogArticle(
+                                            article.value.frontmatter,
+                                            article.value.type,
+                                        ) && (
+                                            <div>
+                                                {
+                                                    article.value.frontmatter
+                                                        .timeToRead
+                                                }{' '}
+                                                mins
+                                            </div>
+                                        )}
+                                    </div>
+                                    <h2>{article.value.frontmatter.title}</h2>
+                                </article>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </div>

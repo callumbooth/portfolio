@@ -10,6 +10,9 @@ export default {
         './src/lib/markdown.tsx',
     ],
     theme: {
+        container: {
+            center: true
+        },
         fontFamily: {
             base: ['var(--font-montserrat'],
         },
