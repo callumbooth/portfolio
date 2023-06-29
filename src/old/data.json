@@ -1,51 +1,51 @@
 {
-  "projects": [
-    {
-      "name": "Super theme",
-      "slug": "super-theme",
-      "rotate": 0,
-      "featured": true,
-      "tags": ["PHP", "JS", "SASS", "Moodle", "Design"],
-      "launched": "September 2018",
-      "summary": "A Moodle theme to end all Moodle themes"
-    },
-    {
-      "name": "Content Builder",
-      "slug": "content-builder",
-      "rotate": 90,
-      "featured": true,
-      "tags": ["React", "SASS", "Moodle", "Design"],
-      "launched": "In Development",
-      "summary": "A well known solution, integrated into a new platform"
-    },
-    {
-      "name": "Support Timer App",
-      "slug": "support-timer-app",
-      "rotate": 45,
-      "featured": true,
-      "tags": ["React", "Redux", "Electron", "GraphQL", "SASS", "Design"],
-      "launched": "In Alpha",
-      "summary": "A simple app, with business integrations"
-    },
-    {
-      "name": "Selfie Drone",
-      "slug": "selfie-drone",
-      "rotate": 90,
-      "featured": false,
-      "tags": ["React", "Node"],
-      "launched": "In Development",
-      "summary": "A modern day solution for modern day narcissism",
-      "githubrepo": "selfie-drone"
-    },
-    {
-      "name": "Teaflip",
-      "slug": "teaflip",
-      "rotate": 0,
-      "featured": true,
-      "tags": ["React", "Webpack"],
-      "launched": "February 2019",
-      "summary": "Can't decided who makes the next round of tea, solved.",
-      "githubrepo": "teaflip"
-    }
-  ]
+    "projects": [
+        {
+            "name": "Super theme",
+            "slug": "super-theme",
+            "rotate": 0,
+            "featured": true,
+            "tags": ["PHP", "JS", "SASS", "Moodle", "Design"],
+            "launched": "September 2018",
+            "summary": "A Moodle theme to end all Moodle themes"
+        },
+        {
+            "name": "Content Builder",
+            "slug": "content-builder",
+            "rotate": 90,
+            "featured": true,
+            "tags": ["React", "SASS", "Moodle", "Design"],
+            "launched": "In Development",
+            "summary": "A well known solution, integrated into a new platform"
+        },
+        {
+            "name": "Support Timer App",
+            "slug": "support-timer-app",
+            "rotate": 45,
+            "featured": true,
+            "tags": ["React", "Redux", "Electron", "GraphQL", "SASS", "Design"],
+            "launched": "In Alpha",
+            "summary": "A simple app, with business integrations"
+        },
+        {
+            "name": "Selfie Drone",
+            "slug": "selfie-drone",
+            "rotate": 90,
+            "featured": false,
+            "tags": ["React", "Node"],
+            "launched": "In Development",
+            "summary": "A modern day solution for modern day narcissism",
+            "githubrepo": "selfie-drone"
+        },
+        {
+            "name": "Teaflip",
+            "slug": "teaflip",
+            "rotate": 0,
+            "featured": true,
+            "tags": ["React", "Webpack"],
+            "launched": "February 2019",
+            "summary": "Can't decided who makes the next round of tea, solved.",
+            "githubrepo": "teaflip"
+        }
+    ]
 }

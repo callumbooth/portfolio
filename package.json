@@ -7,7 +7,7 @@
         "test:ci": "vitest",
         "lint": "next lint",
         "lint:tsc": "tsc --pretty",
-        "format": "prettier --write .",
+        "format": "prettier --write . --ignore-path ./.eslintignore",
         "format:ci": "prettier --check",
         "dev": "next dev",
         "build": "next build",

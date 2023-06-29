@@ -11,7 +11,7 @@ export default {
     ],
     theme: {
         container: {
-            center: true
+            center: true,
         },
         fontFamily: {
             base: ['var(--font-montserrat'],

@@ -1,61 +1,66 @@
-import React from "react";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import axios from "axios";
-import { ContactPage } from "@/generated/operations";
-import { useContactPage } from "../types/generated/queries";
-import RichText from "@/components/atoms/RichText";
-import Head from "next/head";
-import Script from "next/script";
-import { useForm, UseFormRegister } from "react-hook-form";
-import Link from "next/link";
+import React from 'react';
+
+import axios from 'axios';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import Script from 'next/script';
+import { UseFormRegister, useForm } from 'react-hook-form';
+
+import { useContactPage } from '../types/generated/queries';
+
+import RichText from '@/components/atoms/RichText';
+import { ContactPage } from '@/generated/operations';
 
 const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors }
-  // } = useForm();
-  // const onSubmit = (data) => {
-  //   window.grecaptcha &&
-  //     window.grecaptcha.ready(function () {
-  //       window.grecaptcha
-  //         .execute(process.env.NEXT_PUBLIC_RECAPTCHA_KEY, {
-  //           action: "submit"
-  //         })
-  //         .then(function (token) {
-  //           // Add your logic to submit to your backend server here.
+    // const {
+    //   register,
+    //   handleSubmit,
+    //   formState: { errors }
+    // } = useForm();
+    // const onSubmit = (data) => {
+    //   window.grecaptcha &&
+    //     window.grecaptcha.ready(function () {
+    //       window.grecaptcha
+    //         .execute(process.env.NEXT_PUBLIC_RECAPTCHA_KEY, {
+    //           action: "submit"
+    //         })
+    //         .then(function (token) {
+    //           // Add your logic to submit to your backend server here.
 
-  //           axios.post("/api/contact", {
-  //             "g-recaptcha-response": token,
-  //             ...data
-  //           });
-  //         });
-  //     });
-  // };
+    //           axios.post("/api/contact", {
+    //             "g-recaptcha-response": token,
+    //             ...data
+    //           });
+    //         });
+    //     });
+    // };
 
-  return (
-    <div id="contact">
-      <Head>
-        <title>Contact Me - Callum Booth | Software Engineer</title>
-      </Head>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_KEY}`}
-      />
-      <div className="relative w-full min-h-full p-10 md:p-20 xl:p-32">
-        <div className="bg-white bg-opacity-80 p-12 w-full">
-          <h2>{props.page.title}</h2>
-          <RichText content={props.page.body.json} />
+    return (
+        <div id='contact'>
+            <Head>
+                <title>Contact Me - Callum Booth | Software Engineer</title>
+            </Head>
+            <Script
+                src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_KEY}`}
+            />
+            <div className='relative w-full min-h-full p-10 md:p-20 xl:p-32'>
+                <div className='bg-white bg-opacity-80 p-12 w-full'>
+                    <h2>{props.page.title}</h2>
+                    <RichText content={props.page.body.json} />
 
-          <div className="attributes">
-            <p>
-              <span className="text-primary-main">e:</span>&nbsp;{" "}
-              <Link href={`mailto:${props.person.email}`}>
-                <a className="font-bold">{props.person.email}</a>
-              </Link>
-            </p>
-          </div>
+                    <div className='attributes'>
+                        <p>
+                            <span className='text-primary-main'>e:</span>&nbsp;{' '}
+                            <Link href={`mailto:${props.person.email}`}>
+                                <a className='font-bold'>
+                                    {props.person.email}
+                                </a>
+                            </Link>
+                        </p>
+                    </div>
 
-          {/* <div>
+                    {/* <div>
             <h3>Contact me</h3>
           </div>
           <div>
@@ -97,59 +102,59 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
               <input type="submit" value="Send" className="btn btn-red" />
             </form>
           </div> */}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 const Field = ({
-  label,
-  name,
-  type,
-  register,
-  required,
-  error
+    label,
+    name,
+    type,
+    register,
+    required,
+    error,
 }: {
-  label: string;
-  name: string;
-  type?: string;
-  register: UseFormRegister<any>;
-  required?: boolean;
-  error: any;
+    label: string;
+    name: string;
+    type?: string;
+    register: UseFormRegister<any>;
+    required?: boolean;
+    error: any;
 }) => {
-  return (
-    <fieldset className="pb-2">
-      <label htmlFor={name} className="py-2">
-        {label}
-      </label>
-      {type === "textarea" ? (
-        <textarea
-          className={`bg-gray-100 p-1 w-full ${
-            type === "textarea" ? "h-24" : ""
-          }`}
-          {...register(name, { required })}
-        ></textarea>
-      ) : (
-        <input
-          className={`bg-gray-100 p-1 w-full ${
-            type === "textarea" ? "h-24" : ""
-          }`}
-          type={type}
-          {...register(name, { required })}
-        />
-      )}
-      {error && <span className="font-bold">This field is required</span>}
-    </fieldset>
-  );
+    return (
+        <fieldset className='pb-2'>
+            <label htmlFor={name} className='py-2'>
+                {label}
+            </label>
+            {type === 'textarea' ? (
+                <textarea
+                    className={`bg-gray-100 p-1 w-full ${
+                        type === 'textarea' ? 'h-24' : ''
+                    }`}
+                    {...register(name, { required })}
+                ></textarea>
+            ) : (
+                <input
+                    className={`bg-gray-100 p-1 w-full ${
+                        type === 'textarea' ? 'h-24' : ''
+                    }`}
+                    type={type}
+                    {...register(name, { required })}
+                />
+            )}
+            {error && <span className='font-bold'>This field is required</span>}
+        </fieldset>
+    );
 };
 
 export const getStaticProps: GetStaticProps<ContactPage> = async () => {
-  const data = await useContactPage.fetcher()();
+    const data = await useContactPage.fetcher()();
 
-  return {
-    props: data
-  };
+    return {
+        props: data,
+    };
 };
 
 export default Contact;

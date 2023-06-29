@@ -1,19 +1,21 @@
-import React from "react";
-import { screen, render } from "@testing-library/react";
-import Dot from "./dot";
+import React from 'react';
 
-describe("Dot", () => {
-  it("Dot displays when inactive", () => {
-    const component = render(
-      <Dot active={false} count={0} handleClick={jest.fn()} />
-    );
+import { render, screen } from '@testing-library/react';
 
-    expect(component.container).toMatchSnapshot();
-  });
+import Dot from './dot';
 
-  it("Dot displays when active", () => {
-    render(<Dot active={true} count={1} handleClick={jest.fn()} />);
+describe('Dot', () => {
+    it('Dot displays when inactive', () => {
+        const component = render(
+            <Dot active={false} count={0} handleClick={jest.fn()} />,
+        );
 
-    expect(screen.getByLabelText("dot-1")).toBeTruthy();
-  });
+        expect(component.container).toMatchSnapshot();
+    });
+
+    it('Dot displays when active', () => {
+        render(<Dot active={true} count={1} handleClick={jest.fn()} />);
+
+        expect(screen.getByLabelText('dot-1')).toBeTruthy();
+    });
 });
