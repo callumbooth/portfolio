@@ -10,12 +10,10 @@ export default async function Home() {
             <h1 className='text-2xl pb-7'>
                 My latest work, both personal and professional
             </h1>
-            <div className='block text-lg pb-7 lg:flex lg:gap-2 w-1/2'>
+            <div className='block text-lg pb-12 lg:flex lg:gap-2 w-1/2'>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
-                    amet sapien fringilla, mattis ligula consectetur, ultrices
-                    mauris.
+                    A collection of articles about things I&apos;ve worked on, some
+                    projects here are professional, others, personal.
                 </p>
             </div>
 

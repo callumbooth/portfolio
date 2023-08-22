@@ -9,19 +9,15 @@ export default async function Blog() {
 
     return (
         <main className='flex flex-col'>
-            <h1 className='text-2xl pb-7'>
-                My latest work, both personal and professional
-            </h1>
-            <div className='block text-lg pb-7 lg:flex lg:gap-2 w-1/2'>
+            <h1 className='text-2xl pb-7'>A random collection of stuff</h1>
+            <div className='block text-lg pb-12 lg:flex lg:gap-2 w-1/2'>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
-                    amet sapien fringilla, mattis ligula consectetur, ultrices
-                    mauris.
+                    Shower thoughts, tech write ups and half finished
+                    investigations, you&apos;ll find it here.
                 </p>
             </div>
 
-            <div className='grid grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {files.map((file) => {
                     if (file.status !== 'fulfilled') {
                         return null;
@@ -36,7 +32,7 @@ export default async function Blog() {
                                 rotation={file.value.frontmatter.rotation}
                             />
 
-                            <div className='flex justify-between'>
+                            <div className='flex justify-between pt-2'>
                                 <span>
                                     {format(
                                         file.value.frontmatter.createdDate,

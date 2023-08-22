@@ -8,8 +8,7 @@
     --background-end-rgb: 255, 255, 255;
 }
 
-html,
-body {
+html {
     height: 100%;
 }
 

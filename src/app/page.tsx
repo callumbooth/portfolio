@@ -1,9 +1,11 @@
+import { differenceInYears } from 'date-fns';
 import format from 'date-fns/format';
-import Image from 'next/image';
 
+import { HighlightCard } from '~/components/HighlightCard';
 import BlogImage from '~/components/blogImg';
 import { ArticleType, ArticleTypes, getLatestArticles } from '~/lib/markdown';
-import { BlogArticleFrontmatter, WorkArticleFrontmatter } from '~/lib/types';
+import { BlogArticleFrontmatter } from '~/lib/types';
+import { randomIntFromInterval } from '~/lib/utils';
 import Link from '~/old/components/atoms/Link';
 
 const isBlogArticle = (x: any, y: ArticleType): x is BlogArticleFrontmatter =>
@@ -18,62 +20,90 @@ export default async function Home() {
                 Hi, I’m Callum, a software engineer specialising in frontend
                 development
             </h1>
-            <div className='block text-lg pb-7 lg:flex lg:gap-2'>
+            <div className='grid text-lg pb-7 grid-cols-1 mb-32 lg:grid-cols-2 lg:gap-4'>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
-                    amet sapien fringilla, mattis ligula consectetur, ultrices
-                    mauris.
+                    After {differenceInYears(Date.now(), new Date('2016'))}{' '}
+                    years working in software engineering, I help build highly
+                    interactive user interfaces that scale. I&apos;ve lead teams
+                    in both scrum and shape up in recent years to deliver value
+                    at speed.
                 </p>
                 <p className='lg:pt-0'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
-                    amet sapien fringilla, mattis ligula consectetur, ultrices
-                    mauris.
+                    In my personal life, I&apos;m an eclectic person, I enjoy
+                    doing the mainsteam and the niche (geeky). From playing D&D
+                    with a group of friends to spending time with family and
+                    days out with my other &quot;better&quot; half and daughter.
                 </p>
             </div>
-            <div className='flex pb-6'>
-                <div className='flex-none w-14'>
-                    <span className='text-primary-main'>Tech:</span>
-                </div>
-                <div className='flex flex-initial w-2/3'>
-                    <span className='flex-1 w-1/2'>
-                        React / React Native
-                        <br />
-                        Jest / Cypress
-                        <br /> React Query
-                    </span>
-                    <span className='flex-1 w-1/2'>
-                        Typescript
-                        <br /> NextJs / Remix / Node
-                        <br /> REST / GraphQL
-                    </span>
-                </div>
-            </div>
-            <div className='flex'>
-                <div className='flex-none w-14'>
-                    <span className='text-primary-main'>Xp:</span>
-                </div>
-                <div className='flex flex-initial w-2/3 flex-wrap'>
-                    <span className='flex-auto w-1/2'>
-                        6 years - React
-                        <br />2 years - React Native
-                    </span>
-                    <span className='flex-auto w-1/2'>
-                        4 years - Node
-                        <br />4 years - Typescript
-                    </span>
-                    <span className='flex-auto w-full'>8 years - Total</span>
+
+            <div className='mb-32'>
+                <h2 className='text-2xl pb-8'>Stats</h2>
+                <div className='grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
+                    <div>
+                        <HighlightCard title='React'>
+                            <span className='text-2xl lg:text-5xl'>
+                                {differenceInYears(
+                                    Date.now(),
+                                    new Date('2017'),
+                                )}{' '}
+                                years
+                            </span>
+                        </HighlightCard>
+                    </div>
+                    <div>
+                        <HighlightCard title='React Native'>
+                            <span className='text-2xl lg:text-5xl'>
+                                {differenceInYears(
+                                    Date.now(),
+                                    new Date('2021'),
+                                )}{' '}
+                                years
+                            </span>
+                        </HighlightCard>
+                    </div>
+                    <div>
+                        <HighlightCard title='Node'>
+                            <span className='text-2xl lg:text-5xl'>
+                                {differenceInYears(
+                                    Date.now(),
+                                    new Date('2019'),
+                                )}{' '}
+                                years
+                            </span>
+                        </HighlightCard>
+                    </div>
+                    <div>
+                        <HighlightCard title='Typescript'>
+                            <span className='text-2xl lg:text-5xl'>
+                                {differenceInYears(
+                                    Date.now(),
+                                    new Date('2019'),
+                                )}{' '}
+                                years
+                            </span>
+                        </HighlightCard>
+                    </div>
+                    <div className='md:col-span-2'>
+                        <HighlightCard title='Tech'>
+                            <span className='text-base'>
+                                React / React Native / Typescript / Node / Jest
+                                / Cypress / React Query / REST / GraphQL / Remix
+                                / NextJS
+                            </span>
+                        </HighlightCard>
+                    </div>
                 </div>
             </div>
 
-            <div className='mt-20'>
-                <h2 className='text-2xl'>Latest Articles</h2>
-                <div className='grid grid-cols-3 gap-6'>
+            <div>
+                <h2 className='text-2xl pb-8'>Latest Articles</h2>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-6'>
                     {latestArticles.map((article) => {
                         if (article.status !== 'fulfilled') {
                             return null;
                         }
+
+                        const rotation = randomIntFromInterval(1, 5) * 45;
 
                         return (
                             <Link
@@ -81,8 +111,8 @@ export default async function Home() {
                                 href={`/${article.value.type}/${article.value.slug}`}
                             >
                                 <article>
-                                    <BlogImage rotation={0} />
-                                    <div className='flex justify-between'>
+                                    <BlogImage rotation={rotation} />
+                                    <div className='flex justify-between pt-2'>
                                         <div>
                                             {format(
                                                 article.value.frontmatter
