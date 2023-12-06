@@ -3,11 +3,9 @@ import format from 'date-fns/format';
 import Image from 'next/image';
 
 import { HighlightCard } from '~/components/HighlightCard';
-import BlogImage from '~/components/blogImg';
-import { ArticleType, ArticleTypes, getLatestArticles } from '~/lib/markdown';
-import { BlogArticleFrontmatter } from '~/lib/types';
-import { hexToRGB, randomIntFromInterval } from '~/lib/utils';
-import Link from '~/old/components/atoms/Link';
+import {  getLatestArticles } from '~/lib/markdown';
+import { hexToRGB } from '~/lib/utils';
+import Link from 'next/link';
 
 export default async function Home() {
     const latestArticles = await getLatestArticles();
@@ -102,10 +100,11 @@ export default async function Home() {
                         }
 
                         return (
+                            <div key={article.value.slug}>
                             <Link
                                 key={`${article.value.type}-${article.value.slug}`}
                                 href={`/${article.value.type}/${article.value.slug}`}
-                            >
+                                >
                                 <article>
                                     <div
                                         className='relative w-full border rounded overflow-hidden aspect-square [&>div]:hover:opacity-0 [&>img]:hover:scale-100'
@@ -155,6 +154,7 @@ export default async function Home() {
                                     </h2>
                                 </article>
                             </Link>
+                            </div>
                         );
                     })}
                 </div>
