@@ -88,7 +88,7 @@ export default async function Home() {
                             <span className='text-base'>
                                 React / React Native / Typescript / Node / Jest
                                 / Cypress / React Query / REST / GraphQL / Remix
-                                / NextJS
+                                / NextJS / R3F / ThreeJS
                             </span>
                         </HighlightCard>
                     </div>
@@ -113,13 +113,13 @@ export default async function Home() {
                                 <article>
                                     <BlogImage rotation={rotation} />
                                     <div className='flex justify-between pt-2'>
-                                        <div>
+                                        <span className='text-gray-600'>
                                             {format(
                                                 article.value.frontmatter
                                                     .createdDate,
-                                                'dd/MM/yy',
+                                                'dd.MM.yyyy',
                                             )}
-                                        </div>
+                                        </span>
 
                                         {isBlogArticle(
                                             article.value.frontmatter,
@@ -134,7 +134,7 @@ export default async function Home() {
                                             </div>
                                         )}
                                     </div>
-                                    <h2>{article.value.frontmatter.title}</h2>
+                                    <h2 className='text-lg'>{article.value.frontmatter.title}</h2>
                                 </article>
                             </Link>
                         );

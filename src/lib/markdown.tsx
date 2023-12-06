@@ -1,13 +1,13 @@
 import compareAsc from 'date-fns/compareAsc';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import path from 'path';
+import readingTime from 'reading-time';
 
 import { readFile, readdir } from 'fs/promises';
 
-import { BlogArticleFrontmatter, WorkArticleFrontmatter } from './types';
+import { BlogArticleFrontmatter } from './types';
 
 export const ArticleTypes = {
-    Work: 'work',
     Blog: 'blog',
 } as const;
 
@@ -23,19 +23,22 @@ export const getMarkdownContents = async <T extends ArticleType>(
 
     const source = await readFile(filePath);
 
-    const contents = await compileMDX<
-        T extends 'work' ? WorkArticleFrontmatter : BlogArticleFrontmatter
-    >({
+    const time = readingTime(source as unknown as string);
+
+    const contents = await compileMDX<BlogArticleFrontmatter>({
         source,
         options: { parseFrontmatter: true, scope: { type: section } },
         components: {
-            h1: ({ children }) => <h1 className='text-3xl'>{children}</h1>,
-            h2: ({ children }) => <h2 className='text-4xl'>{children}</h2>,
+            h2: ({ children }) => (
+                <h2 className='text-2xl pt-12 pb-4'>{children}</h2>
+            ),
         },
     });
+
     return {
         slug: encodeURIComponent(slug),
         type: section,
+        readTime: time,
         ...contents,
     };
 };
@@ -51,7 +54,12 @@ export const getMarkdownFiles = async <T extends ArticleType>(folder: T) => {
         }),
     );
 
-    return res;
+    return res.filter((file) => {
+        return (
+            file.status === 'fulfilled' &&
+            file.value.frontmatter.status === 'live'
+        );
+    });
 };
 
 export const sortMarkdownFilesByDate = <T extends ArticleType>(
@@ -74,9 +82,7 @@ export const sortMarkdownFilesByDate = <T extends ArticleType>(
     return files;
 };
 
-export const getMarkdownFilesByDate = async <T extends 'work' | 'blog'>(
-    section: T,
-) => {
+export const getMarkdownFilesByDate = async <T extends 'blog'>(section: T) => {
     const files = await getMarkdownFiles(section);
     return sortMarkdownFilesByDate<T>(files);
 };
@@ -87,9 +93,8 @@ export const getLatestArticles = async (
     orderBy: 'asc' | 'desc' = 'asc',
 ) => {
     const blogFiles = await getMarkdownFiles('blog');
-    const workFiles = await getMarkdownFiles('work');
 
-    const sorted = sortMarkdownFilesByDate([...blogFiles, ...workFiles]);
+    const sorted = sortMarkdownFilesByDate(blogFiles);
 
     if (orderBy === 'asc') {
         sorted.reverse();

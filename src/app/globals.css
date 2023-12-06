@@ -4,8 +4,6 @@
 
 :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
 }
 
 html {
@@ -13,13 +11,13 @@ html {
 }
 
 @layer base {
+    body {
+        @apply text-gray-700;
+    }
+
     p + p {
         @apply pt-2;
     }
-}
-
-body {
-    color: rgb(var(--foreground-rgb));
 }
 
 @layer components {

@@ -72,14 +72,6 @@ export default function RootLayout({
                         <div>
                             <Link
                                 className='strike-through font-light mb-2'
-                                href='/work'
-                            >
-                                Work
-                            </Link>
-                        </div>
-                        <div>
-                            <Link
-                                className='strike-through font-light mb-2'
                                 href='/blog'
                             >
                                 Blog

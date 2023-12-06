@@ -1,12 +1,4 @@
 export interface BlogArticleFrontmatter {
-    title: string;
-    timeToRead: string;
-    createdDate: Date;
-    tags: string[];
-    rotation: number;
-}
-
-export interface WorkArticleFrontmatter {
     company: string;
     title: string;
     tags: string[];
@@ -14,4 +6,6 @@ export interface WorkArticleFrontmatter {
     highlightColor: string;
     blurb: string;
     createdDate: Date;
+    status: string;
+    timeToRead: string;
 }

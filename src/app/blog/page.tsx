@@ -1,23 +1,25 @@
-import format from 'date-fns/format';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import BlogImage from '~/components/blogImg';
 import { getMarkdownFilesByDate } from '~/lib/markdown';
+import { hexToRGB } from '~/lib/utils';
 
-export default async function Blog() {
+export default async function Home() {
     const files = await getMarkdownFilesByDate('blog');
 
     return (
         <main className='flex flex-col'>
-            <h1 className='text-2xl pb-7'>A random collection of stuff</h1>
+            <h1 className='text-2xl pb-7'>
+                My latest ideas, projects and findings, both personal and professional
+            </h1>
             <div className='block text-lg pb-12 lg:flex lg:gap-2 w-1/2'>
                 <p>
-                    Shower thoughts, tech write ups and half finished
-                    investigations, you&apos;ll find it here.
+                    A collection of things, from tech write ups and half finished investigations to random shower thoughts.
+                    Some are related to my professional career others, peronal, whatever the case, I'll keep adding more as time permits.
                 </p>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <div className='flex flex-wrap -mx-2'>
                 {files.map((file) => {
                     if (file.status !== 'fulfilled') {
                         return null;
@@ -26,44 +28,49 @@ export default async function Blog() {
                     return (
                         <article
                             key={file.value.frontmatter.title}
-                            className='pb-10'
+                            className='flex-initial w-1/2 px-2 pb-10'
                         >
-                            <BlogImage
-                                rotation={file.value.frontmatter.rotation}
-                            />
+                            <Link href={`/blog/${file.value.slug}`}>
+                                <Image
+                                    src={file.value.frontmatter.imageUrl}
+                                    width={464}
+                                    height={155}
+                                    alt=''
+                                    className='border rounded overflow-hidden'
+                                    style={{
+                                        borderColor: hexToRGB(
+                                            file.value.frontmatter
+                                                .highlightColor,
+                                            0.1,
+                                        ),
+                                    }}
+                                />
+                                <h2 className='pt-6 text-2xl'>
+                                    {file.value.frontmatter.title}
+                                </h2>
 
-                            <div className='flex justify-between pt-2'>
-                                <span>
-                                    {format(
-                                        file.value.frontmatter.createdDate,
-                                        'dd/MM/yyy',
+                                <p className='py-3 text-lg'>
+                                    {file.value.frontmatter.blurb}
+                                </p>
+
+                                <div className='flex gap-1'>
+                                    {file.value.frontmatter.tags.map(
+                                        (tag, i) => {
+                                            const last =
+                                                i ===
+                                                file.value.frontmatter.tags
+                                                    .length -
+                                                    1;
+                                            return (
+                                                <>
+                                                    <span key={tag}>{tag}</span>{' '}
+                                                    {!last && <div>.</div>}
+                                                </>
+                                            );
+                                        },
                                     )}
-                                </span>
-                                <span>
-                                    {file.value.frontmatter.timeToRead} mins
-                                </span>
-                            </div>
-                            <h2 className='pt-6 pb-3 text-2xl'>
-                                {file.value.frontmatter.title}
-                            </h2>
-
-                            {/* <p className='py-3 text-lg'>
-                                {file.value.frontmatter.blurb}
-                            </p> */}
-
-                            <div className='flex gap-1'>
-                                {file.value.frontmatter.tags.map((tag, i) => {
-                                    const last =
-                                        i ===
-                                        file.value.frontmatter.tags.length - 1;
-                                    return (
-                                        <>
-                                            <span key={tag}>{tag}</span>{' '}
-                                            {!last && <div>.</div>}
-                                        </>
-                                    );
-                                })}
-                            </div>
+                                </div>
+                            </Link>
                         </article>
                     );
                 })}
