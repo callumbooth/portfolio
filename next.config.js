@@ -1,37 +1,48 @@
-const withPlugins = require("next-compose-plugins");
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    redirects: async () => {
+        return [
+            { source: '/about', destination: '/', permanent: true },
+            { source: '/work', destination: '/blog', permanent: true },
+        ];
+    },
+};
+
+module.exports = nextConfig;
+
+
+// Injected content via Sentry wizard below
+
 const { withSentryConfig } = require("@sentry/nextjs");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true"
-});
 
-const SENTRY_DRYRUN =
-  process.env.DRYRUN === "true" ||
-  ["development"].includes(process.env.NEXT_PUBLIC_VERCEL_ENV || "development");
+module.exports = withSentryConfig(
+  module.exports,
+  {
+    // For all available options, see:
+    // https://github.com/getsentry/sentry-webpack-plugin#options
 
-const moduleExports = {
-  reactStrictMode: true,
-  swcMinify: true,
-  images: {
-    domains: ["media.graphcms.com"]
+    // Suppresses source map uploading logs during build
+    silent: true,
+    org: "callumbooth-dev",
+    project: "portfolio",
+  },
+  {
+    // For all available options, see:
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+
+    // Upload a larger set of source maps for prettier stack traces (increases build time)
+    widenClientFileUpload: true,
+
+    // Transpiles SDK to be compatible with IE11 (increases bundle size)
+    transpileClientSDK: true,
+
+    // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
+    tunnelRoute: "/monitoring",
+
+    // Hides source maps from generated client bundles
+    hideSourceMaps: true,
+
+    // Automatically tree-shake Sentry logger statements to reduce bundle size
+    disableLogger: true,
   }
-};
-
-const SentryWebpackPluginOptions = {
-  // Additional config options for the Sentry Webpack plugin. Keep in mind that
-  // the following options are set automatically, and overriding them is not
-  // recommended:
-  //   release, url, org, project, authToken, configFile, stripPrefix,
-  //   urlPrefix, include, ignore
-
-  silent: true, // Suppresses all logs
-  dryRun: SENTRY_DRYRUN
-  // For all available options, see:
-  // https://github.com/getsentry/sentry-webpack-plugin#options.
-};
-
-// Make sure adding Sentry options is the last code to run before exporting, to
-// ensure that your source maps include changes from all other Webpack plugins
-module.exports = withPlugins(
-  [withBundleAnalyzer],
-  withSentryConfig(moduleExports, SentryWebpackPluginOptions)
 );

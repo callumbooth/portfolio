@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+}
+
+html {
+    height: 100%;
+}
+
+@layer base {
+    body {
+        @apply text-gray-700;
+    }
+
+    p + p {
+        @apply pt-2;
+    }
+}
+
+@layer components {
+    .strike-through {
+        position: relative;
+    }
+
+    .strike-through::after {
+        content: '';
+        transform: rotate(-1deg);
+        transition: right 0.2s ease;
+        @apply absolute top-1/2 left-0 right-full h-0.5 bg-gray-800 opacity-100;
+    }
+
+    .strike-through:hover::after,
+    .strike-through:active::after {
+        @apply right-0;
+    }
+
+    .strike-through.active::after {
+        @apply right-0;
+    }
+}
