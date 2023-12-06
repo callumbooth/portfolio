@@ -1,15 +1,13 @@
 import { differenceInYears } from 'date-fns';
 import format from 'date-fns/format';
+import Image from 'next/image';
 
 import { HighlightCard } from '~/components/HighlightCard';
 import BlogImage from '~/components/blogImg';
 import { ArticleType, ArticleTypes, getLatestArticles } from '~/lib/markdown';
 import { BlogArticleFrontmatter } from '~/lib/types';
-import { randomIntFromInterval } from '~/lib/utils';
+import { hexToRGB, randomIntFromInterval } from '~/lib/utils';
 import Link from '~/old/components/atoms/Link';
-
-const isBlogArticle = (x: any, y: ArticleType): x is BlogArticleFrontmatter =>
-    y === ArticleTypes.Blog;
 
 export default async function Home() {
     const latestArticles = await getLatestArticles();
@@ -96,14 +94,12 @@ export default async function Home() {
             </div>
 
             <div>
-                <h2 className='text-2xl pb-8'>Latest Articles</h2>
+                <h2 className='text-2xl pb-8'>Latest Entries</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-6'>
                     {latestArticles.map((article) => {
                         if (article.status !== 'fulfilled') {
                             return null;
                         }
-
-                        const rotation = randomIntFromInterval(1, 5) * 45;
 
                         return (
                             <Link
@@ -111,7 +107,38 @@ export default async function Home() {
                                 href={`/${article.value.type}/${article.value.slug}`}
                             >
                                 <article>
-                                    <BlogImage rotation={rotation} />
+                                    <div
+                                        className='relative w-full border rounded overflow-hidden aspect-square [&>div]:hover:opacity-0 [&>img]:hover:scale-100'
+                                        style={{
+                                            borderColor: hexToRGB(
+                                                article.value.frontmatter
+                                                    .highlightColor,
+                                                1,
+                                            ),
+                                            background:
+                                                article.value.frontmatter
+                                                    .highlightColor,
+                                        }}
+                                    >
+                                        <Image
+                                            src={
+                                                article.value.frontmatter
+                                                    .imageUrl
+                                            }
+                                            fill
+                                            style={{ objectFit: 'contain' }}
+                                            alt=''
+                                            className=' scale-95 transition-transform will-change-transform duration-500'
+                                        />
+                                        <div
+                                            className='absolute inset-0 opacity-100 transition-opacity duration-300 bg-white'
+                                            style={{
+                                                background:
+                                                    article.value.frontmatter
+                                                        .highlightColor,
+                                            }}
+                                        />
+                                    </div>
                                     <div className='flex justify-between pt-2'>
                                         <span className='text-gray-600'>
                                             {format(
@@ -121,20 +148,11 @@ export default async function Home() {
                                             )}
                                         </span>
 
-                                        {isBlogArticle(
-                                            article.value.frontmatter,
-                                            article.value.type,
-                                        ) && (
-                                            <div>
-                                                {
-                                                    article.value.frontmatter
-                                                        .timeToRead
-                                                }{' '}
-                                                mins
-                                            </div>
-                                        )}
+                                        <div>{article.value.readTime.text}</div>
                                     </div>
-                                    <h2 className='text-lg'>{article.value.frontmatter.title}</h2>
+                                    <h2 className='text-lg'>
+                                        {article.value.frontmatter.title}
+                                    </h2>
                                 </article>
                             </Link>
                         );

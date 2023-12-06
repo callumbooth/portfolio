@@ -7,5 +7,4 @@ export interface BlogArticleFrontmatter {
     blurb: string;
     createdDate: Date;
     status: string;
-    timeToRead: string;
 }

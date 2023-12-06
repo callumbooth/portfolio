@@ -24,18 +24,14 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                     fill
                     sizes='100vw'
                     alt=''
-                    className='border rounded overflow-hidden'
+                    className='rounded overflow-hidden'
                     style={{
-                        borderColor: hexToRGB(
-                            contents.frontmatter.highlightColor,
-                            0.1,
-                        ),
                         backgroundColor: contents.frontmatter.highlightColor,
                         objectFit: 'contain',
                     }}
                 />
             </div>
-            {contents.content}
+            <div className='max-w-[700px] self-center'>{contents.content}</div>
         </main>
     );
 };

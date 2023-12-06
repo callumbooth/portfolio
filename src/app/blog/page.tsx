@@ -15,7 +15,7 @@ export default async function Home() {
             <div className='block text-lg pb-12 lg:flex lg:gap-2 w-1/2'>
                 <p>
                     A collection of things, from tech write ups and half finished investigations to random shower thoughts.
-                    Some are related to my professional career others, peronal, whatever the case, I'll keep adding more as time permits.
+                    Some are related to my professional career others, peronal, whatever the case, I&apos;ll keep adding more as time permits.
                 </p>
             </div>
 

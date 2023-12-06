@@ -3,7 +3,7 @@ const nextConfig = {
     redirects: async () => {
         return [
             { source: '/about', destination: '/', permanent: true },
-            { source: '/blog', destination: '/work', permanent: true },
+            { source: '/work', destination: '/blog', permanent: true },
         ];
     },
 };
@@ -23,7 +23,6 @@ module.exports = withSentryConfig(
 
     // Suppresses source map uploading logs during build
     silent: true,
-
     org: "callumbooth-dev",
     project: "portfolio",
   },
