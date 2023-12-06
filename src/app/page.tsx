@@ -1,11 +1,11 @@
 import { differenceInYears } from 'date-fns';
 import format from 'date-fns/format';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { HighlightCard } from '~/components/HighlightCard';
-import {  getLatestArticles } from '~/lib/markdown';
+import { getLatestArticles } from '~/lib/markdown';
 import { hexToRGB } from '~/lib/utils';
-import Link from 'next/link';
 
 export default async function Home() {
     const latestArticles = await getLatestArticles();
@@ -101,59 +101,62 @@ export default async function Home() {
 
                         return (
                             <div key={article.value.slug}>
-                            <Link
-                                key={`${article.value.type}-${article.value.slug}`}
-                                href={`/${article.value.type}/${article.value.slug}`}
+                                <Link
+                                    key={`${article.value.type}-${article.value.slug}`}
+                                    href={`/${article.value.type}/${article.value.slug}`}
                                 >
-                                <article>
-                                    <div
-                                        className='relative w-full border rounded overflow-hidden aspect-square [&>div]:hover:opacity-0 [&>img]:hover:scale-100'
-                                        style={{
-                                            borderColor: hexToRGB(
-                                                article.value.frontmatter
-                                                    .highlightColor,
-                                                1,
-                                            ),
-                                            background:
-                                                article.value.frontmatter
-                                                    .highlightColor,
-                                        }}
-                                    >
-                                        <Image
-                                            src={
-                                                article.value.frontmatter
-                                                    .imageUrl
-                                            }
-                                            fill
-                                            style={{ objectFit: 'contain' }}
-                                            alt=''
-                                            className=' scale-95 transition-transform will-change-transform duration-500'
-                                        />
+                                    <article>
                                         <div
-                                            className='absolute inset-0 opacity-100 transition-opacity duration-300 bg-white'
+                                            className='relative w-full border rounded overflow-hidden aspect-square [&>div]:hover:opacity-0 [&>img]:hover:scale-100'
                                             style={{
+                                                borderColor: hexToRGB(
+                                                    article.value.frontmatter
+                                                        .highlightColor,
+                                                    1,
+                                                ),
                                                 background:
                                                     article.value.frontmatter
                                                         .highlightColor,
                                             }}
-                                        />
-                                    </div>
-                                    <div className='flex justify-between pt-2'>
-                                        <span className='text-gray-600'>
-                                            {format(
-                                                article.value.frontmatter
-                                                    .createdDate,
-                                                'dd.MM.yyyy',
-                                            )}
-                                        </span>
+                                        >
+                                            <Image
+                                                src={
+                                                    article.value.frontmatter
+                                                        .imageUrl
+                                                }
+                                                fill
+                                                style={{ objectFit: 'contain' }}
+                                                alt=''
+                                                className=' scale-95 transition-transform will-change-transform duration-500'
+                                            />
+                                            <div
+                                                className='absolute inset-0 opacity-100 transition-opacity duration-300 bg-white'
+                                                style={{
+                                                    background:
+                                                        article.value
+                                                            .frontmatter
+                                                            .highlightColor,
+                                                }}
+                                            />
+                                        </div>
+                                        <div className='flex justify-between pt-2'>
+                                            <span className='text-gray-600'>
+                                                {format(
+                                                    article.value.frontmatter
+                                                        .createdDate,
+                                                    'dd.MM.yyyy',
+                                                )}
+                                            </span>
 
-                                        <div>{article.value.readTime.text}</div>
-                                    </div>
-                                    <h2 className='text-lg'>
-                                        {article.value.frontmatter.title}
-                                    </h2>
-                                </article>
-                            </Link>
+                                            <div>
+                                                {article.value.readTime.text}
+                                            </div>
+                                        </div>
+                                        <h2 className='text-lg'>
+                                            {article.value.frontmatter.title}
+                                        </h2>
+                                    </article>
+                                </Link>
                             </div>
                         );
                     })}
