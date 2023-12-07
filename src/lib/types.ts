@@ -4,6 +4,7 @@ export interface BlogArticleFrontmatter {
     tags: string[];
     imageUrl: string;
     highlightColor: string;
+    bgColor: string;
     blurb: string;
     createdDate: Date;
     status: string;

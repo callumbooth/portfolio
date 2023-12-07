@@ -13,7 +13,7 @@ export default async function Home() {
                 My latest ideas, projects and findings, both personal and
                 professional
             </h1>
-            <div className='block text-lg pb-12 lg:flex lg:gap-2 w-1/2'>
+            <div className='block text-lg pb-12 lg:flex lg:gap-2 w-full lg:w-1/2'>
                 <p>
                     A collection of things, from tech write ups and half
                     finished investigations to random shower thoughts. Some are
@@ -31,7 +31,7 @@ export default async function Home() {
                     return (
                         <article
                             key={file.value.frontmatter.title}
-                            className='flex-initial w-1/2 px-2 pb-10'
+                            className='flex-initial w-full lg:w-1/2 px-2 pb-10'
                         >
                             <Link href={`/blog/${file.value.slug}`}>
                                 <Image

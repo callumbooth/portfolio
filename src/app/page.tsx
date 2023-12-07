@@ -16,7 +16,7 @@ export default async function Home() {
                 Hi, I’m Callum, a software engineer specialising in frontend
                 development
             </h1>
-            <div className='grid text-lg pb-7 grid-cols-1 mb-32 lg:grid-cols-2 lg:gap-4'>
+            <div className='grid text-lg pb-7 grid-cols-1 mb-8 md:mb-32 lg:grid-cols-2 lg:gap-4'>
                 <p>
                     After {differenceInYears(Date.now(), new Date('2016'))}{' '}
                     years working in software engineering, I help build highly
@@ -32,7 +32,7 @@ export default async function Home() {
                 </p>
             </div>
 
-            <div className='mb-32'>
+            <div className='mb-8 md:mb-32'>
                 <h2 className='text-2xl pb-8'>Stats</h2>
                 <div className='grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
                     <div>
@@ -116,7 +116,7 @@ export default async function Home() {
                                                 ),
                                                 background:
                                                     article.value.frontmatter
-                                                        .highlightColor,
+                                                        .bgColor,
                                             }}
                                         >
                                             <Image
@@ -135,7 +135,7 @@ export default async function Home() {
                                                     background:
                                                         article.value
                                                             .frontmatter
-                                                            .highlightColor,
+                                                            .bgColor,
                                                 }}
                                             />
                                         </div>
