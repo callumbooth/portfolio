@@ -2,6 +2,7 @@ import compareAsc from 'date-fns/compareAsc';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import path from 'path';
 import readingTime from 'reading-time';
+import remarkGfm from 'remark-gfm';
 
 import { readFile, readdir } from 'fs/promises';
 
@@ -27,7 +28,11 @@ export const getMarkdownContents = async <T extends ArticleType>(
 
     const contents = await compileMDX<BlogArticleFrontmatter>({
         source,
-        options: { parseFrontmatter: true, scope: { type: section } },
+        options: {
+            parseFrontmatter: true,
+            scope: { type: section },
+            mdxOptions: { remarkPlugins: [remarkGfm] },
+        },
         components: {
             h2: ({ children }) => (
                 <h2 className='text-2xl pt-12 pb-4'>{children}</h2>
